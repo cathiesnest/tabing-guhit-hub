@@ -1,256 +1,266 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tabing Guhit | Work with Purpose. Live with Balance. Lead with Gratitude.</title>
 
-  <title>Tabing Guhit | Work with Purpose. Live with Balance. Lead with Gratitude.</title>
+<style>
+* {
+  box-sizing: border-box;
+}
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+html {
+  scroll-behavior: smooth;
+}
 
-    html {
-      scroll-behavior: smooth;
-    }
+body {
+  margin: 0;
+  font-family: Inter, "Segoe UI", Arial, Helvetica, sans-serif;
+  background: #e8e1d8;
+  color: #2f2a26;
+  line-height: 1.6;
+  font-size: 17px;
+}
 
-    body {
-      margin: 0;
-      font-family: Inter, "Segoe UI", Arial, Helvetica, sans-serif;
-      background: #e8e1d8;
-      color: #2f2a26;
-      line-height: 1.6;
-      font-size: 17px;
-    }
+header {
+  background: #ddd4ca;
+  border-bottom: 1px solid #c9bfb4;
+  padding: 30px 20px;
+  text-align: center;
+}
 
-    header {
-      background: #ddd4ca;
-      border-bottom: 1px solid #c9bfb4;
-      padding: 30px 20px;
-      text-align: center;
-    }
+.brand {
+  color: #292521;
+  font-weight: 700;
+  font-size: 2rem;
+  letter-spacing: .04em;
+}
 
-    .brand {
-      color: #292521;
-      font-weight: 700;
-      font-size: 2rem;
-      letter-spacing: .04em;
-    }
+.tagline {
+  margin-top: 8px;
+  color: #4b443e;
+  font-size: 1.05rem;
+  font-weight: 500;
+}
 
-    .tagline {
-      margin-top: 8px;
-      color: #4b443e;
-      font-size: 1.05rem;
-      font-weight: 500;
-    }
+.powered {
+  margin-top: 6px;
+  color: #625a53;
+  font-size: .88rem;
+}
 
-    .powered {
-      margin-top: 6px;
-      color: #625a53;
-      font-size: .88rem;
-    }
+.container {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+}
 
-    .container {
-      width: min(1100px, 92%);
-      margin: 0 auto;
-    }
+.intro {
+  text-align: center;
+  padding: 45px 0 25px;
+}
 
-    .intro {
-      text-align: center;
-      padding: 45px 0 25px;
-    }
+.intro h2 {
+  margin-bottom: 10px;
+  color: #2f2a26;
+  font-weight: 700;
+  font-size: 1.8rem;
+}
 
-    .intro h2 {
-      margin-bottom: 10px;
-      color: #2f2a26;
-      font-weight: 700;
-      font-size: 1.8rem;
-    }
+.intro p {
+  max-width: 760px;
+  margin: auto;
+  color: #4b443e;
+  font-size: 1.05rem;
+}
 
-    .intro p {
-      max-width: 760px;
-      margin: auto;
-      color: #4b443e;
-      font-size: 1.05rem;
-    }
+.section {
+  padding: 35px 0;
+}
 
-    .section {
-      padding: 35px 0;
-    }
+.section-title {
+  text-align: center;
+  margin-bottom: 25px;
+}
 
-    .section-title {
-      text-align: center;
-      margin-bottom: 25px;
-    }
+.section-title h2 {
+  color: #2f2a26;
+  font-weight: 700;
+  font-size: 1.55rem;
+  margin-bottom: 5px;
+}
 
-    .section-title h2 {
-      color: #2f2a26;
-      font-weight: 700;
-      font-size: 1.55rem;
-      margin-bottom: 5px;
-    }
+.section-title p {
+  color: #514a44;
+  font-size: 1rem;
+  margin-top: 0;
+}
 
-    .section-title p {
-      color: #514a44;
-      font-size: 1rem;
-      margin-top: 0;
-    }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 20px;
+}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-      gap: 20px;
-    }
+.card {
+  background: #f5f1eb;
+  border: 1px solid #cec4b9;
+  border-radius: 18px;
+  padding: 25px;
+  box-shadow: 0 8px 25px rgba(54,47,40,.08);
+}
 
-    .card {
-      background: #f5f1eb;
-      border: 1px solid #cec4b9;
-      border-radius: 18px;
-      padding: 25px;
-      box-shadow: 0 8px 25px rgba(54, 47, 40, .08);
-    }
+.card h3 {
+  margin-top: 0;
+  color: #2f2a26;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
 
-    .card h3 {
-      margin-top: 0;
-      color: #2f2a26;
-      font-size: 1.2rem;
-      font-weight: 700;
-    }
+.card p {
+  color: #463f39;
+  font-size: 1rem;
+}
 
-    .card p {
-      color: #463f39;
-      font-size: 1rem;
-    }
+.button {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 11px 17px;
+  border: none;
+  border-radius: 10px;
+  background: #4b443e;
+  color: white;
+  font-size: .92rem;
+  font-weight: 600;
+  text-decoration: none;
+  cursor: pointer;
+  transition: .2s ease;
+}
 
-    .button {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 11px 17px;
-      border: none;
-      border-radius: 10px;
-      background: #4b443e;
-      color: white;
-      font-size: .92rem;
-      font-weight: 600;
-      text-decoration: none;
-      cursor: pointer;
-      transition: .2s ease;
-    }
+.button:hover {
+  opacity: .88;
+  transform: translateY(-1px);
+}
 
-    .button:hover {
-      opacity: .88;
-      transform: translateY(-1px);
-    }
+.clear-button {
+  background: #74695f;
+}
 
-    .clear-button {
-      background: #74695f;
-    }
+.tool-box {
+  margin-top: 15px;
+  background: #eae3da;
+  border: 1px solid #cec4b9;
+  border-radius: 14px;
+  padding: 18px;
+}
 
-    .tool-box {
-      margin-top: 15px;
-      background: #eae3da;
-      border: 1px solid #cec4b9;
-      border-radius: 14px;
-      padding: 18px;
-    }
+.tool-box label {
+  display: block;
+  margin-bottom: 6px;
+  color: #3f3934;
+  font-size: .95rem;
+  font-weight: 600;
+}
 
-    .tool-box label {
-      display: block;
-      margin-bottom: 6px;
-      color: #3f3934;
-      font-size: .95rem;
-      font-weight: 600;
-    }
+.tool-box input,
+.tool-box select,
+.tool-box textarea {
+  width: 100%;
+  padding: 11px;
+  margin-bottom: 12px;
+  background: #faf8f5;
+  color: #2f2a26;
+  font-size: 1rem;
+  border: 1px solid #bfb4a9;
+  border-radius: 9px;
+  outline: none;
+}
 
-    .tool-box input,
-    .tool-box select,
-    .tool-box textarea {
-      width: 100%;
-      padding: 11px;
-      margin-bottom: 12px;
-      background: #faf8f5;
-      color: #2f2a26;
-      font-size: 1rem;
-      border: 1px solid #bfb4a9;
-      border-radius: 9px;
-      outline: none;
-    }
+.tool-box input:focus,
+.tool-box select:focus,
+.tool-box textarea:focus {
+  border-color: #74695f;
+}
 
-    .tool-box input:focus,
-    .tool-box select:focus,
-    .tool-box textarea:focus {
-      border-color: #74695f;
-    }
+.result-box {
+  margin-top: 15px;
+  padding: 15px;
+  background: #f8f5f0;
+  color: #39332e;
+  font-size: .98rem;
+  border: 1px solid #c9bfb4;
+  border-radius: 10px;
+  min-height: 20px;
+}
 
-    .result-box {
-      margin-top: 15px;
-      padding: 15px;
-      background: #f8f5f0;
-      color: #39332e;
-      font-size: .98rem;
-      border: 1px solid #c9bfb4;
-      border-radius: 10px;
-      min-height: 20px;
-    }
+.tip-box {
+  margin-top: 15px;
+  padding: 13px;
+  background: #f8f5f0;
+  color: #403a35;
+  font-size: .92rem;
+  border-radius: 10px;
+  border: 1px solid #d1c7bd;
+}
 
-    .tip-box {
-      margin-top: 15px;
-      padding: 13px;
-      background: #f8f5f0;
-      color: #403a35;
-      font-size: .92rem;
-      border-radius: 10px;
-      border: 1px solid #d1c7bd;
-    }
+.small-note {
+  color: #5b534c;
+  font-size: .82rem;
+}
 
-    .small-note {
-      color: #5b534c;
-      font-size: .82rem;
-    }
+.social {
+  background: #ddd4ca;
+  padding: 30px 0;
+  text-align: center;
+}
 
-    .social {
-      background: #ddd4ca;
-      padding: 30px 0;
-      text-align: center;
-    }
+.social a {
+  color: #3f3934;
+  text-decoration: none;
+  font-weight: 600;
+}
 
-    .social a {
-      color: #3f3934;
-      text-decoration: none;
-      font-weight: 600;
-    }
+footer {
+  background: #302b27;
+  color: #f0ece7;
+  text-align: center;
+  padding: 30px 20px;
+  font-size: .9rem;
+}
 
-    footer {
-      background: #302b27;
-      color: #f0ece7;
-      text-align: center;
-      padding: 30px 20px;
-      font-size: .9rem;
-    }
+footer a {
+  color: #f0ece7;
+  text-decoration: none;
+}
 
-    footer a {
-      color: #f0ece7;
-      text-decoration: none;
-    }
+/* Position Continuous Learning directly under Self Love Academy */
+.lead-grid .continuous-learning {
+  grid-column: 2;
+  grid-row: 2;
+}
 
-    @media (max-width: 700px) {
-      body {
-        font-size: 16px;
-      }
+@media (max-width: 700px) {
+  body {
+    font-size: 16px;
+  }
 
-      .brand {
-        font-size: 1.7rem;
-      }
+  .brand {
+    font-size: 1.7rem;
+  }
 
-      .intro h2 {
-        font-size: 1.5rem;
-      }
-    }
-  </style>
+  .intro h2 {
+    font-size: 1.5rem;
+  }
+
+  .lead-grid .continuous-learning {
+    grid-column: auto;
+    grid-row: auto;
+  }
+}
+</style>
 </head>
 
-<body id="top">
+<body>
 
 <header>
   <div class="brand">TABING GUHIT</div>
@@ -277,12 +287,10 @@
 
 
   <!-- WORK WITH PURPOSE -->
-
   <section class="section">
 
     <div class="section-title">
       <h2>WORK WITH PURPOSE</h2>
-
       <p>
         Explore your strengths, skills, opportunities, and value.
       </p>
@@ -290,6 +298,7 @@
 
     <div class="grid">
 
+      <!-- FIND YOUR NICHE -->
       <div class="card">
         <h3>🔎 Find Your Niche</h3>
 
@@ -299,14 +308,15 @@
         </p>
 
         <a
-          class="button"
           href="https://cathiesnest.github.io/tabing-guhit-3.0/"
-          target="_blank">
+          class="button"
+        >
           Explore →
         </a>
       </div>
 
 
+      <!-- KNOW YOUR VALUE -->
       <div class="card">
         <h3>💰 Know Your Value</h3>
 
@@ -316,14 +326,15 @@
         </p>
 
         <a
+          href="https://cathiesnest.github.io/tabing-guhit-3.0/#calculator"
           class="button"
-          href="https://cathiesnest.github.io/tabing-guhit-3.0/"
-          target="_blank">
+        >
           Check Your Value →
         </a>
       </div>
 
 
+      <!-- LEARN FOR FREE -->
       <div class="card">
         <h3>🎓 Learn for Free</h3>
 
@@ -333,25 +344,13 @@
         </p>
 
         <a
-          class="button"
           href="https://alison.com/certificate-courses?utm_source=alison_user&utm_medium=affiliate&utm_campaign=42404117"
-          target="_blank">
+          class="button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Explore Courses →
         </a>
-      </div>
-
-
-      <div class="card">
-        <h3>💼 Remote Work Resources</h3>
-
-        <p>
-          Helpful resources and ideas for people exploring remote
-          and freelance work.
-        </p>
-
-        <span class="small-note">
-          Coming Soon
-        </span>
       </div>
 
     </div>
@@ -359,7 +358,6 @@
 
 
   <!-- LIVE WITH BALANCE -->
-
   <section class="section">
 
     <div class="section-title">
@@ -373,109 +371,96 @@
 
     <div class="grid">
 
-
-      <!-- CURRENCY -->
-
+      <!-- GLOBAL CURRENCY CALCULATOR -->
       <div class="card">
 
         <h3>💱 Global Currency Calculator</h3>
 
         <p>
-          A simple way to understand currency values when
-          working with international clients.
+          A simple way to understand currency values when working
+          with international clients.
         </p>
 
         <div class="tool-box">
 
-          <label for="amount">
-            Amount
-          </label>
+          <label for="amount">Amount</label>
 
           <input
             id="amount"
             type="number"
             placeholder="Enter amount"
-            step="any">
+            min="0"
+            step="any"
+          >
 
-
-          <label for="fromCurrency">
-            From
-          </label>
+          <label for="fromCurrency">From</label>
 
           <select id="fromCurrency">
             <option value="USD">USD</option>
             <option value="PHP">PHP</option>
             <option value="EUR">EUR</option>
             <option value="GBP">GBP</option>
-            <option value="AUD">AUD</option>
             <option value="CAD">CAD</option>
+            <option value="AUD">AUD</option>
             <option value="SGD">SGD</option>
-            <option value="JPY">JPY</option>
             <option value="AED">AED</option>
             <option value="SAR">SAR</option>
+            <option value="JPY">JPY</option>
           </select>
 
-
-          <label for="toCurrency">
-            To
-          </label>
+          <label for="toCurrency">To</label>
 
           <select id="toCurrency">
             <option value="PHP">PHP</option>
             <option value="USD">USD</option>
             <option value="EUR">EUR</option>
             <option value="GBP">GBP</option>
-            <option value="AUD">AUD</option>
             <option value="CAD">CAD</option>
+            <option value="AUD">AUD</option>
             <option value="SGD">SGD</option>
-            <option value="JPY">JPY</option>
             <option value="AED">AED</option>
             <option value="SAR">SAR</option>
+            <option value="JPY">JPY</option>
           </select>
-
 
           <button
             class="button"
-            type="button"
-            onclick="convertCurrency()">
+            onclick="convertCurrency()"
+          >
             Convert →
           </button>
 
           <button
             class="button clear-button"
-            type="button"
-            onclick="resetCurrency()">
+            onclick="resetCurrency()"
+          >
             Clear / Reset
           </button>
 
-
           <div
+            id="currencyResult"
             class="result-box"
-            id="currencyResult">
+          >
             Enter an amount and select your currencies.
           </div>
 
-
-          <div class="tip-box">
+          <div class="small-note">
             Exchange rates are retrieved from a live public
             exchange-rate service and may change.
           </div>
 
         </div>
-
       </div>
 
 
       <!-- FINANCIAL RESET -->
-
       <div class="card">
 
         <h3>💵 Financial Reset</h3>
 
         <p>
-          Organize your numbers, rethink priorities,
-          and create a clearer starting point for your
-          financial goals.
+          Organize your numbers, rethink priorities, and create
+          a clearer starting point for your financial goals.
         </p>
 
         <div class="tool-box">
@@ -487,8 +472,9 @@
           <input
             id="monthlyIncome"
             type="number"
-            placeholder="Example: 50000">
-
+            placeholder="Example: 50000"
+            min="0"
+          >
 
           <label for="needs">
             Needs / Essentials
@@ -497,8 +483,9 @@
           <input
             id="needs"
             type="number"
-            placeholder="Rent, food, utilities...">
-
+            placeholder="Rent, food, utilities..."
+            min="0"
+          >
 
           <label for="wants">
             Wants / Lifestyle
@@ -507,8 +494,9 @@
           <input
             id="wants"
             type="number"
-            placeholder="Shopping, dining, entertainment...">
-
+            placeholder="Shopping, dining, entertainment"
+            min="0"
+          >
 
           <label for="debt">
             Debt Payments
@@ -517,8 +505,9 @@
           <input
             id="debt"
             type="number"
-            placeholder="Monthly debt payments">
-
+            placeholder="Monthly debt payments"
+            min="0"
+          >
 
           <label for="savings">
             Current Monthly Savings
@@ -527,65 +516,58 @@
           <input
             id="savings"
             type="number"
-            placeholder="Amount you currently save">
-
+            placeholder="Amount you currently save"
+            min="0"
+          >
 
           <button
             class="button"
-            type="button"
-            onclick="financialReset()">
+            onclick="financialReset()"
+          >
             Check My Financial Reset →
           </button>
 
           <button
             class="button clear-button"
-            type="button"
-            onclick="clearFinancialReset()">
+            onclick="clearFinancialReset()"
+          >
             Clear / Reset
           </button>
 
-
           <div
+            id="financialResult"
             class="result-box"
-            id="financialResult">
+          >
             Enter your numbers to see your financial snapshot.
           </div>
 
+        </div>
 
-          <div class="tip-box">
-            💡 Start with awareness. Knowing where your money goes
-            is the first step toward financial discipline.
-          </div>
-
+        <div class="tip-box">
+          💡 Start with awareness. Knowing where your money goes
+          is the first step toward financial discipline.
         </div>
 
       </div>
 
     </div>
-
   </section>
 
 
   <!-- LEAD WITH GRATITUDE -->
-
   <section class="section">
 
     <div class="section-title">
-
       <h2>LEAD WITH GRATITUDE</h2>
 
       <p>
         Keep growing, learning, sharing, and moving forward.
       </p>
-
     </div>
 
-
-    <div class="grid">
-
+    <div class="grid lead-grid">
 
       <!-- PERSONAL GROWTH -->
-
       <div class="card">
 
         <h3>🌱 Personal Growth</h3>
@@ -597,10 +579,9 @@
 
         <p>
           Take a minute to check in with yourself.
-          Choose the statement that best describes
-          what you need right now.
+          Choose the statement that best describes what
+          you need right now.
         </p>
-
 
         <div class="tool-box">
 
@@ -611,50 +592,49 @@
           <select id="growthChoice">
 
             <option value="">
-              Select
+              Choose one...
             </option>
 
             <option value="clarity">
-              I need clarity
+              I need clarity.
             </option>
 
             <option value="confidence">
-              I need confidence
+              I need confidence.
             </option>
 
             <option value="direction">
-              I need direction
+              I need direction.
             </option>
 
             <option value="rest">
-              I need rest
+              I need rest.
             </option>
 
             <option value="courage">
-              I need courage
+              I need courage.
             </option>
 
           </select>
 
-
           <button
             class="button"
-            type="button"
-            onclick="growthActivity()">
+            onclick="growthActivity()"
+          >
             Reflect →
           </button>
 
           <button
             class="button clear-button"
-            type="button"
-            onclick="clearGrowthActivity()">
+            onclick="clearGrowthActivity()"
+          >
             Clear / Reset
           </button>
 
-
           <div
+            id="growthResult"
             class="result-box"
-            id="growthResult">
+          >
             Your reflection will appear here.
           </div>
 
@@ -664,7 +644,6 @@
 
 
       <!-- SELF LOVE ACADEMY -->
-
       <div class="card">
 
         <h3>✨ Self Love Academy</h3>
@@ -675,9 +654,9 @@
         </p>
 
         <a
-          class="button"
           href="https://cathiesnest.github.io/self-love-academy/"
-          target="_blank">
+          class="button"
+        >
           Visit →
         </a>
 
@@ -685,20 +664,19 @@
 
 
       <!-- SHARE & CARE -->
-
       <div class="card">
 
         <h3>🤝 Share & Care</h3>
 
         <p>
-          Share helpful resources with someone who might
-          need a little encouragement or direction.
+          Share helpful resources with someone who might need
+          a little encouragement or direction.
         </p>
 
         <button
-          type="button"
           class="button"
-          onclick="shareAndCare(this)">
+          onclick="shareAndCare(this)"
+        >
           Share & Care →
         </button>
 
@@ -706,8 +684,7 @@
 
 
       <!-- CONTINUOUS LEARNING -->
-
-      <div class="card">
+      <div class="card continuous-learning">
 
         <h3>📚 Continuous Learning</h3>
 
@@ -717,21 +694,21 @@
         </p>
 
         <a
-          class="button"
           href="https://alison.com/certificate-courses?utm_source=alison_user&utm_medium=affiliate&utm_campaign=42404117"
-          target="_blank">
+          class="button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Keep Learning →
         </a>
 
       </div>
 
     </div>
-
   </section>
 
 
   <!-- SERVICES -->
-
   <section class="section">
 
     <div class="section-title">
@@ -744,10 +721,9 @@
 
     </div>
 
-
     <div class="grid">
 
-
+      <!-- FREELANCER PORTFOLIO -->
       <div class="card">
 
         <h3>🌐 Freelancer Portfolio</h3>
@@ -762,7 +738,6 @@
         </p>
 
         <ul>
-
           <li>Personalized portfolio layout</li>
           <li>About / introduction</li>
           <li>Skills and services</li>
@@ -770,23 +745,20 @@
           <li>Contact and social links</li>
           <li>Mobile-friendly design</li>
           <li>Visual preview before finalizing</li>
-
         </ul>
-
 
         <p>
           <strong>For Upwork Portfolio Requests:</strong>
         </p>
 
         <p>
-          Please inform us upfront if the portfolio is
-          specifically intended for Upwork. Upwork portfolios
-          have specific requirements, guidelines, and terms
-          that must be followed. We prepare the portfolio based
-          on the information and materials you provide and the
-          requirements applicable to the platform.
+          Please inform us upfront if the portfolio is specifically
+          intended for Upwork. Upwork portfolios have specific
+          requirements, guidelines, and terms that must be followed.
+          We prepare the portfolio based on the information and
+          materials you provide and the requirements applicable
+          to the platform.
         </p>
-
 
         <p>
           <strong>Important Disclaimer:</strong>
@@ -794,27 +766,28 @@
 
         <p>
           Creating or improving your portfolio does not guarantee
-          approval, client inquiries, interviews, contracts,
-          or employment on Upwork or any other platform.
-          The client is responsible for providing accurate
-          information and ensuring that submitted content complies
-          with Upwork's current Terms of Service, portfolio
-          guidelines, and other applicable requirements.
-          Platform rules may change, so requirements should be
-          verified before submission.
+          approval, client inquiries, interviews, contracts, or
+          employment on Upwork or any other platform. The client is
+          responsible for providing accurate information and ensuring
+          that submitted content complies with Upwork's current Terms
+          of Service, portfolio guidelines, and other applicable
+          requirements. Platform rules may change, so requirements
+          should be verified before submission.
         </p>
 
-
         <a
-          class="button"
           href="https://www.facebook.com/profile.php?id=61580857530656"
-          target="_blank">
+          class="button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Ask About This Service →
         </a>
 
       </div>
 
 
+      <!-- INVOICE CREATOR -->
       <div class="card">
 
         <h3>🧾 Invoice Creator</h3>
@@ -836,15 +809,18 @@
         </ul>
 
         <a
-          class="button"
           href="https://www.facebook.com/profile.php?id=61580857530656"
-          target="_blank">
+          class="button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Ask About This Service →
         </a>
 
       </div>
 
 
+      <!-- CURRENCY RATE CALCULATOR -->
       <div class="card">
 
         <h3>💱 Currency Rate Calculator</h3>
@@ -866,15 +842,18 @@
         </ul>
 
         <a
-          class="button"
           href="https://www.facebook.com/profile.php?id=61580857530656"
-          target="_blank">
+          class="button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Ask About This Service →
         </a>
 
       </div>
 
 
+      <!-- KNOW YOUR VALUE SERVICE -->
       <div class="card">
 
         <h3>💰 Know Your Value</h3>
@@ -897,15 +876,18 @@
         </ul>
 
         <a
-          class="button"
           href="https://www.facebook.com/profile.php?id=61580857530656"
-          target="_blank">
+          class="button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Ask About This Service →
         </a>
 
       </div>
 
 
+      <!-- TIME TRACKER -->
       <div class="card">
 
         <h3>⏱️ Time Tracker</h3>
@@ -927,9 +909,11 @@
         </ul>
 
         <a
-          class="button"
           href="https://www.facebook.com/profile.php?id=61580857530656"
-          target="_blank">
+          class="button"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           Ask About This Service →
         </a>
 
@@ -937,12 +921,10 @@
 
     </div>
 
-
-    <p style="text-align:center; margin-top:25px;">
-      Need more than one tool?
-      Ask about the Freelancer Toolkit,
+    <div class="tip-box" style="text-align:center;">
+      Need more than one tool? Ask about the Freelancer Toolkit,
       which combines selected tools into one package.
-    </p>
+    </div>
 
   </section>
 
@@ -950,7 +932,6 @@
 
 
 <!-- SOCIAL -->
-
 <section class="social">
 
   <div class="container">
@@ -962,19 +943,27 @@
       ideas, and updates.
     </p>
 
-    <a
-      href="https://www.facebook.com/profile.php?id=61580857530656"
-      target="_blank">
-      Facebook
-    </a>
+    <p>
 
-    &nbsp; · &nbsp;
+      <a
+        href="https://www.facebook.com/profile.php?id=61580857530656"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Facebook
+      </a>
 
-    <a
-      href="https://ph.pinterest.com/CathiesnestDigitalHub/"
-      target="_blank">
-      Pinterest
-    </a>
+      &nbsp;·&nbsp;
+
+      <a
+        href="https://ph.pinterest.com/CathiesnestDigitalHub/"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Pinterest
+      </a>
+
+    </p>
 
   </div>
 
@@ -982,27 +971,22 @@
 
 
 <!-- FOOTER -->
-
 <footer>
 
   <div>
-    TABING GUHIT
+    <strong>TABING GUHIT</strong>
   </div>
 
   <div>
     Work with Purpose. Live with Balance. Lead with Gratitude.
   </div>
 
-  <div>
+  <div class="powered">
     Powered by CathiesNest Digital
   </div>
 
-  <div style="margin-top:12px;">
-
-    <a href="#top">
-      ↑ Back to Top
-    </a>
-
+  <div style="margin-top:10px;">
+    <a href="#top">↑ Back to Top</a>
   </div>
 
   <div style="margin-top:10px;">
@@ -1014,82 +998,135 @@
 
 <script>
 
-  /* =========================
-     CURRENCY CALCULATOR
-  ========================= */
+/* =========================
+   CURRENCY CALCULATOR
+========================= */
 
-  async function convertCurrency() {
+async function convertCurrency() {
 
-    const amount =
-      parseFloat(
-        document.getElementById("amount").value
+  const amount =
+    parseFloat(document.getElementById("amount").value);
+
+  const from =
+    document.getElementById("fromCurrency").value;
+
+  const to =
+    document.getElementById("toCurrency").value;
+
+  const result =
+    document.getElementById("currencyResult");
+
+
+  if (isNaN(amount) || amount <= 0) {
+
+    result.innerHTML =
+      "Please enter a valid amount.";
+
+    return;
+  }
+
+
+  if (from === to) {
+
+    result.innerHTML =
+      `${amount.toLocaleString()} ${from}
+      = ${amount.toLocaleString()} ${to}`;
+
+    return;
+  }
+
+
+  result.innerHTML =
+    "Loading live exchange rate...";
+
+
+  try {
+
+    const response =
+      await fetch(
+        `https://open.er-api.com/v6/latest/${from}`
       );
 
-    const from =
-      document.getElementById("fromCurrency").value;
 
-    const to =
-      document.getElementById("toCurrency").value;
+    if (!response.ok)
+      throw new Error("Primary API failed.");
 
-    const result =
-      document.getElementById("currencyResult");
+
+    const data =
+      await response.json();
 
 
     if (
-      isNaN(amount) ||
-      amount <= 0
+      !data ||
+      !data.rates ||
+      !data.rates[to]
     ) {
-
-      result.innerHTML =
-        "Please enter a valid amount.";
-
-      return;
+      throw new Error("Rate unavailable.");
     }
 
 
-    if (from === to) {
+    const rate =
+      data.rates[to];
 
-      result.innerHTML =
-        `${amount.toLocaleString()} ${from}
-        = ${amount.toLocaleString()} ${to}`;
-
-      return;
-    }
+    const converted =
+      amount * rate;
 
 
     result.innerHTML =
-      "Loading live exchange rate...";
+      `<strong>
+        ${amount.toLocaleString()} ${from}
+        =
+        ${converted.toLocaleString(undefined,{
+          minimumFractionDigits:2,
+          maximumFractionDigits:2
+        })} ${to}
+      </strong>
+      <br>
+      <span class="small-note">
+        Live rate: 1 ${from} = ${rate} ${to}
+      </span>`;
 
+
+    localStorage.setItem(
+      `currencyRate_${from}_${to}`,
+      JSON.stringify({
+        rate: rate,
+        timestamp: Date.now()
+      })
+    );
+
+
+  } catch (primaryError) {
 
     try {
 
-      const response =
+      const fallbackResponse =
         await fetch(
-          `https://open.er-api.com/v6/latest/${from}`
+          `https://api.frankfurter.app/latest?from=${from}&to=${to}`
         );
 
 
-      if (!response.ok) {
-        throw new Error("Primary API failed.");
-      }
+      if (!fallbackResponse.ok)
+        throw new Error("Fallback API failed.");
 
 
-      const data =
-        await response.json();
+      const fallbackData =
+        await fallbackResponse.json();
 
 
       if (
-        !data ||
-        !data.rates ||
-        !data.rates[to]
+        !fallbackData ||
+        !fallbackData.rates ||
+        !fallbackData.rates[to]
       ) {
-
-        throw new Error("Rate unavailable.");
+        throw new Error(
+          "Fallback rate unavailable."
+        );
       }
 
 
       const rate =
-        data.rates[to];
+        fallbackData.rates[to];
 
       const converted =
         amount * rate;
@@ -1098,17 +1135,16 @@
       result.innerHTML =
         `<strong>
           ${amount.toLocaleString()} ${from}
-          = ${converted.toLocaleString(
-            undefined,
-            {
-              minimumFractionDigits: 2,
-              maximumFractionDigits: 2
-            }
-          )} ${to}
+          =
+          ${converted.toLocaleString(undefined,{
+            minimumFractionDigits:2,
+            maximumFractionDigits:2
+          })} ${to}
         </strong>
         <br>
         <span class="small-note">
-          Live rate: 1 ${from} = ${rate} ${to}
+          Current available rate:
+          1 ${from} = ${rate} ${to}
         </span>`;
 
 
@@ -1121,37 +1157,21 @@
       );
 
 
-    } catch (primaryError) {
+    } catch (fallbackError) {
 
-      try {
-
-        const fallbackResponse =
-          await fetch(
-            `https://api.frankfurter.app/latest?from=${from}&to=${to}`
-          );
+      const cached =
+        localStorage.getItem(
+          `currencyRate_${from}_${to}`
+        );
 
 
-        if (!fallbackResponse.ok) {
-          throw new Error("Fallback API failed.");
-        }
+      if (cached) {
 
-
-        const fallbackData =
-          await fallbackResponse.json();
-
-
-        if (
-          !fallbackData ||
-          !fallbackData.rates ||
-          !fallbackData.rates[to]
-        ) {
-
-          throw new Error("Fallback rate unavailable.");
-        }
-
+        const cachedData =
+          JSON.parse(cached);
 
         const rate =
-          fallbackData.rates[to];
+          cachedData.rate;
 
         const converted =
           amount * rate;
@@ -1160,72 +1180,22 @@
         result.innerHTML =
           `<strong>
             ${amount.toLocaleString()} ${from}
-            = ${converted.toLocaleString(
-              undefined,
-              {
-                minimumFractionDigits: 2,
-                maximumFractionDigits: 2
-              }
-            )} ${to}
+            =
+            ${converted.toLocaleString(undefined,{
+              minimumFractionDigits:2,
+              maximumFractionDigits:2
+            })} ${to}
           </strong>
           <br>
           <span class="small-note">
-            Current available rate: 1 ${from} = ${rate} ${to}
+            Using your last available exchange rate.
           </span>`;
 
 
-        localStorage.setItem(
-          `currencyRate_${from}_${to}`,
-          JSON.stringify({
-            rate: rate,
-            timestamp: Date.now()
-          })
-        );
+      } else {
 
-
-      } catch (fallbackError) {
-
-        const cached =
-          localStorage.getItem(
-            `currencyRate_${from}_${to}`
-          );
-
-
-        if (cached) {
-
-          const cachedData =
-            JSON.parse(cached);
-
-          const rate =
-            cachedData.rate;
-
-          const converted =
-            amount * rate;
-
-
-          result.innerHTML =
-            `<strong>
-              ${amount.toLocaleString()} ${from}
-              = ${converted.toLocaleString(
-                undefined,
-                {
-                  minimumFractionDigits: 2,
-                  maximumFractionDigits: 2
-                }
-              )} ${to}
-            </strong>
-            <br>
-            <span class="small-note">
-              Using your last available exchange rate.
-            </span>`;
-
-
-        } else {
-
-          result.innerHTML =
-            "The live exchange rate is temporarily unavailable. Please try again in a moment.";
-
-        }
+        result.innerHTML =
+          "The live exchange rate is temporarily unavailable. Please try again in a moment.";
 
       }
 
@@ -1233,190 +1203,247 @@
 
   }
 
-
-  function resetCurrency() {
-
-    document.getElementById("amount").value = "";
-
-    document.getElementById("fromCurrency").value =
-      "USD";
-
-    document.getElementById("toCurrency").value =
-      "PHP";
-
-    document.getElementById("currencyResult").innerHTML =
-      "Enter an amount and select your currencies.";
-
-  }
+}
 
 
-  /* =========================
-     FINANCIAL RESET
-  ========================= */
+function resetCurrency() {
 
-  function financialReset() {
+  document.getElementById("amount").value = "";
 
-    const income =
-      parseFloat(
-        document.getElementById("monthlyIncome").value
-      ) || 0;
+  document.getElementById("fromCurrency").value =
+    "USD";
 
-    const needs =
-      parseFloat(
-        document.getElementById("needs").value
-      ) || 0;
+  document.getElementById("toCurrency").value =
+    "PHP";
 
-    const wants =
-      parseFloat(
-        document.getElementById("wants").value
-      ) || 0;
+  document.getElementById("currencyResult").innerHTML =
+    "Enter an amount and select your currencies.";
 
-    const debt =
-      parseFloat(
-        document.getElementById("debt").value
-      ) || 0;
-
-    const savings =
-      parseFloat(
-        document.getElementById("savings").value
-      ) || 0;
+}
 
 
-    const totalExpenses =
-      needs + wants + debt;
+/* =========================
+   FINANCIAL RESET
+========================= */
 
-    const remaining =
-      income - totalExpenses;
+function financialReset() {
 
+  const income =
+    parseFloat(
+      document.getElementById("monthlyIncome").value
+    ) || 0;
 
-    let status =
-      "";
+  const needs =
+    parseFloat(
+      document.getElementById("needs").value
+    ) || 0;
 
+  const wants =
+    parseFloat(
+      document.getElementById("wants").value
+    ) || 0;
 
-    if (income <= 0) {
+  const debt =
+    parseFloat(
+      document.getElementById("debt").value
+    ) || 0;
 
-      status =
-        "Add your monthly income to get a clearer snapshot.";
-
-    } else if (remaining < 0) {
-
-      status =
-        "Your current expenses are higher than your income. Consider reviewing needs, wants, and debt payments.";
-
-    } else if (remaining === 0) {
-
-      status =
-        "Your income currently matches your listed expenses. There is no remaining amount for additional savings.";
-
-    } else {
-
-      status =
-        "You have room to strengthen your savings, emergency fund, or financial goals.";
-
-    }
+  const savings =
+    parseFloat(
+      document.getElementById("savings").value
+    ) || 0;
 
 
-    document.getElementById(
-      "financialResult"
-    ).innerHTML = `
+  const totalExpenses =
+    needs + wants + debt;
 
-      <strong>Financial Snapshot</strong>
-
-      <br><br>
-
-      Total Listed Expenses:
-      ${totalExpenses.toLocaleString()}
-
-      <br>
-
-      Remaining After Expenses:
-      ${remaining.toLocaleString()}
-
-      <br>
-
-      Current Monthly Savings:
-      ${savings.toLocaleString()}
-
-      <br><br>
-
-      ${status}
-
-    `;
+  const remaining =
+    income - totalExpenses;
 
 
-    saveFinancialData();
+  let status = "";
+
+
+  if (income <= 0) {
+
+    status =
+      "Add your monthly income to get a clearer snapshot.";
+
+  } else if (remaining < 0) {
+
+    status =
+      "Your current expenses are higher than your income. Consider reviewing needs, wants, and debt payments.";
+
+  } else if (remaining === 0) {
+
+    status =
+      "Your income currently matches your listed expenses. There is no remaining amount for additional savings.";
+
+  } else {
+
+    status =
+      "You have room to strengthen your savings, emergency fund, or financial goals.";
 
   }
 
 
-  function saveFinancialData() {
+  document.getElementById(
+    "financialResult"
+  ).innerHTML = `
 
-    const financialData = {
+    <strong>Financial Snapshot</strong>
 
-      income:
-        document.getElementById(
-          "monthlyIncome"
-        ).value,
+    <br><br>
 
-      needs:
-        document.getElementById(
-          "needs"
-        ).value,
+    Total Listed Expenses:
+    ${totalExpenses.toLocaleString()}
 
-      wants:
-        document.getElementById(
-          "wants"
-        ).value,
+    <br>
 
-      debt:
-        document.getElementById(
-          "debt"
-        ).value,
+    Remaining After Expenses:
+    ${remaining.toLocaleString()}
 
-      savings:
-        document.getElementById(
-          "savings"
-        ).value
+    <br>
 
-    };
+    Current Monthly Savings:
+    ${savings.toLocaleString()}
+
+    <br><br>
+
+    ${status}
+
+  `;
 
 
-    localStorage.setItem(
-      "tabingGuhitFinancialData",
-      JSON.stringify(financialData)
+  saveFinancialData();
+
+}
+
+
+function saveFinancialData() {
+
+  const financialData = {
+
+    income:
+      document.getElementById(
+        "monthlyIncome"
+      ).value,
+
+    needs:
+      document.getElementById(
+        "needs"
+      ).value,
+
+    wants:
+      document.getElementById(
+        "wants"
+      ).value,
+
+    debt:
+      document.getElementById(
+        "debt"
+      ).value,
+
+    savings:
+      document.getElementById(
+        "savings"
+      ).value
+
+  };
+
+
+  localStorage.setItem(
+    "tabingGuhitFinancialData",
+    JSON.stringify(financialData)
+  );
+
+}
+
+
+function clearFinancialReset() {
+
+  document.getElementById(
+    "monthlyIncome"
+  ).value = "";
+
+  document.getElementById(
+    "needs"
+  ).value = "";
+
+  document.getElementById(
+    "wants"
+  ).value = "";
+
+  document.getElementById(
+    "debt"
+  ).value = "";
+
+  document.getElementById(
+    "savings"
+  ).value = "";
+
+
+  document.getElementById(
+    "financialResult"
+  ).innerHTML =
+    "Enter your numbers to see your financial snapshot.";
+
+
+  localStorage.removeItem(
+    "tabingGuhitFinancialData"
+  );
+
+}
+
+
+function loadFinancialData() {
+
+  const saved =
+    localStorage.getItem(
+      "tabingGuhitFinancialData"
     );
 
-  }
+
+  if (!saved) return;
 
 
-  function clearFinancialReset() {
+  try {
+
+    const data =
+      JSON.parse(saved);
+
 
     document.getElementById(
       "monthlyIncome"
-    ).value = "";
+    ).value =
+      data.income || "";
+
 
     document.getElementById(
       "needs"
-    ).value = "";
+    ).value =
+      data.needs || "";
+
 
     document.getElementById(
       "wants"
-    ).value = "";
+    ).value =
+      data.wants || "";
+
 
     document.getElementById(
       "debt"
-    ).value = "";
+    ).value =
+      data.debt || "";
+
 
     document.getElementById(
       "savings"
-    ).value = "";
+    ).value =
+      data.savings || "";
 
 
-    document.getElementById(
-      "financialResult"
-    ).innerHTML =
-      "Enter your numbers to see your financial snapshot.";
-
+  } catch (error) {
 
     localStorage.removeItem(
       "tabingGuhitFinancialData"
@@ -1424,259 +1451,193 @@
 
   }
 
+}
 
-  function loadFinancialData() {
 
-    const saved =
-      localStorage.getItem(
-        "tabingGuhitFinancialData"
+/* =========================
+   PERSONAL GROWTH
+========================= */
+
+function growthActivity() {
+
+  const choice =
+    document.getElementById(
+      "growthChoice"
+    ).value;
+
+  const result =
+    document.getElementById(
+      "growthResult"
+    );
+
+
+  const messages = {
+
+    clarity:
+      "You don't need every answer today. Start by identifying the one thing that matters most right now.",
+
+    confidence:
+      "Remember what you have already survived, learned, and accomplished. You are more capable than you may feel today.",
+
+    direction:
+      "You don't need the whole road mapped out. One thoughtful next step is enough.",
+
+    rest:
+      "Rest is not falling behind. Sometimes slowing down is what helps you move forward with greater clarity.",
+
+    courage:
+      "Courage does not always feel strong. Sometimes it simply means choosing to take the next step anyway."
+
+  };
+
+
+  if (!choice) {
+
+    result.innerHTML =
+      "Choose what would help you most today.";
+
+    return;
+
+  }
+
+
+  result.innerHTML =
+    messages[choice];
+
+}
+
+
+function clearGrowthActivity() {
+
+  document.getElementById(
+    "growthChoice"
+  ).value = "";
+
+
+  document.getElementById(
+    "growthResult"
+  ).innerHTML =
+    "Your reflection will appear here.";
+
+}
+
+
+/* =========================
+   SHARE & CARE
+========================= */
+
+function shareAndCare(button) {
+
+  const shareLink =
+    "https://cathiesnest.github.io/tabing-guhit-hub/";
+
+  const originalText =
+    button.innerHTML;
+
+
+  function showSuccess() {
+
+    button.innerHTML =
+      "🤎 Link Copied Successfully! 🎉";
+
+
+    setTimeout(function() {
+
+      button.innerHTML =
+        originalText;
+
+    }, 2500);
+
+  }
+
+
+  if (
+    navigator.clipboard &&
+    window.isSecureContext
+  ) {
+
+    navigator.clipboard.writeText(
+      shareLink
+    )
+
+    .then(function() {
+
+      showSuccess();
+
+    })
+
+    .catch(function() {
+
+      showSuccess();
+
+    });
+
+
+  } else {
+
+    const textArea =
+      document.createElement(
+        "textarea"
       );
 
 
-    if (!saved) {
-      return;
-    }
+    textArea.value =
+      shareLink;
+
+    textArea.style.position =
+      "fixed";
+
+    textArea.style.left =
+      "-999999px";
+
+
+    document.body.appendChild(
+      textArea
+    );
+
+
+    textArea.focus();
+
+    textArea.select();
 
 
     try {
 
-      const data =
-        JSON.parse(saved);
-
-
-      document.getElementById(
-        "monthlyIncome"
-      ).value =
-        data.income || "";
-
-
-      document.getElementById(
-        "needs"
-      ).value =
-        data.needs || "";
-
-
-      document.getElementById(
-        "wants"
-      ).value =
-        data.wants || "";
-
-
-      document.getElementById(
-        "debt"
-      ).value =
-        data.debt || "";
-
-
-      document.getElementById(
-        "savings"
-      ).value =
-        data.savings || "";
-
+      document.execCommand(
+        "copy"
+      );
 
     } catch (error) {
 
-      localStorage.removeItem(
-        "tabingGuhitFinancialData"
-      );
+      // Continue with confirmation.
 
     }
+
+
+    document.body.removeChild(
+      textArea
+    );
+
+
+    showSuccess();
 
   }
 
-
-  /* =========================
-     PERSONAL GROWTH
-  ========================= */
-
-  function growthActivity() {
-
-    const choice =
-      document.getElementById(
-        "growthChoice"
-      ).value;
+}
 
 
-    const result =
-      document.getElementById(
-        "growthResult"
-      );
+/* =========================
+   LOAD SAVED DATA
+========================= */
 
+document.addEventListener(
+  "DOMContentLoaded",
+  function() {
 
-    const messages = {
-
-      clarity:
-        "You don't need every answer today. Start by identifying the one thing that matters most right now.",
-
-      confidence:
-        "Remember what you have already survived, learned, and accomplished. You are more capable than you may feel today.",
-
-      direction:
-        "You don't need the whole road mapped out. One thoughtful next step is enough.",
-
-      rest:
-        "Rest is not falling behind. Sometimes slowing down is what helps you move forward with greater clarity.",
-
-      courage:
-        "Courage does not always feel strong. Sometimes it simply means choosing to take the next step anyway."
-
-    };
-
-
-    if (!choice) {
-
-      result.innerHTML =
-        "Choose what would help you most today.";
-
-      return;
-    }
-
-
-    result.innerHTML =
-      messages[choice];
+    loadFinancialData();
 
   }
-
-
-  function clearGrowthActivity() {
-
-    document.getElementById(
-      "growthChoice"
-    ).value = "";
-
-
-    document.getElementById(
-      "growthResult"
-    ).innerHTML =
-      "Your reflection will appear here.";
-
-  }
-
-
-  /* =========================
-     SHARE & CARE
-  ========================= */
-
-  function shareAndCare(button) {
-
-    const shareLink =
-      "https://cathiesnest.github.io/tabing-guhit-hub/";
-
-
-    const originalText =
-      button.innerHTML;
-
-
-    function showSuccess() {
-
-      button.innerHTML =
-        "🤎 Link Copied Successfully! 🎉";
-
-
-      setTimeout(
-        function() {
-
-          button.innerHTML =
-            originalText;
-
-        },
-        2500
-      );
-
-    }
-
-
-    if (
-      navigator.clipboard &&
-      window.isSecureContext
-    ) {
-
-      navigator.clipboard.writeText(
-        shareLink
-      )
-      .then(
-        function() {
-
-          showSuccess();
-
-        }
-      )
-      .catch(
-        function() {
-
-          showSuccess();
-
-        }
-      );
-
-
-    } else {
-
-      const textArea =
-        document.createElement(
-          "textarea"
-        );
-
-
-      textArea.value =
-        shareLink;
-
-
-      textArea.style.position =
-        "fixed";
-
-
-      textArea.style.left =
-        "-999999px";
-
-
-      document.body.appendChild(
-        textArea
-      );
-
-
-      textArea.focus();
-
-      textArea.select();
-
-
-      try {
-
-        document.execCommand(
-          "copy"
-        );
-
-      } catch (error) {
-
-        // Continue with confirmation.
-
-      }
-
-
-      document.body.removeChild(
-        textArea
-      );
-
-
-      showSuccess();
-
-    }
-
-  }
-
-
-  /* =========================
-     LOAD SAVED DATA
-  ========================= */
-
-  document.addEventListener(
-    "DOMContentLoaded",
-    function() {
-
-      loadFinancialData();
-
-    }
-  );
+);
 
 </script>
 
