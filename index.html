@@ -172,31 +172,7 @@
       font-size: 0.9rem;
     }
 
-    .social {
-      text-align: center;
-      padding: 50px 20px;
-      background: #f3eadf;
-      margin-top: 20px;
-    }
-
-    .social h2 {
-      color: #51473f;
-      margin-bottom: 8px;
-    }
-
-    .social p {
-      color: #756d66;
-      margin-bottom: 20px;
-    }
-
-    .social-buttons {
-      display: flex;
-      justify-content: center;
-      gap: 12px;
-      flex-wrap: wrap;
-    }
-
-    /* ENHANCED INTERACTIVE TOOLS */
+    /* Interactive tools */
     .tool-box {
       margin-top: 18px;
       padding: 18px;
@@ -220,7 +196,7 @@
       margin-bottom: 10px;
       border: 1px solid #d9cec2;
       border-radius: 7px;
-      background: #fff;
+      background: #ffffff;
       color: #3f3a35;
       font-family: inherit;
       font-size: 0.9rem;
@@ -261,26 +237,45 @@
       color: #6f655d;
     }
 
-    .progress-bar {
-      width: 100%;
-      height: 9px;
-      background: #e8ded4;
-      border-radius: 20px;
-      overflow: hidden;
-      margin: 8px 0 12px;
+    .tool-actions {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      align-items: center;
     }
 
-    .progress-fill {
-      height: 100%;
-      width: 0%;
-      background: #8b7a6c;
-      transition: width 0.3s ease;
+    .clear-button {
+      background: #a79b91;
     }
 
     .small-note {
       font-size: 0.76rem;
       color: #8a8078;
       margin-top: 8px;
+    }
+
+    .social {
+      text-align: center;
+      padding: 50px 20px;
+      background: #f3eadf;
+      margin-top: 20px;
+    }
+
+    .social h2 {
+      color: #51473f;
+      margin-bottom: 8px;
+    }
+
+    .social p {
+      color: #756d66;
+      margin-bottom: 20px;
+    }
+
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
     }
 
     footer {
@@ -295,6 +290,19 @@
       display: block;
       margin-bottom: 5px;
       letter-spacing: 1px;
+    }
+
+    .back-to-top {
+      display: inline-block;
+      margin-top: 14px;
+      color: #eee8e2;
+      font-size: 0.85rem;
+      opacity: 0.9;
+      transition: 0.2s ease;
+    }
+
+    .back-to-top:hover {
+      opacity: 0.7;
     }
 
     @media (max-width: 700px) {
@@ -325,7 +333,7 @@
   </style>
 </head>
 
-<body>
+<body id="top">
 
   <!-- HEADER -->
   <header>
@@ -441,10 +449,18 @@
             </p>
 
             <div class="tool-box">
+
               <div class="tool-row">
+
                 <div>
                   <label for="currencyAmount">Amount</label>
-                  <input type="number" id="currencyAmount" value="1" min="0" step="any">
+                  <input
+                    type="number"
+                    id="currencyAmount"
+                    value="1"
+                    min="0"
+                    step="any"
+                    placeholder="Enter amount">
                 </div>
 
                 <div>
@@ -462,6 +478,7 @@
                     <option value="JPY">JPY — Japanese Yen</option>
                   </select>
                 </div>
+
               </div>
 
               <label for="toCurrency">To</label>
@@ -478,17 +495,32 @@
                 <option value="JPY">JPY — Japanese Yen</option>
               </select>
 
-              <button class="button" onclick="convertCurrency()">
-                Convert →
-              </button>
+              <div class="tool-actions">
+
+                <button
+                  type="button"
+                  class="button"
+                  onclick="convertCurrency()">
+                  Convert →
+                </button>
+
+                <button
+                  type="button"
+                  class="button clear-button"
+                  onclick="resetCurrency()">
+                  Clear / Reset
+                </button>
+
+              </div>
 
               <div id="currencyResult" class="result-box">
                 Enter an amount and select your currencies.
               </div>
 
               <div class="small-note">
-                Exchange rates are provided through a live public exchange-rate service and may change.
+                Exchange rates are retrieved from a live public exchange-rate service and may change.
               </div>
+
             </div>
           </div>
 
@@ -504,23 +536,62 @@
             <div class="tool-box">
 
               <label for="monthlyIncome">Monthly Income</label>
-              <input type="number" id="monthlyIncome" placeholder="Example: 50000" min="0" step="any">
+              <input
+                type="number"
+                id="monthlyIncome"
+                placeholder="Example: 50000"
+                min="0"
+                step="any">
 
               <label for="monthlyNeeds">Needs / Essentials</label>
-              <input type="number" id="monthlyNeeds" placeholder="Rent, food, utilities..." min="0" step="any">
+              <input
+                type="number"
+                id="monthlyNeeds"
+                placeholder="Rent, food, utilities..."
+                min="0"
+                step="any">
 
               <label for="monthlyWants">Wants / Lifestyle</label>
-              <input type="number" id="monthlyWants" placeholder="Shopping, dining, entertainment..." min="0" step="any">
+              <input
+                type="number"
+                id="monthlyWants"
+                placeholder="Shopping, dining, entertainment..."
+                min="0"
+                step="any">
 
               <label for="monthlyDebt">Debt Payments</label>
-              <input type="number" id="monthlyDebt" placeholder="Monthly debt payments" min="0" step="any">
+              <input
+                type="number"
+                id="monthlyDebt"
+                placeholder="Monthly debt payments"
+                min="0"
+                step="any">
 
               <label for="monthlySavings">Current Monthly Savings</label>
-              <input type="number" id="monthlySavings" placeholder="Amount you currently save" min="0" step="any">
+              <input
+                type="number"
+                id="monthlySavings"
+                placeholder="Amount you currently save"
+                min="0"
+                step="any">
 
-              <button class="button" onclick="financialReset()">
-                Check My Financial Reset →
-              </button>
+              <div class="tool-actions">
+
+                <button
+                  type="button"
+                  class="button"
+                  onclick="financialReset()">
+                  Check My Financial Reset →
+                </button>
+
+                <button
+                  type="button"
+                  class="button clear-button"
+                  onclick="clearFinancialReset()">
+                  Clear / Reset
+                </button>
+
+              </div>
 
               <div id="financialResult" class="result-box">
                 Enter your numbers to see your financial snapshot.
@@ -534,19 +605,7 @@
           </div>
 
 
-          <div class="card">
-            <h3>🧠 Self-Reflection / Wellbeing</h3>
-            <p>
-              Take a quiet moment to reflect, reset, and reconnect
-              with yourself.
-            </p>
-            <a class="button"
-               href="https://cathiesnest.github.io/self-love-academy/"
-               target="_blank">
-              Visit Self Love Academy →
-            </a>
-          </div>
-
+          <!-- PRODUCTIVITY & AI TOOLS -->
           <div class="card">
             <h3>🛠️ Productivity & AI Tools</h3>
             <p>
@@ -598,9 +657,23 @@
                 <option value="rest">I need permission to slow down.</option>
               </select>
 
-              <button class="button" onclick="growthActivity()">
-                Reflect →
-              </button>
+              <div class="tool-actions">
+
+                <button
+                  type="button"
+                  class="button"
+                  onclick="growthActivity()">
+                  Reflect →
+                </button>
+
+                <button
+                  type="button"
+                  class="button clear-button"
+                  onclick="clearGrowthActivity()">
+                  Clear / Reset
+                </button>
+
+              </div>
 
               <div id="growthResult" class="result-box">
                 Your reflection will appear here.
@@ -610,7 +683,7 @@
           </div>
 
 
-          <!-- DO NOT CHANGE: SELF LOVE ACADEMY -->
+          <!-- SELF LOVE ACADEMY - UNCHANGED -->
           <div class="card">
             <h3>✨ Self Love Academy</h3>
             <p>
@@ -632,7 +705,6 @@
               Share helpful resources with someone who might
               need a little encouragement or direction.
             </p>
-
             <a class="button"
                href="https://cathiesnest.github.io/tabing-guhit-hub/"
                target="_blank">
@@ -641,7 +713,7 @@
           </div>
 
 
-          <!-- DO NOT CHANGE: CONTINUOUS LEARNING -->
+          <!-- CONTINUOUS LEARNING - UNCHANGED -->
           <div class="card">
             <h3>📚 Continuous Learning</h3>
             <p>
@@ -899,6 +971,12 @@
 
     Powered by CathiesNest Digital
 
+    <br>
+
+    <a class="back-to-top" href="#top">
+      ↑ Back to Top
+    </a>
+
     <br><br>
 
     © 2026 Tabing Guhit. All rights reserved.
@@ -913,66 +991,177 @@
        ========================================= */
 
     async function convertCurrency() {
-      const amount = parseFloat(document.getElementById("currencyAmount").value);
+
+      const amount = parseFloat(
+        document.getElementById("currencyAmount").value
+      );
+
       const from = document.getElementById("fromCurrency").value;
       const to = document.getElementById("toCurrency").value;
       const result = document.getElementById("currencyResult");
 
-      if (!amount || amount < 0) {
+      if (isNaN(amount) || amount < 0) {
         result.innerHTML = "Please enter a valid amount.";
         return;
       }
 
       if (from === to) {
         result.innerHTML =
-          "<strong>Result:</strong> " +
+          "<strong>" +
           amount.toLocaleString(undefined, {
             maximumFractionDigits: 2
           }) +
-          " " + from;
+          " " +
+          from +
+          " = " +
+          amount.toLocaleString(undefined, {
+            maximumFractionDigits: 2
+          }) +
+          " " +
+          to +
+          "</strong>";
+
         return;
       }
 
       result.innerHTML = "Getting the latest exchange rate...";
 
       try {
+
+        /*
+          Primary exchange-rate service.
+          We retrieve the base currency once and calculate
+          the requested conversion locally.
+        */
+
         const response = await fetch(
-          "https://api.frankfurter.app/latest?amount=" +
-          encodeURIComponent(amount) +
-          "&from=" +
-          encodeURIComponent(from) +
-          "&to=" +
-          encodeURIComponent(to)
+          "https://open.er-api.com/v6/latest/" +
+          encodeURIComponent(from),
+          {
+            method: "GET",
+            cache: "no-store"
+          }
         );
 
         if (!response.ok) {
-          throw new Error("Currency service unavailable");
+          throw new Error("Primary currency service unavailable.");
         }
 
         const data = await response.json();
-        const converted = data.rates[to];
 
-        if (converted === undefined) {
-          throw new Error("Conversion unavailable");
+        if (
+          data.result !== "success" ||
+          !data.rates ||
+          typeof data.rates[to] !== "number"
+        ) {
+          throw new Error("Requested exchange rate unavailable.");
         }
+
+        const rate = data.rates[to];
+        const converted = amount * rate;
 
         result.innerHTML =
           "<strong>" +
           amount.toLocaleString(undefined, {
             maximumFractionDigits: 2
           }) +
-          " " + from +
+          " " +
+          from +
           " = " +
           converted.toLocaleString(undefined, {
             maximumFractionDigits: 2
           }) +
-          " " + to +
-          "</strong><br><span class='small-note'>Latest available market rate.</span>";
+          " " +
+          to +
+          "</strong>" +
+          "<br>" +
+          "<span class='small-note'>1 " +
+          from +
+          " = " +
+          rate.toLocaleString(undefined, {
+            maximumFractionDigits: 6
+          }) +
+          " " +
+          to +
+          "</span>";
 
       } catch (error) {
-        result.innerHTML =
-          "Sorry, the live exchange rate could not be loaded right now. Please try again.";
+
+        /*
+          Fallback service.
+          This helps provide a better experience if the
+          primary public exchange-rate service is temporarily unavailable.
+        */
+
+        try {
+
+          const fallbackResponse = await fetch(
+            "https://api.frankfurter.app/latest?from=" +
+            encodeURIComponent(from) +
+            "&to=" +
+            encodeURIComponent(to),
+            {
+              method: "GET",
+              cache: "no-store"
+            }
+          );
+
+          if (!fallbackResponse.ok) {
+            throw new Error("Fallback service unavailable.");
+          }
+
+          const fallbackData = await fallbackResponse.json();
+
+          if (
+            !fallbackData.rates ||
+            typeof fallbackData.rates[to] !== "number"
+          ) {
+            throw new Error("Fallback rate unavailable.");
+          }
+
+          const rate = fallbackData.rates[to];
+          const converted = amount * rate;
+
+          result.innerHTML =
+            "<strong>" +
+            amount.toLocaleString(undefined, {
+              maximumFractionDigits: 2
+            }) +
+            " " +
+            from +
+            " = " +
+            converted.toLocaleString(undefined, {
+              maximumFractionDigits: 2
+            }) +
+            " " +
+            to +
+            "</strong>" +
+            "<br>" +
+            "<span class='small-note'>Latest available exchange rate.</span>";
+
+        } catch (fallbackError) {
+
+          result.innerHTML =
+            "The live exchange-rate service is temporarily unavailable. " +
+            "Please check your internet connection and try again.";
+
+        }
       }
+    }
+
+
+    /* =========================================
+       CLEAR / RESET CURRENCY
+       ========================================= */
+
+    function resetCurrency() {
+
+      document.getElementById("currencyAmount").value = "1";
+      document.getElementById("fromCurrency").value = "USD";
+      document.getElementById("toCurrency").value = "PHP";
+
+      document.getElementById("currencyResult").innerHTML =
+        "Enter an amount and select your currencies.";
     }
 
 
@@ -981,96 +1170,190 @@
        ========================================= */
 
     function financialReset() {
-      const income = parseFloat(document.getElementById("monthlyIncome").value) || 0;
-      const needs = parseFloat(document.getElementById("monthlyNeeds").value) || 0;
-      const wants = parseFloat(document.getElementById("monthlyWants").value) || 0;
-      const debt = parseFloat(document.getElementById("monthlyDebt").value) || 0;
-      const savings = parseFloat(document.getElementById("monthlySavings").value) || 0;
 
-      const result = document.getElementById("financialResult");
-      const tip = document.getElementById("financialTip");
+      const income =
+        parseFloat(document.getElementById("monthlyIncome").value) || 0;
+
+      const needs =
+        parseFloat(document.getElementById("monthlyNeeds").value) || 0;
+
+      const wants =
+        parseFloat(document.getElementById("monthlyWants").value) || 0;
+
+      const debt =
+        parseFloat(document.getElementById("monthlyDebt").value) || 0;
+
+      const savings =
+        parseFloat(document.getElementById("monthlySavings").value) || 0;
+
+      const result =
+        document.getElementById("financialResult");
+
+      const tip =
+        document.getElementById("financialTip");
 
       if (income <= 0) {
-        result.innerHTML = "Please enter your monthly income first.";
+        result.innerHTML =
+          "Please enter your monthly income first.";
         return;
       }
 
-      const totalOutflow = needs + wants + debt + savings;
-      const remaining = income - totalOutflow;
+      const totalOutflow =
+        needs + wants + debt + savings;
 
-      const needsPercent = (needs / income) * 100;
-      const wantsPercent = (wants / income) * 100;
-      const debtPercent = (debt / income) * 100;
-      const savingsPercent = (savings / income) * 100;
+      const remaining =
+        income - totalOutflow;
+
+      const needsPercent =
+        (needs / income) * 100;
+
+      const wantsPercent =
+        (wants / income) * 100;
+
+      const debtPercent =
+        (debt / income) * 100;
+
+      const savingsPercent =
+        (savings / income) * 100;
 
       let status = "";
       let guidance = "";
 
       if (remaining < 0) {
-        status = "Your current plan is spending more than your income.";
+
+        status =
+          "Your current plan is spending more than your income.";
+
         guidance =
           "Start by reviewing wants and recurring expenses. Focus on creating breathing room before increasing investments.";
+
       } else if (debtPercent > 30) {
-        status = "Debt is taking a significant share of your monthly income.";
+
+        status =
+          "Debt is taking a significant share of your monthly income.";
+
         guidance =
           "Prioritize consistent debt payments, avoid adding unnecessary debt, and build a small emergency buffer.";
+
       } else if (savingsPercent < 10) {
-        status = "Your savings rate has room to grow.";
+
+        status =
+          "Your savings rate has room to grow.";
+
         guidance =
           "Try starting with a small automatic savings amount. Consistency matters more than starting big.";
+
       } else if (wantsPercent > 30) {
-        status = "Lifestyle spending may be taking a larger share of your income.";
+
+        status =
+          "Lifestyle spending may be taking a larger share of your income.";
+
         guidance =
           "Review subscriptions, shopping, dining, and impulse purchases. Redirect even a small portion toward savings.";
+
       } else {
-        status = "You have a positive starting point.";
+
+        status =
+          "You have a positive starting point.";
+
         guidance =
           "Keep building your emergency fund, control lifestyle inflation, and learn about diversified long-term investing.";
       }
 
       result.innerHTML =
         "<strong>Financial Snapshot</strong><br><br>" +
+
         "Monthly income: " +
-        income.toLocaleString(undefined, { maximumFractionDigits: 2 }) +
+        income.toLocaleString(undefined, {
+          maximumFractionDigits: 2
+        }) +
+
         "<br>" +
+
         "Needs: " +
-        needs.toLocaleString(undefined, { maximumFractionDigits: 2 }) +
-        " (" + needsPercent.toFixed(1) + "%)" +
+        needs.toLocaleString(undefined, {
+          maximumFractionDigits: 2
+        }) +
+        " (" +
+        needsPercent.toFixed(1) +
+        "%)" +
+
         "<br>" +
+
         "Wants: " +
-        wants.toLocaleString(undefined, { maximumFractionDigits: 2 }) +
-        " (" + wantsPercent.toFixed(1) + "%)" +
+        wants.toLocaleString(undefined, {
+          maximumFractionDigits: 2
+        }) +
+        " (" +
+        wantsPercent.toFixed(1) +
+        "%)" +
+
         "<br>" +
+
         "Debt payments: " +
-        debt.toLocaleString(undefined, { maximumFractionDigits: 2 }) +
-        " (" + debtPercent.toFixed(1) + "%)" +
+        debt.toLocaleString(undefined, {
+          maximumFractionDigits: 2
+        }) +
+        " (" +
+        debtPercent.toFixed(1) +
+        "%)" +
+
         "<br>" +
+
         "Savings: " +
-        savings.toLocaleString(undefined, { maximumFractionDigits: 2 }) +
-        " (" + savingsPercent.toFixed(1) + "%)" +
+        savings.toLocaleString(undefined, {
+          maximumFractionDigits: 2
+        }) +
+        " (" +
+        savingsPercent.toFixed(1) +
+        "%)" +
+
         "<br><br>" +
+
         "<strong>Remaining: " +
-        remaining.toLocaleString(undefined, { maximumFractionDigits: 2 }) +
-        "</strong><br><br>" +
+        remaining.toLocaleString(undefined, {
+          maximumFractionDigits: 2
+        }) +
+        "</strong>" +
+
+        "<br><br>" +
+
         status;
 
       tip.innerHTML =
         "💡 <strong>Financial Reset Tip:</strong> " +
         guidance +
+
         "<br><br>" +
+
         "Healthy money habits: track your spending, build an emergency fund, pay down high-cost debt, save consistently, and learn before investing. Investments can lose value, so consider your goals and risk tolerance.";
 
       saveFinancialData();
     }
 
 
+    /* =========================================
+       SAVE FINANCIAL DATA
+       ========================================= */
+
     function saveFinancialData() {
+
       const financialData = {
-        income: document.getElementById("monthlyIncome").value,
-        needs: document.getElementById("monthlyNeeds").value,
-        wants: document.getElementById("monthlyWants").value,
-        debt: document.getElementById("monthlyDebt").value,
-        savings: document.getElementById("monthlySavings").value
+
+        income:
+          document.getElementById("monthlyIncome").value,
+
+        needs:
+          document.getElementById("monthlyNeeds").value,
+
+        wants:
+          document.getElementById("monthlyWants").value,
+
+        debt:
+          document.getElementById("monthlyDebt").value,
+
+        savings:
+          document.getElementById("monthlySavings").value
       };
 
       localStorage.setItem(
@@ -1080,23 +1363,67 @@
     }
 
 
+    /* =========================================
+       CLEAR / RESET FINANCIAL RESET
+       ========================================= */
+
+    function clearFinancialReset() {
+
+      document.getElementById("monthlyIncome").value = "";
+      document.getElementById("monthlyNeeds").value = "";
+      document.getElementById("monthlyWants").value = "";
+      document.getElementById("monthlyDebt").value = "";
+      document.getElementById("monthlySavings").value = "";
+
+      document.getElementById("financialResult").innerHTML =
+        "Enter your numbers to see your financial snapshot.";
+
+      document.getElementById("financialTip").innerHTML =
+        "💡 Start with awareness. Knowing where your money goes is the first step toward financial discipline.";
+
+      localStorage.removeItem(
+        "tabingGuhitFinancialReset"
+      );
+    }
+
+
+    /* =========================================
+       LOAD FINANCIAL DATA
+       ========================================= */
+
     function loadFinancialData() {
-      const saved = localStorage.getItem("tabingGuhitFinancialReset");
+
+      const saved =
+        localStorage.getItem("tabingGuhitFinancialReset");
 
       if (!saved) {
         return;
       }
 
       try {
+
         const data = JSON.parse(saved);
 
-        document.getElementById("monthlyIncome").value = data.income || "";
-        document.getElementById("monthlyNeeds").value = data.needs || "";
-        document.getElementById("monthlyWants").value = data.wants || "";
-        document.getElementById("monthlyDebt").value = data.debt || "";
-        document.getElementById("monthlySavings").value = data.savings || "";
+        document.getElementById("monthlyIncome").value =
+          data.income || "";
+
+        document.getElementById("monthlyNeeds").value =
+          data.needs || "";
+
+        document.getElementById("monthlyWants").value =
+          data.wants || "";
+
+        document.getElementById("monthlyDebt").value =
+          data.debt || "";
+
+        document.getElementById("monthlySavings").value =
+          data.savings || "";
+
       } catch (error) {
-        console.log("Financial data could not be loaded.");
+
+        localStorage.removeItem(
+          "tabingGuhitFinancialReset"
+        );
       }
     }
 
@@ -1106,10 +1433,15 @@
        ========================================= */
 
     function growthActivity() {
-      const choice = document.getElementById("growthChoice").value;
-      const result = document.getElementById("growthResult");
+
+      const choice =
+        document.getElementById("growthChoice").value;
+
+      const result =
+        document.getElementById("growthResult");
 
       const reflections = {
+
         clarity: {
           title: "🌿 Give yourself clarity.",
           text: "Write down one thing that is currently confusing you. Then write the one small piece of information or action that could make it clearer."
@@ -1137,7 +1469,10 @@
       };
 
       if (!choice) {
-        result.innerHTML = "Choose one reflection first.";
+
+        result.innerHTML =
+          "Choose one reflection first.";
+
         return;
       }
 
@@ -1145,19 +1480,38 @@
         "<strong>" +
         reflections[choice].title +
         "</strong><br><br>" +
+
         reflections[choice].text +
+
         "<br><br>" +
+
         "💭 <em>What is one small thing you can do today?</em>";
     }
 
 
     /* =========================================
-       LOAD SAVED FINANCIAL INFORMATION
+       CLEAR / RESET PERSONAL GROWTH
        ========================================= */
 
-    document.addEventListener("DOMContentLoaded", function() {
-      loadFinancialData();
-    });
+    function clearGrowthActivity() {
+
+      document.getElementById("growthChoice").value = "";
+
+      document.getElementById("growthResult").innerHTML =
+        "Your reflection will appear here.";
+    }
+
+
+    /* =========================================
+       LOAD SAVED INFORMATION
+       ========================================= */
+
+    document.addEventListener(
+      "DOMContentLoaded",
+      function() {
+        loadFinancialData();
+      }
+    );
 
   </script>
 
