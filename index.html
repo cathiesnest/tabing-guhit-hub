@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -683,7 +684,7 @@
           </div>
 
 
-          <!-- SELF LOVE ACADEMY - UNCHANGED -->
+          <!-- SELF LOVE ACADEMY -->
           <div class="card">
             <h3>✨ Self Love Academy</h3>
             <p>
@@ -713,7 +714,7 @@
           </div>
 
 
-          <!-- CONTINUOUS LEARNING - UNCHANGED -->
+          <!-- CONTINUOUS LEARNING -->
           <div class="card">
             <h3>📚 Continuous Learning</h3>
             <p>
@@ -1024,40 +1025,41 @@
         return;
       }
 
-      result.innerHTML = "Getting the latest exchange rate...";
+      result.innerHTML =
+        "Getting the latest exchange rate...";
 
-      try {
+      /*
+        Save the most recently successful rate.
+        This provides a last-resort fallback if both
+        live services are temporarily unavailable.
+      */
 
-        /*
-          Primary exchange-rate service.
-          We retrieve the base currency once and calculate
-          the requested conversion locally.
-        */
+      const saveRate = (rate) => {
 
-        const response = await fetch(
-          "https://open.er-api.com/v6/latest/" +
-          encodeURIComponent(from),
-          {
-            method: "GET",
-            cache: "no-store"
-          }
-        );
+        try {
 
-        if (!response.ok) {
-          throw new Error("Primary currency service unavailable.");
+          localStorage.setItem(
+            "tabingGuhitRate_" + from + "_" + to,
+            JSON.stringify({
+              rate: rate,
+              savedAt: Date.now()
+            })
+          );
+
+        } catch (error) {
+
+          // Ignore localStorage errors.
+
         }
+      };
 
-        const data = await response.json();
 
-        if (
-          data.result !== "success" ||
-          !data.rates ||
-          typeof data.rates[to] !== "number"
-        ) {
-          throw new Error("Requested exchange rate unavailable.");
-        }
+      /*
+        Display the conversion result.
+      */
 
-        const rate = data.rates[to];
+      const showResult = (rate, note) => {
+
         const converted = amount * rate;
 
         result.innerHTML =
@@ -1075,7 +1077,8 @@
           to +
           "</strong>" +
           "<br>" +
-          "<span class='small-note'>1 " +
+          "<span class='small-note'>" +
+          "1 " +
           from +
           " = " +
           rate.toLocaleString(undefined, {
@@ -1083,70 +1086,181 @@
           }) +
           " " +
           to +
-          "</span>";
+          "</span>" +
+          (
+            note
+              ? "<br><span class='small-note'>" +
+                note +
+                "</span>"
+              : ""
+          );
+      };
 
-      } catch (error) {
+
+      /* =========================================
+         PRIMARY LIVE SERVICE
+         ========================================= */
+
+      try {
+
+        const response = await fetch(
+          "https://open.er-api.com/v6/latest/" +
+          encodeURIComponent(from),
+          {
+            method: "GET",
+            cache: "no-store"
+          }
+        );
+
+        if (!response.ok) {
+          throw new Error(
+            "Primary currency service unavailable."
+          );
+        }
+
+        const data = await response.json();
+
+        if (
+          data.result !== "success" ||
+          !data.rates ||
+          typeof data.rates[to] !== "number"
+        ) {
+          throw new Error(
+            "Requested exchange rate unavailable."
+          );
+        }
+
+        const rate = data.rates[to];
+
+        saveRate(rate);
+
+        showResult(
+          rate,
+          "Live exchange rate."
+        );
+
+        return;
+
+      } catch (primaryError) {
 
         /*
-          Fallback service.
-          This helps provide a better experience if the
-          primary public exchange-rate service is temporarily unavailable.
+          If the primary service fails,
+          automatically continue to the fallback.
         */
 
-        try {
+      }
 
-          const fallbackResponse = await fetch(
-            "https://api.frankfurter.app/latest?from=" +
-            encodeURIComponent(from) +
-            "&to=" +
-            encodeURIComponent(to),
-            {
-              method: "GET",
-              cache: "no-store"
-            }
+
+      /* =========================================
+         SECONDARY LIVE SERVICE
+         ========================================= */
+
+      try {
+
+        const fallbackResponse = await fetch(
+          "https://api.frankfurter.app/latest?from=" +
+          encodeURIComponent(from) +
+          "&to=" +
+          encodeURIComponent(to),
+          {
+            method: "GET",
+            cache: "no-store"
+          }
+        );
+
+        if (!fallbackResponse.ok) {
+          throw new Error(
+            "Fallback currency service unavailable."
+          );
+        }
+
+        const fallbackData =
+          await fallbackResponse.json();
+
+        if (
+          !fallbackData.rates ||
+          typeof fallbackData.rates[to] !== "number"
+        ) {
+          throw new Error(
+            "Fallback exchange rate unavailable."
+          );
+        }
+
+        const rate = fallbackData.rates[to];
+
+        saveRate(rate);
+
+        showResult(
+          rate,
+          "Latest available exchange rate."
+        );
+
+        return;
+
+      } catch (fallbackError) {
+
+        /*
+          If both live services fail,
+          continue to the cached-rate fallback.
+        */
+
+      }
+
+
+      /* =========================================
+         LAST-RESORT CACHED RATE
+         ========================================= */
+
+      try {
+
+        const cached =
+          localStorage.getItem(
+            "tabingGuhitRate_" +
+            from +
+            "_" +
+            to
           );
 
-          if (!fallbackResponse.ok) {
-            throw new Error("Fallback service unavailable.");
-          }
+        if (cached) {
 
-          const fallbackData = await fallbackResponse.json();
+          const cachedData =
+            JSON.parse(cached);
 
           if (
-            !fallbackData.rates ||
-            typeof fallbackData.rates[to] !== "number"
+            cachedData &&
+            typeof cachedData.rate === "number"
           ) {
-            throw new Error("Fallback rate unavailable.");
+
+            showResult(
+              cachedData.rate,
+              "Live rates are temporarily unavailable. Showing your last successfully retrieved rate."
+            );
+
+            return;
           }
-
-          const rate = fallbackData.rates[to];
-          const converted = amount * rate;
-
-          result.innerHTML =
-            "<strong>" +
-            amount.toLocaleString(undefined, {
-              maximumFractionDigits: 2
-            }) +
-            " " +
-            from +
-            " = " +
-            converted.toLocaleString(undefined, {
-              maximumFractionDigits: 2
-            }) +
-            " " +
-            to +
-            "</strong>" +
-            "<br>" +
-            "<span class='small-note'>Latest available exchange rate.</span>";
-
-        } catch (fallbackError) {
-
-          result.innerHTML =
-            "The live exchange-rate service is temporarily unavailable. " +
-            "Please check your internet connection and try again.";
-
         }
+
+      } catch (cacheError) {
+
+        // Ignore cache errors.
+
       }
+
+
+      /* =========================================
+         USER-FRIENDLY FINAL MESSAGE
+         ========================================= */
+
+      result.innerHTML =
+        "<strong>" +
+        "We couldn't retrieve the live exchange rate right now." +
+        "</strong>" +
+        "<br><br>" +
+        "Please check your internet connection and try again in a moment." +
+        "<br><br>" +
+        "<span class='small-note'>" +
+        "Your amount and currency selections are still here." +
+        "</span>";
     }
 
 
@@ -1517,3 +1631,4 @@
 
 </body>
 </html>
+```
