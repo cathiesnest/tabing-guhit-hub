@@ -129,6 +129,8 @@
       color: white;
       font-size: 0.85rem;
       transition: 0.2s ease;
+      border: none;
+      cursor: pointer;
     }
 
     .button:hover {
@@ -194,6 +196,93 @@
       flex-wrap: wrap;
     }
 
+    /* ENHANCED INTERACTIVE TOOLS */
+    .tool-box {
+      margin-top: 18px;
+      padding: 18px;
+      background: #f8f3ed;
+      border-radius: 12px;
+      border: 1px solid #e8ded4;
+    }
+
+    .tool-box label {
+      display: block;
+      font-size: 0.82rem;
+      color: #6f655d;
+      margin-bottom: 5px;
+    }
+
+    .tool-box input,
+    .tool-box select,
+    .tool-box textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #d9cec2;
+      border-radius: 7px;
+      background: #fff;
+      color: #3f3a35;
+      font-family: inherit;
+      font-size: 0.9rem;
+    }
+
+    .tool-box textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .tool-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+    }
+
+    .result-box {
+      margin-top: 12px;
+      padding: 12px;
+      background: #ffffff;
+      border-radius: 8px;
+      border: 1px solid #e1d6cb;
+      font-size: 0.88rem;
+      color: #5c5148;
+    }
+
+    .result-box strong {
+      color: #51473f;
+    }
+
+    .tip-box {
+      margin-top: 12px;
+      padding: 12px;
+      background: #ffffff;
+      border-left: 3px solid #9b8b7c;
+      border-radius: 7px;
+      font-size: 0.84rem;
+      color: #6f655d;
+    }
+
+    .progress-bar {
+      width: 100%;
+      height: 9px;
+      background: #e8ded4;
+      border-radius: 20px;
+      overflow: hidden;
+      margin: 8px 0 12px;
+    }
+
+    .progress-fill {
+      height: 100%;
+      width: 0%;
+      background: #8b7a6c;
+      transition: width 0.3s ease;
+    }
+
+    .small-note {
+      font-size: 0.76rem;
+      color: #8a8078;
+      margin-top: 8px;
+    }
+
     footer {
       text-align: center;
       padding: 30px 20px;
@@ -227,6 +316,10 @@
 
       section {
         padding: 35px 0;
+      }
+
+      .tool-row {
+        grid-template-columns: 1fr;
       }
     }
   </style>
@@ -295,7 +388,7 @@
               rate and the value of your time.
             </p>
             <a class="button"
-               href="https://cathiesnest.github.io/tabing-guhit-3.0/"
+               href="https://cathiesnest.github.io/tabing-guhit-3.0/#calculator"
                target="_blank">
               Check Your Value →
             </a>
@@ -339,23 +432,107 @@
 
         <div class="cards">
 
+          <!-- GLOBAL CURRENCY CALCULATOR -->
           <div class="card">
             <h3>💱 Global Currency Calculator</h3>
             <p>
               A simple way to understand currency values when working
               with international clients.
             </p>
-            <span class="button">Coming Soon</span>
+
+            <div class="tool-box">
+              <div class="tool-row">
+                <div>
+                  <label for="currencyAmount">Amount</label>
+                  <input type="number" id="currencyAmount" value="1" min="0" step="any">
+                </div>
+
+                <div>
+                  <label for="fromCurrency">From</label>
+                  <select id="fromCurrency">
+                    <option value="USD">USD — US Dollar</option>
+                    <option value="PHP">PHP — Philippine Peso</option>
+                    <option value="EUR">EUR — Euro</option>
+                    <option value="GBP">GBP — British Pound</option>
+                    <option value="AUD">AUD — Australian Dollar</option>
+                    <option value="CAD">CAD — Canadian Dollar</option>
+                    <option value="SGD">SGD — Singapore Dollar</option>
+                    <option value="AED">AED — UAE Dirham</option>
+                    <option value="SAR">SAR — Saudi Riyal</option>
+                    <option value="JPY">JPY — Japanese Yen</option>
+                  </select>
+                </div>
+              </div>
+
+              <label for="toCurrency">To</label>
+              <select id="toCurrency">
+                <option value="PHP">PHP — Philippine Peso</option>
+                <option value="USD">USD — US Dollar</option>
+                <option value="EUR">EUR — Euro</option>
+                <option value="GBP">GBP — British Pound</option>
+                <option value="AUD">AUD — Australian Dollar</option>
+                <option value="CAD">CAD — Canadian Dollar</option>
+                <option value="SGD">SGD — Singapore Dollar</option>
+                <option value="AED">AED — UAE Dirham</option>
+                <option value="SAR">SAR — Saudi Riyal</option>
+                <option value="JPY">JPY — Japanese Yen</option>
+              </select>
+
+              <button class="button" onclick="convertCurrency()">
+                Convert →
+              </button>
+
+              <div id="currencyResult" class="result-box">
+                Enter an amount and select your currencies.
+              </div>
+
+              <div class="small-note">
+                Exchange rates are provided through a live public exchange-rate service and may change.
+              </div>
+            </div>
           </div>
 
+
+          <!-- FINANCIAL RESET -->
           <div class="card">
             <h3>💵 Financial Reset</h3>
             <p>
               Organize your numbers, rethink priorities, and create
               a clearer starting point for your financial goals.
             </p>
-            <span class="button">Coming Soon</span>
+
+            <div class="tool-box">
+
+              <label for="monthlyIncome">Monthly Income</label>
+              <input type="number" id="monthlyIncome" placeholder="Example: 50000" min="0" step="any">
+
+              <label for="monthlyNeeds">Needs / Essentials</label>
+              <input type="number" id="monthlyNeeds" placeholder="Rent, food, utilities..." min="0" step="any">
+
+              <label for="monthlyWants">Wants / Lifestyle</label>
+              <input type="number" id="monthlyWants" placeholder="Shopping, dining, entertainment..." min="0" step="any">
+
+              <label for="monthlyDebt">Debt Payments</label>
+              <input type="number" id="monthlyDebt" placeholder="Monthly debt payments" min="0" step="any">
+
+              <label for="monthlySavings">Current Monthly Savings</label>
+              <input type="number" id="monthlySavings" placeholder="Amount you currently save" min="0" step="any">
+
+              <button class="button" onclick="financialReset()">
+                Check My Financial Reset →
+              </button>
+
+              <div id="financialResult" class="result-box">
+                Enter your numbers to see your financial snapshot.
+              </div>
+
+              <div id="financialTip" class="tip-box">
+                💡 Start with awareness. Knowing where your money goes is the first step toward financial discipline.
+              </div>
+
+            </div>
           </div>
+
 
           <div class="card">
             <h3>🧠 Self-Reflection / Wellbeing</h3>
@@ -395,15 +572,45 @@
 
         <div class="cards">
 
+          <!-- PERSONAL GROWTH -->
           <div class="card">
             <h3>🌱 Personal Growth</h3>
             <p>
               Small reflections and practical ideas for becoming
               more intentional with your next chapter.
             </p>
-            <span class="button">Coming Soon</span>
+
+            <div class="tool-box">
+
+              <p>
+                Take a minute to check in with yourself. Choose the statement
+                that best describes what you need right now.
+              </p>
+
+              <label for="growthChoice">What would help you most today?</label>
+
+              <select id="growthChoice">
+                <option value="">Choose one...</option>
+                <option value="clarity">I need more clarity.</option>
+                <option value="confidence">I need more confidence.</option>
+                <option value="discipline">I need better discipline.</option>
+                <option value="courage">I need courage to start.</option>
+                <option value="rest">I need permission to slow down.</option>
+              </select>
+
+              <button class="button" onclick="growthActivity()">
+                Reflect →
+              </button>
+
+              <div id="growthResult" class="result-box">
+                Your reflection will appear here.
+              </div>
+
+            </div>
           </div>
 
+
+          <!-- DO NOT CHANGE: SELF LOVE ACADEMY -->
           <div class="card">
             <h3>✨ Self Love Academy</h3>
             <p>
@@ -417,15 +624,24 @@
             </a>
           </div>
 
+
+          <!-- SHARE & CARE -->
           <div class="card">
             <h3>🤝 Share & Care</h3>
             <p>
               Share helpful resources with someone who might
               need a little encouragement or direction.
             </p>
-            <span class="button">Coming Soon</span>
+
+            <a class="button"
+               href="https://cathiesnest.github.io/tabing-guhit-hub/"
+               target="_blank">
+              Share & Care →
+            </a>
           </div>
 
+
+          <!-- DO NOT CHANGE: CONTINUOUS LEARNING -->
           <div class="card">
             <h3>📚 Continuous Learning</h3>
             <p>
@@ -687,6 +903,263 @@
 
     © 2026 Tabing Guhit. All rights reserved.
   </footer>
+
+
+  <!-- FUNCTIONAL TOOLS -->
+  <script>
+
+    /* =========================================
+       GLOBAL CURRENCY CALCULATOR
+       ========================================= */
+
+    async function convertCurrency() {
+      const amount = parseFloat(document.getElementById("currencyAmount").value);
+      const from = document.getElementById("fromCurrency").value;
+      const to = document.getElementById("toCurrency").value;
+      const result = document.getElementById("currencyResult");
+
+      if (!amount || amount < 0) {
+        result.innerHTML = "Please enter a valid amount.";
+        return;
+      }
+
+      if (from === to) {
+        result.innerHTML =
+          "<strong>Result:</strong> " +
+          amount.toLocaleString(undefined, {
+            maximumFractionDigits: 2
+          }) +
+          " " + from;
+        return;
+      }
+
+      result.innerHTML = "Getting the latest exchange rate...";
+
+      try {
+        const response = await fetch(
+          "https://api.frankfurter.app/latest?amount=" +
+          encodeURIComponent(amount) +
+          "&from=" +
+          encodeURIComponent(from) +
+          "&to=" +
+          encodeURIComponent(to)
+        );
+
+        if (!response.ok) {
+          throw new Error("Currency service unavailable");
+        }
+
+        const data = await response.json();
+        const converted = data.rates[to];
+
+        if (converted === undefined) {
+          throw new Error("Conversion unavailable");
+        }
+
+        result.innerHTML =
+          "<strong>" +
+          amount.toLocaleString(undefined, {
+            maximumFractionDigits: 2
+          }) +
+          " " + from +
+          " = " +
+          converted.toLocaleString(undefined, {
+            maximumFractionDigits: 2
+          }) +
+          " " + to +
+          "</strong><br><span class='small-note'>Latest available market rate.</span>";
+
+      } catch (error) {
+        result.innerHTML =
+          "Sorry, the live exchange rate could not be loaded right now. Please try again.";
+      }
+    }
+
+
+    /* =========================================
+       FINANCIAL RESET
+       ========================================= */
+
+    function financialReset() {
+      const income = parseFloat(document.getElementById("monthlyIncome").value) || 0;
+      const needs = parseFloat(document.getElementById("monthlyNeeds").value) || 0;
+      const wants = parseFloat(document.getElementById("monthlyWants").value) || 0;
+      const debt = parseFloat(document.getElementById("monthlyDebt").value) || 0;
+      const savings = parseFloat(document.getElementById("monthlySavings").value) || 0;
+
+      const result = document.getElementById("financialResult");
+      const tip = document.getElementById("financialTip");
+
+      if (income <= 0) {
+        result.innerHTML = "Please enter your monthly income first.";
+        return;
+      }
+
+      const totalOutflow = needs + wants + debt + savings;
+      const remaining = income - totalOutflow;
+
+      const needsPercent = (needs / income) * 100;
+      const wantsPercent = (wants / income) * 100;
+      const debtPercent = (debt / income) * 100;
+      const savingsPercent = (savings / income) * 100;
+
+      let status = "";
+      let guidance = "";
+
+      if (remaining < 0) {
+        status = "Your current plan is spending more than your income.";
+        guidance =
+          "Start by reviewing wants and recurring expenses. Focus on creating breathing room before increasing investments.";
+      } else if (debtPercent > 30) {
+        status = "Debt is taking a significant share of your monthly income.";
+        guidance =
+          "Prioritize consistent debt payments, avoid adding unnecessary debt, and build a small emergency buffer.";
+      } else if (savingsPercent < 10) {
+        status = "Your savings rate has room to grow.";
+        guidance =
+          "Try starting with a small automatic savings amount. Consistency matters more than starting big.";
+      } else if (wantsPercent > 30) {
+        status = "Lifestyle spending may be taking a larger share of your income.";
+        guidance =
+          "Review subscriptions, shopping, dining, and impulse purchases. Redirect even a small portion toward savings.";
+      } else {
+        status = "You have a positive starting point.";
+        guidance =
+          "Keep building your emergency fund, control lifestyle inflation, and learn about diversified long-term investing.";
+      }
+
+      result.innerHTML =
+        "<strong>Financial Snapshot</strong><br><br>" +
+        "Monthly income: " +
+        income.toLocaleString(undefined, { maximumFractionDigits: 2 }) +
+        "<br>" +
+        "Needs: " +
+        needs.toLocaleString(undefined, { maximumFractionDigits: 2 }) +
+        " (" + needsPercent.toFixed(1) + "%)" +
+        "<br>" +
+        "Wants: " +
+        wants.toLocaleString(undefined, { maximumFractionDigits: 2 }) +
+        " (" + wantsPercent.toFixed(1) + "%)" +
+        "<br>" +
+        "Debt payments: " +
+        debt.toLocaleString(undefined, { maximumFractionDigits: 2 }) +
+        " (" + debtPercent.toFixed(1) + "%)" +
+        "<br>" +
+        "Savings: " +
+        savings.toLocaleString(undefined, { maximumFractionDigits: 2 }) +
+        " (" + savingsPercent.toFixed(1) + "%)" +
+        "<br><br>" +
+        "<strong>Remaining: " +
+        remaining.toLocaleString(undefined, { maximumFractionDigits: 2 }) +
+        "</strong><br><br>" +
+        status;
+
+      tip.innerHTML =
+        "💡 <strong>Financial Reset Tip:</strong> " +
+        guidance +
+        "<br><br>" +
+        "Healthy money habits: track your spending, build an emergency fund, pay down high-cost debt, save consistently, and learn before investing. Investments can lose value, so consider your goals and risk tolerance.";
+
+      saveFinancialData();
+    }
+
+
+    function saveFinancialData() {
+      const financialData = {
+        income: document.getElementById("monthlyIncome").value,
+        needs: document.getElementById("monthlyNeeds").value,
+        wants: document.getElementById("monthlyWants").value,
+        debt: document.getElementById("monthlyDebt").value,
+        savings: document.getElementById("monthlySavings").value
+      };
+
+      localStorage.setItem(
+        "tabingGuhitFinancialReset",
+        JSON.stringify(financialData)
+      );
+    }
+
+
+    function loadFinancialData() {
+      const saved = localStorage.getItem("tabingGuhitFinancialReset");
+
+      if (!saved) {
+        return;
+      }
+
+      try {
+        const data = JSON.parse(saved);
+
+        document.getElementById("monthlyIncome").value = data.income || "";
+        document.getElementById("monthlyNeeds").value = data.needs || "";
+        document.getElementById("monthlyWants").value = data.wants || "";
+        document.getElementById("monthlyDebt").value = data.debt || "";
+        document.getElementById("monthlySavings").value = data.savings || "";
+      } catch (error) {
+        console.log("Financial data could not be loaded.");
+      }
+    }
+
+
+    /* =========================================
+       PERSONAL GROWTH ACTIVITY
+       ========================================= */
+
+    function growthActivity() {
+      const choice = document.getElementById("growthChoice").value;
+      const result = document.getElementById("growthResult");
+
+      const reflections = {
+        clarity: {
+          title: "🌿 Give yourself clarity.",
+          text: "Write down one thing that is currently confusing you. Then write the one small piece of information or action that could make it clearer."
+        },
+
+        confidence: {
+          title: "✨ Remember what you already know.",
+          text: "Name one thing you have successfully handled before. Your past experience is evidence that you can learn, adapt, and move forward."
+        },
+
+        discipline: {
+          title: "🌱 Start smaller than you think.",
+          text: "Choose one habit you want to strengthen. Make it so small that you can realistically repeat it tomorrow. Consistency builds discipline."
+        },
+
+        courage: {
+          title: "💛 You don't need to feel completely ready.",
+          text: "Choose one action that moves you 1% closer to where you want to be. Progress can begin before confidence arrives."
+        },
+
+        rest: {
+          title: "🌸 Rest is part of growth.",
+          text: "Pause without guilt. Ask yourself what your mind and body need today, then give yourself permission to respond with kindness."
+        }
+      };
+
+      if (!choice) {
+        result.innerHTML = "Choose one reflection first.";
+        return;
+      }
+
+      result.innerHTML =
+        "<strong>" +
+        reflections[choice].title +
+        "</strong><br><br>" +
+        reflections[choice].text +
+        "<br><br>" +
+        "💭 <em>What is one small thing you can do today?</em>";
+    }
+
+
+    /* =========================================
+       LOAD SAVED FINANCIAL INFORMATION
+       ========================================= */
+
+    document.addEventListener("DOMContentLoaded", function() {
+      loadFinancialData();
+    });
+
+  </script>
 
 </body>
 </html>
