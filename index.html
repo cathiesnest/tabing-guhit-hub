@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tabing Guhit | Work with Purpose. Live with Balance. Lead with Gratitude.</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, Helvetica, sans-serif;
+      background: #faf7f2;
+      color: #3f3a35;
+      line-height: 1.6;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 92%;
+      max-width: 1050px;
+      margin: auto;
+    }
+
+    header {
+      background: #f3eadf;
+      padding: 70px 20px 60px;
+      text-align: center;
+      border-bottom: 1px solid #e6dbcf;
+    }
+
+    .brand {
+      font-size: 2.5rem;
+      font-weight: 800;
+      letter-spacing: 2px;
+      color: #51473f;
+    }
+
+    .tagline {
+      margin-top: 15px;
+      font-size: 1.15rem;
+      color: #75695f;
+    }
+
+    .powered {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      color: #8b8077;
+    }
+
+    .intro {
+      text-align: center;
+      max-width: 700px;
+      margin: 45px auto;
+      padding: 0 15px;
+    }
+
+    .intro h2 {
+      font-size: 1.8rem;
+      margin-bottom: 12px;
+      color: #51473f;
+    }
+
+    .intro p {
+      color: #70675f;
+      font-size: 1rem;
+    }
+
+    section {
+      padding: 45px 0;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 28px;
+    }
+
+    .section-title h2 {
+      font-size: 1.55rem;
+      letter-spacing: 1.5px;
+      color: #51473f;
+    }
+
+    .section-title p {
+      margin-top: 6px;
+      color: #837970;
+      font-size: 0.95rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 18px;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e8ded4;
+      border-radius: 16px;
+      padding: 25px;
+      box-shadow: 0 5px 18px rgba(70, 55, 40, 0.05);
+    }
+
+    .card h3 {
+      font-size: 1.1rem;
+      color: #51473f;
+      margin-bottom: 8px;
+    }
+
+    .card p {
+      color: #756d66;
+      font-size: 0.93rem;
+      margin-bottom: 15px;
+    }
+
+    .button {
+      display: inline-block;
+      padding: 9px 15px;
+      border-radius: 8px;
+      background: #6f6258;
+      color: white;
+      font-size: 0.85rem;
+      transition: 0.2s ease;
+    }
+
+    .button:hover {
+      opacity: 0.85;
+    }
+
+    .service-card {
+      position: relative;
+    }
+
+    .price {
+      font-weight: bold;
+      font-size: 1.05rem;
+      color: #5c5148;
+      margin-bottom: 10px;
+    }
+
+    .service-card ul {
+      margin: 12px 0 18px 20px;
+      color: #756d66;
+      font-size: 0.9rem;
+    }
+
+    .notice {
+      margin-top: 18px;
+      padding: 16px;
+      background: #f7f1ea;
+      border-left: 3px solid #9b8b7c;
+      border-radius: 8px;
+      font-size: 0.82rem;
+      color: #6f655d;
+    }
+
+    .services-note {
+      text-align: center;
+      max-width: 720px;
+      margin: 25px auto 0;
+      color: #756d66;
+      font-size: 0.9rem;
+    }
+
+    .social {
+      text-align: center;
+      padding: 50px 20px;
+      background: #f3eadf;
+      margin-top: 20px;
+    }
+
+    .social h2 {
+      color: #51473f;
+      margin-bottom: 8px;
+    }
+
+    .social p {
+      color: #756d66;
+      margin-bottom: 20px;
+    }
+
+    .social-buttons {
+      display: flex;
+      justify-content: center;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #4f4741;
+      color: #eee8e2;
+      font-size: 0.85rem;
+    }
+
+    footer strong {
+      display: block;
+      margin-bottom: 5px;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 700px) {
+      header {
+        padding: 55px 18px 45px;
+      }
+
+      .brand {
+        font-size: 2rem;
+      }
+
+      .tagline {
+        font-size: 1rem;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      section {
+        padding: 35px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <div class="container">
+      <div class="brand">TABING GUHIT</div>
+
+      <div class="tagline">
+        Work with Purpose. Live with Balance. Lead with Gratitude.
+      </div>
+
+      <div class="powered">
+        Powered by CathiesNest Digital
+      </div>
+    </div>
+  </header>
+
+
+  <!-- INTRO -->
+  <main>
+
+    <div class="container">
+      <div class="intro">
+        <h2>A simple corner for figuring things out.</h2>
+        <p>
+          Find useful tools, learning opportunities, work resources,
+          and gentle reminders for the journey ahead.
+        </p>
+      </div>
+    </div>
+
+
+    <!-- WORK WITH PURPOSE -->
+    <section>
+      <div class="container">
+
+        <div class="section-title">
+          <h2>WORK WITH PURPOSE</h2>
+          <p>Explore your strengths, skills, opportunities, and value.</p>
+        </div>
+
+        <div class="cards">
+
+          <div class="card">
+            <h3>🔎 Find Your Niche</h3>
+            <p>
+              Discover possible freelance or remote-work directions
+              based on your interests, skills, and experience.
+            </p>
+            <a class="button"
+               href="https://cathiesnest.github.io/tabing-guhit-3.0/"
+               target="_blank">
+              Explore →
+            </a>
+          </div>
+
+          <div class="card">
+            <h3>💰 Know Your Value</h3>
+            <p>
+              Get a starting point for thinking about your freelance
+              rate and the value of your time.
+            </p>
+            <a class="button"
+               href="https://cathiesnest.github.io/tabing-guhit-3.0/"
+               target="_blank">
+              Check Your Value →
+            </a>
+          </div>
+
+          <div class="card">
+            <h3>🎓 Learn for Free</h3>
+            <p>
+              Explore free online courses and learning opportunities
+              to build practical skills.
+            </p>
+            <a class="button"
+               href="https://alison.com/?utm_source=alison_user&utm_medium=affiliate&utm_campaign=42404117"
+               target="_blank">
+              Explore Courses →
+            </a>
+          </div>
+
+          <div class="card">
+            <h3>💼 Remote Work Resources</h3>
+            <p>
+              Helpful resources and ideas for people exploring
+              remote and freelance work.
+            </p>
+            <span class="button">Coming Soon</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- LIVE WITH BALANCE -->
+    <section>
+      <div class="container">
+
+        <div class="section-title">
+          <h2>LIVE WITH BALANCE</h2>
+          <p>Simple tools for money, wellbeing, productivity, and everyday life.</p>
+        </div>
+
+        <div class="cards">
+
+          <div class="card">
+            <h3>💱 Global Currency Calculator</h3>
+            <p>
+              A simple way to understand currency values when working
+              with international clients.
+            </p>
+            <span class="button">Coming Soon</span>
+          </div>
+
+          <div class="card">
+            <h3>💵 Financial Reset</h3>
+            <p>
+              Organize your numbers, rethink priorities, and create
+              a clearer starting point for your financial goals.
+            </p>
+            <span class="button">Coming Soon</span>
+          </div>
+
+          <div class="card">
+            <h3>🧠 Self-Reflection / Wellbeing</h3>
+            <p>
+              Take a quiet moment to reflect, reset, and reconnect
+              with yourself.
+            </p>
+            <a class="button"
+               href="https://cathiesnest.github.io/self-love-academy/"
+               target="_blank">
+              Visit Self Love Academy →
+            </a>
+          </div>
+
+          <div class="card">
+            <h3>🛠️ Productivity & AI Tools</h3>
+            <p>
+              Explore practical tools that can make work and everyday
+              tasks a little easier.
+            </p>
+            <span class="button">Coming Soon</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- LEAD WITH GRATITUDE -->
+    <section>
+      <div class="container">
+
+        <div class="section-title">
+          <h2>LEAD WITH GRATITUDE</h2>
+          <p>Keep growing, learning, sharing, and moving forward.</p>
+        </div>
+
+        <div class="cards">
+
+          <div class="card">
+            <h3>🌱 Personal Growth</h3>
+            <p>
+              Small reflections and practical ideas for becoming
+              more intentional with your next chapter.
+            </p>
+            <span class="button">Coming Soon</span>
+          </div>
+
+          <div class="card">
+            <h3>✨ Self Love Academy</h3>
+            <p>
+              A gentle space for reflection, encouragement,
+              and remembering who you are.
+            </p>
+            <a class="button"
+               href="https://cathiesnest.github.io/self-love-academy/"
+               target="_blank">
+              Visit →
+            </a>
+          </div>
+
+          <div class="card">
+            <h3>🤝 Share & Care</h3>
+            <p>
+              Share helpful resources with someone who might
+              need a little encouragement or direction.
+            </p>
+            <span class="button">Coming Soon</span>
+          </div>
+
+          <div class="card">
+            <h3>📚 Continuous Learning</h3>
+            <p>
+              Keep building knowledge through accessible courses,
+              resources, and practical learning.
+            </p>
+            <a class="button"
+               href="https://alison.com/certificate-courses?utm_source=alison_user&utm_medium=affiliate&utm_campaign=42404117"
+               target="_blank">
+              Keep Learning →
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+
+    <!-- SERVICES -->
+    <section>
+      <div class="container">
+
+        <div class="section-title">
+          <h2>SERVICES</h2>
+          <p>
+            Simple digital tools and portfolio support for freelancers.
+          </p>
+        </div>
+
+        <div class="cards">
+
+          <!-- PORTFOLIO -->
+          <div class="card service-card">
+            <h3>🌐 Freelancer Portfolio</h3>
+
+            <div class="price">
+              ₱2,500 · Approx. US$43
+            </div>
+
+            <p>
+              A personalized portfolio website based on your
+              experience, skills, services, and work.
+            </p>
+
+            <ul>
+              <li>Personalized portfolio layout</li>
+              <li>About / introduction</li>
+              <li>Skills and services</li>
+              <li>Work experience / projects</li>
+              <li>Contact and social links</li>
+              <li>Mobile-friendly design</li>
+              <li>Visual preview before finalizing</li>
+            </ul>
+
+            <div class="notice">
+              <strong>For Upwork Portfolio Requests:</strong><br><br>
+
+              Please inform us upfront if the portfolio is specifically
+              intended for Upwork. Upwork portfolios have specific
+              requirements, guidelines, and terms that must be followed.
+
+              We prepare the portfolio based on the information and
+              materials you provide and the requirements applicable
+              to the platform.
+
+              <br><br>
+
+              <strong>Important Disclaimer:</strong><br><br>
+
+              Creating or improving your portfolio does not guarantee
+              approval, client inquiries, interviews, contracts, or
+              employment on Upwork or any other platform.
+
+              The client is responsible for providing accurate information
+              and ensuring that submitted content complies with Upwork's
+              current Terms of Service, portfolio guidelines, and other
+              applicable requirements. Platform rules may change, so
+              requirements should be verified before submission.
+            </div>
+
+            <br>
+
+            <a class="button"
+               href="https://www.facebook.com/profile.php?id=61580857530656"
+               target="_blank">
+              Ask About This Service →
+            </a>
+          </div>
+
+
+          <!-- INVOICE -->
+          <div class="card service-card">
+            <h3>🧾 Invoice Creator</h3>
+
+            <div class="price">
+              ₱1,500 · Approx. US$26
+            </div>
+
+            <p>
+              A simple professional invoice tool for freelance
+              clients and projects.
+            </p>
+
+            <ul>
+              <li>Clean invoice layout</li>
+              <li>Professional presentation</li>
+              <li>Freelancer-friendly format</li>
+              <li>Easy to use</li>
+            </ul>
+
+            <a class="button"
+               href="https://www.facebook.com/profile.php?id=61580857530656"
+               target="_blank">
+              Ask About This Service →
+            </a>
+          </div>
+
+
+          <!-- CURRENCY -->
+          <div class="card service-card">
+            <h3>💱 Currency Rate Calculator</h3>
+
+            <div class="price">
+              ₱1,500 · Approx. US$26
+            </div>
+
+            <p>
+              A simple currency conversion tool for freelancers
+              working with international clients.
+            </p>
+
+            <ul>
+              <li>Simple conversion interface</li>
+              <li>Freelancer-friendly</li>
+              <li>Easy to use</li>
+              <li>Device-friendly design</li>
+            </ul>
+
+            <a class="button"
+               href="https://www.facebook.com/profile.php?id=61580857530656"
+               target="_blank">
+              Ask About This Service →
+            </a>
+          </div>
+
+
+          <!-- KNOW YOUR VALUE -->
+          <div class="card service-card">
+            <h3>💰 Know Your Value</h3>
+
+            <div class="price">
+              ₱1,500 · Approx. US$26
+            </div>
+
+            <p>
+              A standalone freelance rate calculator based on the
+              rate-calculation function developed for Tabing Guhit's
+              Find Your Niche.
+            </p>
+
+            <ul>
+              <li>Freelance rate calculation</li>
+              <li>Simple inputs</li>
+              <li>Clear results</li>
+              <li>Device-friendly design</li>
+            </ul>
+
+            <a class="button"
+               href="https://www.facebook.com/profile.php?id=61580857530656"
+               target="_blank">
+              Ask About This Service →
+            </a>
+          </div>
+
+
+          <!-- TIME TRACKER -->
+          <div class="card service-card">
+            <h3>⏱️ Time Tracker</h3>
+
+            <div class="price">
+              ₱1,500 · Approx. US$26
+            </div>
+
+            <p>
+              A simple tool for tracking time spent on freelance
+              tasks and projects.
+            </p>
+
+            <ul>
+              <li>Simple time tracking</li>
+              <li>Task-focused</li>
+              <li>Easy to use</li>
+              <li>Device-friendly design</li>
+            </ul>
+
+            <a class="button"
+               href="https://www.facebook.com/profile.php?id=61580857530656"
+               target="_blank">
+              Ask About This Service →
+            </a>
+          </div>
+
+        </div>
+
+        <p class="services-note">
+          Need more than one tool? Ask about the Freelancer Toolkit,
+          which combines selected tools into one package.
+        </p>
+
+      </div>
+    </section>
+
+
+    <!-- STAY CONNECTED -->
+    <section class="social">
+
+      <div class="container">
+
+        <h2>Stay Connected</h2>
+
+        <p>
+          Follow Tabing Guhit for helpful resources, ideas, and updates.
+        </p>
+
+        <div class="social-buttons">
+
+          <a class="button"
+             href="https://ph.pinterest.com/CathiesnestDigitalHub/"
+             target="_blank">
+            Follow on Pinterest →
+          </a>
+
+          <a class="button"
+             href="https://www.facebook.com/profile.php?id=61580857530656"
+             target="_blank">
+            Follow Tabing Guhit on Facebook →
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+    <strong>TABING GUHIT</strong>
+
+    Work with Purpose. Live with Balance. Lead with Gratitude.
+
+    <br><br>
+
+    Powered by CathiesNest Digital
+
+    <br><br>
+
+    © 2026 Tabing Guhit. All rights reserved.
+  </footer>
+
+</body>
+</html>
