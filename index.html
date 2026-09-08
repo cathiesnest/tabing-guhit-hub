@@ -145,17 +145,18 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
       font-weight: 500;
     }
 
-    /* HEADER NAVIGATION - POSITIONING FIX ONLY */
+    /* HEADER NAVIGATION - POSITIONED BELOW POWERED TEXT */
     .header-nav {
-      position: absolute;
-      top: 195px;
-      right: 25px;
+      position: relative;
+      top: auto;
+      right: auto;
       z-index: 10;
       display: flex;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: center;
       flex-wrap: wrap;
       gap: 6px;
+      margin-top: 28px;
     }
 
     .header-nav a,
@@ -182,11 +183,12 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
 
     .about-box {
       display: none;
-      position: absolute;
-      top: 55px;
-      right: 25px;
+      position: relative;
+      top: auto;
+      right: auto;
       z-index: 20;
-      width: min(430px, calc(100vw - 40px));
+      width: min(700px, calc(100vw - 40px));
+      margin: 18px auto 0;
       padding: 20px 22px;
       text-align: left;
       background: rgba(255, 253, 249, 0.97);
@@ -722,17 +724,20 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
 
       /* HEADER NAVIGATION - POSITIONING FIX ONLY */
       .header-nav {
-        position: absolute;
-        top: 165px;
-        right: 20px;
-        justify-content: flex-end;
-        margin-bottom: 0;
+        position: relative;
+        top: auto;
+        right: auto;
+        left: auto;
+        justify-content: center;
+        margin-top: 28px;
       }
 
       .about-box {
-        top: 60px;
-        right: 50%;
-        transform: translateX(50%);
+        position: relative;
+        top: auto;
+        right: auto;
+        transform: none;
+        margin: 18px auto 0;
       }
     }
 
@@ -761,13 +766,13 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
 
       /* HEADER NAVIGATION - POSITIONING FIX ONLY */
       .header-nav {
-        position: absolute;
-        top: 145px;
-        right: 12px;
-        left: 12px;
-        justify-content: flex-end;
+        position: relative;
+        top: auto;
+        right: auto;
+        left: auto;
+        justify-content: center;
         gap: 2px;
-        margin-bottom: 0;
+        margin-top: 25px;
       }
 
       .header-nav a,
@@ -778,8 +783,12 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
       }
 
       .about-box {
+        position: relative;
         width: calc(100vw - 30px);
-        top: 55px;
+        top: auto;
+        right: auto;
+        transform: none;
+        margin: 15px auto 0;
         padding: 17px;
         font-size: 0.78rem;
       }
@@ -822,7 +831,7 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
 <header>
   <div class="container">
 
-    <!-- HEADER NAVIGATION - ADDED ONLY -->
+    <!-- HEADER NAVIGATION -->
     <nav class="header-nav" aria-label="Main navigation">
 
       <button
@@ -852,7 +861,7 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
 
     </nav>
 
-    <!-- ABOUT MESSAGE - ADDED ONLY -->
+    <!-- ABOUT MESSAGE -->
     <div
       id="aboutBox"
       class="about-box"
@@ -1675,7 +1684,7 @@ aria-hidden="true"
 
 <script>
 
-  /* ABOUT BUTTON - ADDED ONLY */
+  /* ABOUT BUTTON */
   function toggleAbout() {
 
     const box =
