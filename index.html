@@ -30,21 +30,36 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
 
     body {
       font-family: "Inter", Arial, Helvetica, sans-serif;
+
+      /* CONTINUOUS WARM NEUTRAL BACKGROUND */
       background:
         radial-gradient(
-          circle at 10% 15%,
-          rgba(166, 119, 91, 0.055) 0,
-          rgba(166, 119, 91, 0) 28%
+          ellipse at 88% 8%,
+          rgba(166, 119, 91, 0.13) 0,
+          rgba(166, 119, 91, 0.055) 22%,
+          rgba(166, 119, 91, 0) 48%
         ),
         radial-gradient(
-          circle at 90% 45%,
-          rgba(140, 67, 40, 0.045) 0,
-          rgba(140, 67, 40, 0) 30%
+          ellipse at 8% 72%,
+          rgba(196, 155, 151, 0.075) 0,
+          rgba(196, 155, 151, 0) 42%
         ),
-        #f4efea;
+        linear-gradient(
+          180deg,
+          #d9c9bf 0%,
+          #e2d5cc 13%,
+          #e9ded7 30%,
+          #eee5de 50%,
+          #f1e9e3 70%,
+          #eee5de 86%,
+          #e4d7ce 100%
+        );
+
+      background-attachment: fixed;
       color: #2b2623;
       line-height: 1.7;
       font-weight: 400;
+      min-height: 100vh;
     }
 
     body::before {
@@ -86,18 +101,21 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
       overflow: hidden;
       text-align: center;
       padding: 105px 20px 90px;
+
+      /* LET THE CONTINUOUS PAGE BACKGROUND SHOW THROUGH */
       background:
         radial-gradient(
           ellipse at 20% 20%,
-          rgba(255, 255, 255, 0.7) 0,
+          rgba(255, 255, 255, 0.30) 0,
           transparent 42%
         ),
         radial-gradient(
           ellipse at 85% 75%,
-          rgba(140, 67, 40, 0.07) 0,
+          rgba(140, 67, 40, 0.045) 0,
           transparent 38%
         ),
-        #e8dfd8;
+        transparent;
+
       border-bottom: none;
     }
 
@@ -207,26 +225,14 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
       position: relative;
       padding: 95px 0;
       scroll-margin-top: 20px;
+
+      /* CONTINUOUS BACKGROUND */
+      background: transparent;
     }
 
-    section:nth-child(even) {
-      background:
-        radial-gradient(
-          ellipse at 10% 50%,
-          rgba(140, 67, 40, 0.035) 0,
-          transparent 35%
-        ),
-        #eee7df;
-    }
-
+    section:nth-child(even),
     section:nth-child(odd) {
-      background:
-        radial-gradient(
-          ellipse at 90% 30%,
-          rgba(110, 103, 97, 0.045) 0,
-          transparent 32%
-        ),
-        #f4efea;
+      background: transparent;
     }
 
     .section-title {
@@ -585,13 +591,16 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
       overflow: hidden;
       text-align: center;
       padding: 60px 20px 45px;
+
+      /* CONTINUOUS WARM NEUTRAL BACKGROUND */
       background:
         radial-gradient(
           ellipse at 15% 15%,
-          rgba(255, 255, 255, 0.5) 0,
+          rgba(255, 255, 255, 0.28) 0,
           transparent 35%
         ),
-        #e8dfd8;
+        transparent;
+
       color: #756c65;
       font-size: 0.78rem;
       font-weight: 300;
