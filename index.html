@@ -1,28 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta
-    name="description"
-    content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratitude."
-  />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <title>Tabing Guhit | Work with Purpose. Live with Balance. Lead with Gratitude.</title>
 
-  <style>
-    :root {
-      --brown: #5b3a29;
-      --brown-dark: #3f281c;
-      --cream: #f8f3ec;
-      --cream-light: #fffaf4;
-      --tan: #d8c1a8;
-      --text: #3f352e;
-      --muted: #7a6d63;
-      --white: #ffffff;
-      --shadow: 0 8px 24px rgba(91, 58, 41, 0.08);
-      --radius: 18px;
-    }
+  <meta
+    name="description"
+    content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratitude. A gentle digital toolbox by CathiesNest Digital."
+  >
 
+  <meta name="theme-color" content="#f5f1e8">
+
+  <style>
     * {
       box-sizing: border-box;
       margin: 0;
@@ -35,13 +26,18 @@
 
     body {
       font-family: Arial, Helvetica, sans-serif;
-      background: var(--cream);
-      color: var(--text);
+      background: #f7f4ee;
+      color: #3f3a34;
       line-height: 1.6;
     }
 
     a {
       color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font-family: inherit;
     }
 
     .container {
@@ -50,404 +46,340 @@
     }
 
     header {
-      background: var(--brown);
-      color: var(--white);
       text-align: center;
-      padding: 56px 20px 48px;
+      padding: 70px 20px 55px;
+      background: #eee7da;
+      border-bottom: 1px solid #ddd2c2;
     }
 
     header h1 {
-      font-size: clamp(2rem, 5vw, 3.4rem);
-      letter-spacing: 0.5px;
-      margin-bottom: 10px;
+      font-size: clamp(2.4rem, 7vw, 4.5rem);
+      letter-spacing: 5px;
+      font-weight: 700;
+      color: #4a443c;
+      margin-bottom: 12px;
     }
 
-    header p {
-      font-size: 1.05rem;
-      opacity: 0.92;
+    .tagline {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      color: #6f665b;
+      margin-bottom: 12px;
     }
 
     .powered {
-      margin-top: 18px;
       font-size: 0.9rem;
-      opacity: 0.8;
-    }
-
-    main {
-      padding: 42px 0 60px;
-    }
-
-    .intro {
-      text-align: center;
-      margin-bottom: 42px;
-    }
-
-    .intro h2 {
-      color: var(--brown);
-      font-size: clamp(1.6rem, 4vw, 2.2rem);
-      margin-bottom: 8px;
-    }
-
-    .intro p {
-      max-width: 720px;
-      margin: 0 auto;
-      color: var(--muted);
+      color: #8b8175;
     }
 
     section {
-      margin-bottom: 50px;
+      padding: 55px 0;
     }
 
-    .section-heading {
-      margin-bottom: 22px;
+    .section-title {
       text-align: center;
+      margin-bottom: 35px;
     }
 
-    .section-heading h2 {
-      color: var(--brown);
-      font-size: 1.8rem;
-      margin-bottom: 5px;
-      text-transform: uppercase;
-      letter-spacing: 0.7px;
+    .section-title h2 {
+      font-size: 2rem;
+      color: #4a443c;
+      margin-bottom: 8px;
     }
 
-    .section-heading p {
-      color: var(--muted);
-      max-width: 700px;
+    .section-title p {
+      color: #7b7165;
+      max-width: 680px;
       margin: 0 auto;
     }
 
-    .grid {
+    .cards {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
     }
 
     .card {
-      background: var(--white);
-      border: 1px solid rgba(91, 58, 41, 0.08);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: var(--shadow);
+      background: #fffdf9;
+      border: 1px solid #ded5c8;
+      border-radius: 18px;
+      padding: 25px;
+      box-shadow: 0 6px 20px rgba(76, 67, 55, 0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(76, 67, 55, 0.1);
     }
 
     .card h3 {
-      color: var(--brown);
+      color: #4d463e;
       margin-bottom: 10px;
-      font-size: 1.15rem;
+      font-size: 1.2rem;
     }
 
     .card p {
-      color: var(--muted);
+      color: #746b61;
       font-size: 0.95rem;
       margin-bottom: 18px;
     }
 
-    .btn {
+    .card-link {
       display: inline-block;
-      background: var(--brown);
-      color: var(--white);
-      text-decoration: none;
-      border: none;
+      padding: 10px 16px;
+      background: #6f665b;
+      color: #fff;
       border-radius: 10px;
-      padding: 10px 15px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: 0.2s ease;
+      font-size: 0.9rem;
+      transition: background 0.2s ease;
     }
 
-    .btn:hover {
-      background: var(--brown-dark);
-      transform: translateY(-1px);
+    .card-link:hover {
+      background: #4f4941;
     }
 
-    .btn.secondary {
-      background: transparent;
-      color: var(--brown);
-      border: 1px solid var(--brown);
-    }
-
-    .btn.secondary:hover {
-      background: var(--brown);
-      color: var(--white);
-    }
-
-    .tool-card {
-      background: var(--cream-light);
-      border: 1px solid var(--tan);
-      border-radius: var(--radius);
-      padding: 24px;
-      box-shadow: var(--shadow);
-    }
-
-    .tool-card h3 {
-      color: var(--brown);
-      margin-bottom: 8px;
-    }
-
-    .tool-card p {
-      color: var(--muted);
-      margin-bottom: 18px;
+    .calculator {
+      background: #fffdf9;
+      border: 1px solid #ded5c8;
+      border-radius: 18px;
+      padding: 25px;
+      max-width: 760px;
+      margin: 0 auto;
+      box-shadow: 0 6px 20px rgba(76, 67, 55, 0.06);
     }
 
     .form-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
       gap: 15px;
     }
 
-    .form-group {
-      display: flex;
-      flex-direction: column;
-      gap: 6px;
-    }
-
-    .form-group label {
-      font-weight: 700;
+    label {
+      display: block;
       font-size: 0.9rem;
-      color: var(--brown-dark);
+      color: #655d54;
+      margin-bottom: 6px;
+      font-weight: 600;
     }
 
     input,
-    select,
-    textarea {
+    select {
       width: 100%;
-      border: 1px solid #d8cec4;
+      padding: 12px 13px;
+      border: 1px solid #d7cdc0;
       border-radius: 10px;
-      padding: 11px 12px;
-      font: inherit;
-      background: var(--white);
-      color: var(--text);
+      background: #fff;
+      color: #3f3a34;
+      font-size: 0.95rem;
+      outline: none;
     }
 
-    textarea {
-      resize: vertical;
-      min-height: 100px;
+    input:focus,
+    select:focus {
+      border-color: #9d9181;
     }
 
-    .full {
-      grid-column: 1 / -1;
-    }
-
-    .actions {
+    .button-row {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
       margin-top: 18px;
     }
 
+    .primary-btn,
+    .secondary-btn {
+      border: none;
+      border-radius: 10px;
+      padding: 11px 17px;
+      cursor: pointer;
+      font-size: 0.92rem;
+    }
+
+    .primary-btn {
+      background: #6f665b;
+      color: white;
+    }
+
+    .secondary-btn {
+      background: #e7dfd3;
+      color: #514a42;
+    }
+
     .result {
-      margin-top: 18px;
-      background: var(--white);
+      margin-top: 20px;
+      padding: 17px;
+      background: #f1ece4;
       border-radius: 12px;
-      padding: 15px;
-      border: 1px solid var(--tan);
-      color: var(--brown-dark);
+      display: none;
     }
 
-    .small-note {
+    .result strong {
+      color: #4c463e;
+    }
+
+    .notice {
+      font-size: 0.8rem;
+      color: #857b70;
       margin-top: 10px;
+    }
+
+    .service-price {
+      font-size: 1.05rem;
+      font-weight: 700;
+      color: #5b534a;
+      margin-bottom: 10px;
+    }
+
+    .service-note {
       font-size: 0.82rem;
-      color: var(--muted);
+      color: #8a8177;
+      margin-top: 12px;
     }
 
-    .services-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
+    .toggle-btn {
+      width: 100%;
+      text-align: left;
+      border: none;
+      background: #eee7dc;
+      color: #514a42;
+      padding: 12px 14px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 10px;
+      font-weight: 600;
     }
 
-    .service-card {
-      background: var(--white);
-      border-radius: var(--radius);
-      padding: 24px;
-      border: 1px solid rgba(91, 58, 41, 0.08);
-      box-shadow: var(--shadow);
+    .toggle-content {
+      display: none;
+      margin-top: 12px;
+      padding: 15px;
+      background: #f7f3ec;
+      border-radius: 10px;
+      font-size: 0.88rem;
+      color: #6d655b;
     }
 
-    .service-card h3 {
-      color: var(--brown);
-      margin-bottom: 8px;
+    .toggle-content p {
+      margin-bottom: 10px;
     }
 
-    .price {
-      font-weight: 700;
-      color: var(--brown-dark);
-      margin-bottom: 12px;
+    .toggle-content p:last-child {
+      margin-bottom: 0;
     }
 
-    .service-card ul {
-      margin: 12px 0 18px 20px;
-      color: var(--muted);
+    .service-button {
+      margin-top: 15px;
+      display: inline-block;
+      background: #6f665b;
+      color: white;
+      padding: 10px 15px;
+      border-radius: 10px;
+      font-size: 0.88rem;
     }
 
-    .service-card li {
-      margin-bottom: 4px;
-    }
-
-    .social {
-      text-align: center;
-      background: var(--brown);
-      color: var(--white);
-      padding: 30px 20px;
-      border-radius: var(--radius);
-    }
-
-    .social h2 {
-      margin-bottom: 8px;
-    }
-
-    .social p {
-      opacity: 0.9;
-      margin-bottom: 15px;
-    }
-
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .social-links a {
-      color: var(--white);
-      text-decoration: none;
-      font-weight: 700;
-    }
-
-    .social-links a:hover {
-      text-decoration: underline;
+    .service-button:hover {
+      background: #4f4941;
     }
 
     footer {
-      background: var(--brown-dark);
-      color: var(--white);
       text-align: center;
-      padding: 30px 20px;
-    }
-
-    footer p {
-      margin-bottom: 6px;
-      opacity: 0.9;
+      padding: 35px 20px;
+      background: #e9e1d5;
+      color: #756c61;
+      font-size: 0.85rem;
     }
 
     footer a {
-      color: var(--white);
-      text-decoration: none;
+      text-decoration: underline;
     }
 
-    @media (max-width: 850px) {
-      .grid,
-      .services-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
+    .back-top {
+      display: inline-block;
+      margin-top: 10px;
     }
 
-    @media (max-width: 620px) {
+    @media (max-width: 600px) {
       header {
-        padding: 42px 18px 38px;
+        padding: 55px 18px 45px;
       }
 
-      main {
-        padding-top: 30px;
+      section {
+        padding: 45px 0;
       }
 
-      .grid,
-      .services-grid,
-      .form-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .card,
-      .tool-card,
-      .service-card {
-        padding: 20px;
-      }
-
-      .actions {
-        flex-direction: column;
-      }
-
-      .actions .btn {
-        width: 100%;
-        text-align: center;
+      .card {
+        padding: 22px;
       }
     }
   </style>
 </head>
 
-<body>
+<body id="top">
 
-  <header>
+<header>
+  <div class="container">
+    <h1>TABING GUHIT</h1>
+    <p class="tagline">Work with Purpose. Live with Balance. Lead with Gratitude.</p>
+    <p class="powered">Powered by CathiesNest Digital</p>
+  </div>
+</header>
+
+<main>
+
+  <!-- WORK WITH PURPOSE -->
+  <section>
     <div class="container">
-      <h1>TABING GUHIT</h1>
-      <p>Work with Purpose. Live with Balance. Lead with Gratitude.</p>
-      <div class="powered">Powered by CathiesNest Digital</div>
-    </div>
-  </header>
 
-  <main class="container">
-
-    <div class="intro">
-      <h2>A simple corner for figuring things out.</h2>
-      <p>
-        Find useful tools, learning opportunities, work resources,
-        and gentle reminders for the journey ahead.
-      </p>
-    </div>
-
-    <!-- WORK WITH PURPOSE -->
-    <section id="work-with-purpose">
-      <div class="section-heading">
-        <h2>Work With Purpose</h2>
-        <p>Explore your strengths, skills, opportunities, and value.</p>
+      <div class="section-title">
+        <h2>Work with Purpose</h2>
+        <p>
+          Discover your direction, understand your value, and build skills
+          that can move you forward.
+        </p>
       </div>
 
-      <div class="grid">
+      <div class="cards">
 
         <div class="card">
-          <h3>🔎 Find Your Niche</h3>
+          <h3>🧭 Find Your Niche</h3>
           <p>
-            Discover possible freelance or remote-work directions based on
-            your interests, skills, and experience.
+            A gentle self-assessment to help you identify possible work,
+            freelance, or digital directions based on what you already know.
           </p>
-
           <a
-            class="btn"
+            class="card-link"
             href="https://cathiesnest.github.io/tabing-guhit-3.0/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Explore →
+            Explore Your Niche →
           </a>
         </div>
 
         <div class="card">
           <h3>💰 Know Your Value</h3>
           <p>
-            Get a starting point for thinking about your freelance rate
-            and the value of your time.
+            Estimate a reasonable freelance rate based on your experience,
+            working hours, and target income.
           </p>
-
           <a
-            class="btn"
+            class="card-link"
             href="https://cathiesnest.github.io/tabing-guhit-3.0/#calculator"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Check Your Value →
+            Know Your Value →
           </a>
         </div>
 
         <div class="card">
-          <h3>🎓 Learn for Free</h3>
+          <h3>📚 Learn for Free</h3>
           <p>
-            Explore free online courses and learning opportunities
-            to build practical skills.
+            Explore online courses that can help you build practical skills
+            and strengthen your future opportunities.
           </p>
-
           <a
-            class="btn"
+            class="card-link"
             href="https://alison.com/?utm_source=affiliate&utm_medium=affiliate&utm_campaign=tabingguhit"
             target="_blank"
             rel="noopener noreferrer"
@@ -457,1386 +389,1044 @@
         </div>
 
       </div>
-    </section>
+    </div>
+  </section>
 
-    <!-- LIVE WITH BALANCE -->
-    <section id="live-with-balance">
+  <!-- LIVE WITH BALANCE -->
+  <section>
+    <div class="container">
 
-      <div class="section-heading">
-        <h2>Live With Balance</h2>
+      <div class="section-title">
+        <h2>Live with Balance</h2>
         <p>
-          Simple tools for money, wellbeing, productivity, and everyday life.
+          Simple tools to help you understand your money and make more
+          intentional financial decisions.
         </p>
       </div>
 
-      <!-- GLOBAL CURRENCY CALCULATOR -->
-      <div class="tool-card" style="margin-bottom: 22px;">
-        <h3>💱 Global Currency Calculator</h3>
-
+      <!-- GLOBAL CURRENCY -->
+      <div class="calculator">
+        <h3>🌍 Global Currency Rate Calculator</h3>
         <p>
-          A simple way to understand currency values when working
-          with international clients.
+          Convert currencies using the latest available exchange rates.
         </p>
 
         <div class="form-grid">
-
-          <div class="form-group">
-            <label for="amount">Amount</label>
+          <div>
+            <label for="currencyAmount">Amount</label>
             <input
-              id="amount"
               type="number"
+              id="currencyAmount"
+              placeholder="Enter amount"
               min="0"
               step="any"
-              placeholder="Enter amount"
-            />
+            >
           </div>
 
-          <div class="form-group">
+          <div>
             <label for="fromCurrency">From</label>
             <select id="fromCurrency">
               <option value="USD">USD — US Dollar</option>
               <option value="PHP">PHP — Philippine Peso</option>
               <option value="EUR">EUR — Euro</option>
               <option value="GBP">GBP — British Pound</option>
+              <option value="JPY">JPY — Japanese Yen</option>
               <option value="AUD">AUD — Australian Dollar</option>
               <option value="CAD">CAD — Canadian Dollar</option>
               <option value="SGD">SGD — Singapore Dollar</option>
-              <option value="AED">AED — UAE Dirham</option>
-              <option value="SAR">SAR — Saudi Riyal</option>
-              <option value="JPY">JPY — Japanese Yen</option>
             </select>
           </div>
 
-          <div class="form-group">
+          <div>
             <label for="toCurrency">To</label>
             <select id="toCurrency">
               <option value="PHP">PHP — Philippine Peso</option>
               <option value="USD">USD — US Dollar</option>
               <option value="EUR">EUR — Euro</option>
               <option value="GBP">GBP — British Pound</option>
+              <option value="JPY">JPY — Japanese Yen</option>
               <option value="AUD">AUD — Australian Dollar</option>
               <option value="CAD">CAD — Canadian Dollar</option>
               <option value="SGD">SGD — Singapore Dollar</option>
-              <option value="AED">AED — UAE Dirham</option>
-              <option value="SAR">SAR — Saudi Riyal</option>
-              <option value="JPY">JPY — Japanese Yen</option>
             </select>
           </div>
-
         </div>
 
-        <div class="actions">
-          <button class="btn" onclick="convertCurrency()">
-            Convert →
+        <div class="button-row">
+          <button class="primary-btn" onclick="convertCurrency()">
+            Convert
           </button>
 
-          <button class="btn secondary" onclick="clearCurrency()">
+          <button class="secondary-btn" onclick="clearCurrency()">
             Clear / Reset
           </button>
         </div>
 
-        <div id="currencyResult" class="result">
-          Enter an amount and select your currencies.
-        </div>
+        <div id="currencyResult" class="result"></div>
 
-        <div class="small-note">
-          Exchange rates are retrieved from a live public exchange-rate
-          service and may change.
-        </div>
+        <p class="notice">
+          Exchange rates are provided for informational purposes only and may
+          differ from the rates offered by banks, payment platforms, or other
+          financial providers.
+        </p>
       </div>
 
       <!-- FINANCIAL RESET -->
-      <div class="tool-card">
-
+      <div class="calculator" style="margin-top:25px;">
         <h3>💵 Financial Reset</h3>
-
         <p>
-          Organize your numbers, rethink priorities, and create a clearer
-          starting point for your financial goals.
+          Get a simple snapshot of your income, expenses, savings, and
+          remaining balance.
         </p>
 
         <div class="form-grid">
 
-          <div class="form-group">
+          <div>
             <label for="income">Monthly Income</label>
             <input
+              type="number"
               id="income"
-              type="number"
+              placeholder="0"
               min="0"
               step="any"
-              placeholder="Example: 50000"
-            />
+            >
           </div>
 
-          <div class="form-group">
-            <label for="needs">Needs / Essentials</label>
+          <div>
+            <label for="expenses">Monthly Expenses</label>
             <input
-              id="needs"
               type="number"
+              id="expenses"
+              placeholder="0"
               min="0"
               step="any"
-              placeholder="Rent, food, utilities..."
-            />
+            >
           </div>
 
-          <div class="form-group">
-            <label for="wants">Wants / Lifestyle</label>
+          <div>
+            <label for="savings">Current Savings</label>
             <input
-              id="wants"
               type="number"
-              min="0"
-              step="any"
-              placeholder="Shopping, dining, entertainment..."
-            />
-          </div>
-
-          <div class="form-group">
-            <label for="debt">Debt Payments</label>
-            <input
-              id="debt"
-              type="number"
-              min="0"
-              step="any"
-              placeholder="Monthly debt payments"
-            />
-          </div>
-
-          <div class="form-group full">
-            <label for="savings">Current Monthly Savings</label>
-            <input
               id="savings"
-              type="number"
+              placeholder="0"
               min="0"
               step="any"
-              placeholder="Amount you currently save"
-            />
+            >
           </div>
 
         </div>
 
-        <div class="actions">
-
-          <button class="btn" onclick="financialReset()">
-            Check My Financial Reset →
+        <div class="button-row">
+          <button class="primary-btn" onclick="financialReset()">
+            Calculate
           </button>
 
-          <button class="btn secondary" onclick="clearFinancialReset()">
+          <button class="secondary-btn" onclick="clearFinancialReset()">
             Clear / Reset
           </button>
-
         </div>
 
-        <div id="financialResult" class="result">
-          Enter your numbers to see your financial snapshot.
-        </div>
-
-        <div class="small-note">
-          💡 Start with awareness. Knowing where your money goes is the first
-          step toward financial discipline.
-        </div>
-
+        <div id="financialResult" class="result"></div>
       </div>
 
-    </section>
+    </div>
+  </section>
 
-    <!-- LEAD WITH GRATITUDE -->
-    <section id="lead-with-gratitude">
+  <!-- LEAD WITH GRATITUDE -->
+  <section>
+    <div class="container">
 
-      <div class="section-heading">
-        <h2>Lead With Gratitude</h2>
+      <div class="section-title">
+        <h2>Lead with Gratitude</h2>
         <p>
-          Keep growing, learning, sharing, and moving forward.
+          Pause, reflect, grow, and remember that progress can be gentle too.
         </p>
       </div>
 
-      <div class="grid">
+      <div class="cards">
 
-        <!-- PERSONAL GROWTH -->
         <div class="card">
-
           <h3>🌱 Personal Growth</h3>
-
           <p>
-            Small reflections and practical ideas for becoming more
-            intentional with your next chapter.
+            Take a moment to reflect on your strengths, lessons, and the
+            person you are becoming.
           </p>
 
-          <p>
-            Take a minute to check in with yourself.
-            Choose the statement that best describes what you need right now.
-          </p>
+          <div>
+            <label for="growthAnswer">
+              What is one thing you are proud of today?
+            </label>
 
-          <div class="form-group">
-            <label for="growthNeed">What would help you most today?</label>
-
-            <select id="growthNeed">
-              <option value="">Choose one...</option>
-              <option value="clarity">I need clarity.</option>
-              <option value="confidence">I need more confidence.</option>
-              <option value="direction">I need direction.</option>
-              <option value="discipline">I need discipline.</option>
-              <option value="patience">I need patience.</option>
-              <option value="courage">I need courage.</option>
-              <option value="rest">I need rest.</option>
-            </select>
+            <input
+              type="text"
+              id="growthAnswer"
+              placeholder="Write something..."
+            >
           </div>
 
-          <div class="actions">
-
-            <button class="btn" onclick="reflectGrowth()">
-              Reflect →
+          <div class="button-row">
+            <button class="primary-btn" onclick="reflectGrowth()">
+              Reflect
             </button>
 
-            <button class="btn secondary" onclick="clearGrowth()">
+            <button class="secondary-btn" onclick="clearGrowth()">
               Clear / Reset
             </button>
-
           </div>
 
-          <div id="growthResult" class="result">
-            Your reflection will appear here.
-          </div>
-
+          <div id="growthResult" class="result"></div>
         </div>
 
-        <!-- SELF LOVE ACADEMY -->
         <div class="card">
-
-          <h3>✨ Self Love Academy</h3>
-
+          <h3>💛 Self Love Academy</h3>
           <p>
-            A gentle space for reflection, encouragement,
-            and remembering who you are.
+            A gentle space for reflection, self-awareness, encouragement,
+            and remembering your worth.
           </p>
 
           <a
-            class="btn"
+            class="card-link"
             href="https://cathiesnest.github.io/self-love-academy/"
             target="_blank"
             rel="noopener noreferrer"
           >
-            Visit →
+            Visit Self Love Academy →
           </a>
-
         </div>
 
-        <!-- SHARE & CARE -->
         <div class="card">
-
           <h3>🤝 Share & Care</h3>
-
           <p>
-            Share helpful resources with someone who might need
-            a little encouragement or direction.
+            Share Tabing Guhit with someone who may need a little direction,
+            balance, or encouragement today.
           </p>
 
-          <button class="btn" onclick="shareCare()">
-            Share & Care →
+          <button class="primary-btn" onclick="shareCare()">
+            Share Tabing Guhit
           </button>
-
-          <div id="shareMessage" class="result" style="display:none;">
-            🤎 Link Copied Successfully! 🎉
-          </div>
-
         </div>
 
       </div>
 
-    </section>
+    </div>
+  </section>
 
-    <!-- SERVICES -->
-    <section id="services">
+  <!-- SERVICES -->
+  <section>
+    <div class="container">
 
-      <div class="section-heading">
-        <h2>Services</h2>
+      <div class="section-title">
+        <h2>Digital Services</h2>
         <p>
-          Simple digital tools and portfolio support for freelancers.
+          Simple, practical digital services designed to help individuals,
+          freelancers, and small businesses work with more clarity.
         </p>
       </div>
 
-      <div class="services-grid">
+      <div class="cards">
 
-        <div class="service-card">
+        <!-- FREELANCER PORTFOLIO -->
+        <div class="card">
+          <h3>🗂️ Freelancer Portfolio</h3>
 
-          <h3>🌐 Freelancer Portfolio</h3>
-
-          <div class="price">₱2,500 · Approx. US$43</div>
+          <div class="service-price">
+            ₱2,500
+          </div>
 
           <p>
-            A personalized portfolio website based on your experience,
-            skills, services, and work.
+            A clean, professional, device-friendly portfolio designed to
+            present your skills, experience, services, and work clearly.
           </p>
 
-          <ul>
-            <li>Personalized portfolio layout</li>
-            <li>About / introduction</li>
-            <li>Skills and services</li>
-            <li>Work experience / projects</li>
-            <li>Contact and social links</li>
-            <li>Mobile-friendly design</li>
-            <li>Visual preview before finalizing</li>
-          </ul>
+          <button
+            class="toggle-btn"
+            onclick="toggleUpworkDisclaimer()"
+          >
+            Upwork Disclaimer ＋
+          </button>
 
-          <!-- UPWORK DISCLAIMER TOGGLE -->
-          <div style="margin-top: 18px;">
+          <div
+            id="upworkDisclaimer"
+            class="toggle-content"
+          >
+            <p>
+              This service is an independent portfolio creation service.
+              It is not affiliated with, endorsed by, or sponsored by
+              Upwork.
+            </p>
 
-            <button
-              type="button"
-              onclick="toggleUpworkDisclaimer()"
-              style="
-                width: 100%;
-                padding: 12px 16px;
-                border: 1px solid var(--tan);
-                border-radius: 12px;
-                background: var(--cream-light);
-                color: var(--brown);
-                font-weight: 700;
-                cursor: pointer;
-                text-align: left;
-                display: flex;
-                align-items: center;
-                gap: 10px;
-                font-family: inherit;
-              "
-              aria-expanded="false"
-              aria-controls="upworkDisclaimer"
-            >
-              <span aria-hidden="true">ⓘ</span>
-              <span>Disclaimer for Upwork Portfolio Requests</span>
-            </button>
+            <p>
+              The portfolio does not guarantee approval, acceptance,
+              employment, contracts, clients, earnings, or success on
+              Upwork or any other freelance platform.
+            </p>
 
-            <div
-              id="upworkDisclaimer"
-              style="
-                display: none;
-                margin-top: 10px;
-                padding: 16px;
-                border-left: 4px solid var(--tan);
-                border-radius: 10px;
-                background: var(--cream);
-                color: var(--text);
-                line-height: 1.6;
-                font-size: 0.92rem;
-              "
-            >
-
-              <p style="margin-top: 0;">
-                <strong>For Upwork Portfolio Requests</strong>
-              </p>
-
-              <p>
-                Please inform us upfront if the portfolio is specifically
-                intended for Upwork. Upwork portfolios have specific
-                requirements, guidelines, and terms that must be followed.
-                We prepare the portfolio based on the information and
-                materials you provide and the requirements applicable
-                to the platform.
-              </p>
-
-              <p>
-                <strong>Important Disclaimer:</strong>
-              </p>
-
-              <p style="margin-bottom: 0;">
-                Creating or improving your portfolio does not guarantee
-                approval, client inquiries, interviews, contracts, or
-                employment on Upwork or any other platform. The client is
-                responsible for providing accurate information and ensuring
-                that submitted content complies with Upwork's current Terms
-                of Service, portfolio guidelines, and other applicable
-                requirements. Platform rules may change, so requirements
-                should be verified before submission.
-              </p>
-
-            </div>
-
+            <p>
+              Clients are responsible for reviewing and complying with the
+              terms, policies, and requirements of any platform where they
+              use their portfolio.
+            </p>
           </div>
 
           <a
-            class="btn"
+            class="service-button"
             href="https://www.facebook.com/profile.php?id=61580857530656"
             target="_blank"
             rel="noopener noreferrer"
           >
             Ask About This Service →
           </a>
-
         </div>
 
-        <div class="service-card">
-
+        <!-- INVOICE CREATOR -->
+        <div class="card">
           <h3>🧾 Invoice Creator</h3>
 
-          <div class="price">₱1,500 · Approx. US$26</div>
+          <div class="service-price">
+            ₱1,500
+          </div>
 
           <p>
-            A simple professional invoice tool for freelance
-            clients and projects.
+            A simple and professional invoice solution for freelancers,
+            independent workers, and small businesses.
           </p>
 
-          <ul>
-            <li>Clean invoice layout</li>
-            <li>Professional presentation</li>
-            <li>Freelancer-friendly format</li>
-            <li>Easy to use</li>
-          </ul>
+          <p class="service-note">
+            Designed for clarity and convenience. Clients remain responsible
+            for checking their own tax, accounting, and business requirements.
+          </p>
 
           <a
-            class="btn"
+            class="service-button"
             href="https://www.facebook.com/profile.php?id=61580857530656"
             target="_blank"
             rel="noopener noreferrer"
           >
             Ask About This Service →
           </a>
-
         </div>
 
-        <div class="service-card">
+        <!-- CURRENCY RATE CALCULATOR -->
+        <div class="card">
+          <h3>🌍 Currency Rate Calculator</h3>
 
-          <h3>💱 Currency Rate Calculator</h3>
-
-          <div class="price">₱1,500 · Approx. US$26</div>
+          <div class="service-price">
+            ₱1,500
+          </div>
 
           <p>
-            A simple currency conversion tool for freelancers
-            working with international clients.
+            A simple currency conversion tool designed for freelancers,
+            online workers, digital sellers, and small businesses working
+            with international clients.
           </p>
 
-          <ul>
-            <li>Simple conversion interface</li>
-            <li>Freelancer-friendly</li>
-            <li>Easy to use</li>
-            <li>Device-friendly design</li>
-          </ul>
+          <p class="service-note">
+            Exchange rates are informational and may differ from actual
+            bank, payment provider, or platform rates.
+          </p>
 
           <a
-            class="btn"
+            class="service-button"
             href="https://www.facebook.com/profile.php?id=61580857530656"
             target="_blank"
             rel="noopener noreferrer"
           >
             Ask About This Service →
           </a>
-
         </div>
 
-        <div class="service-card">
-
+        <!-- KNOW YOUR VALUE -->
+        <div class="card">
           <h3>💰 Know Your Value</h3>
 
-          <div class="price">₱1,500 · Approx. US$26</div>
+          <div class="service-price">
+            ₱1,500
+          </div>
 
           <p>
-            A standalone freelance rate calculator based on the
-            rate-calculation function developed for Tabing Guhit's
-            Find Your Niche.
+            A practical freelance rate calculator that helps you estimate
+            your target hourly or project-based rate based on your goals,
+            expenses, and available working time.
           </p>
 
-          <ul>
-            <li>Freelance rate calculation</li>
-            <li>Simple inputs</li>
-            <li>Clear results</li>
-            <li>Device-friendly design</li>
-          </ul>
+          <p class="service-note">
+            Calculations are estimates for planning purposes and do not
+            guarantee a specific income, client rate, or financial result.
+          </p>
 
           <a
-            class="btn"
+            class="service-button"
             href="https://www.facebook.com/profile.php?id=61580857530656"
             target="_blank"
             rel="noopener noreferrer"
           >
             Ask About This Service →
           </a>
-
         </div>
 
-        <div class="service-card">
-
+        <!-- TIME TRACKER -->
+        <div class="card">
           <h3>⏱️ Time Tracker</h3>
 
-          <div class="price">₱1,500 · Approx. US$26</div>
+          <div class="service-price">
+            ₱1,500
+          </div>
 
           <p>
-            A simple tool for tracking time spent on freelance
-            tasks and projects.
+            A simple time-tracking solution for freelancers, remote workers,
+            and independent professionals who want to understand how they
+            spend their working hours.
           </p>
 
-          <ul>
-            <li>Simple time tracking</li>
-            <li>Task-focused</li>
-            <li>Easy to use</li>
-            <li>Device-friendly design</li>
-          </ul>
+          <p class="service-note">
+            Built to support better awareness, planning, and productivity.
+          </p>
 
           <a
-            class="btn"
+            class="service-button"
             href="https://www.facebook.com/profile.php?id=61580857530656"
             target="_blank"
             rel="noopener noreferrer"
           >
             Ask About This Service →
           </a>
-
         </div>
 
         <!-- TERMS OF PAYMENT -->
-        <div class="service-card">
-
+        <div class="card">
           <h3>💳 Terms of Payment</h3>
 
           <p>
-            Clear, simple, and transparent payment guidelines
-            for local and international clients.
+            Clear, simple, and transparent payment guidelines for local and
+            international clients.
           </p>
 
           <p>
-            <strong>🇵🇭 Philippine Clients</strong><br>
+            <strong>Philippine clients:</strong><br>
             GCash • GoTyme Bank
           </p>
 
           <p>
-            <strong>🌎 International Clients</strong><br>
+            <strong>International clients:</strong><br>
             PayPal
           </p>
 
-          <p style="color: var(--muted); font-size: 0.9rem;">
-            Payment details are provided privately after the service,
-            scope, price, and payment terms have been confirmed.
+          <p class="service-note">
+            Payment details are provided privately after the service, scope,
+            price, and payment terms have been confirmed.
           </p>
 
-          <!-- PAYMENT TERMS TOGGLE -->
-          <div style="margin-top: 18px;">
+          <button
+            class="toggle-btn"
+            onclick="togglePaymentGuidelines()"
+          >
+            Payment Terms &amp; Guidelines <span id="paymentIcon">＋</span>
+          </button>
 
-            <button
-              type="button"
-              onclick="togglePaymentGuidelines()"
-              style="
-                width: 100%;
-                padding: 12px 16px;
-                border: 1px solid var(--tan);
-                border-radius: 12px;
-                background: var(--cream-light);
-                color: var(--brown);
-                font-weight: 700;
-                cursor: pointer;
-                text-align: left;
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                gap: 10px;
-                font-family: inherit;
-              "
-              aria-expanded="false"
-              aria-controls="paymentGuidelines"
-            >
-              <span>
-                <span aria-hidden="true">ⓘ</span>
-                Payment Terms &amp; Guidelines
-              </span>
+          <div
+            id="paymentGuidelines"
+            class="toggle-content"
+          >
 
-              <span id="paymentGuidelinesIcon" aria-hidden="true">＋</span>
-            </button>
+            <p>
+              At <strong>Tabing Guhit Powered by CathiesNest Digital Service</strong>, we believe in
+              keeping every transaction simple, transparent, fair,
+              and respectful.
+            </p>
 
-            <div
-              id="paymentGuidelines"
-              style="
-                display: none;
-                margin-top: 10px;
-                padding: 16px;
-                border-left: 4px solid var(--tan);
-                border-radius: 10px;
-                background: var(--cream);
-                color: var(--text);
-                line-height: 1.6;
-                font-size: 0.92rem;
-              "
-            >
+            <p>
+              <strong>1. Pricing</strong><br>
+              Service prices may change from time to time. The price
+              applicable to a confirmed order will be based on the agreed
+              terms between the client and the service provider.
+            </p>
 
-              <p style="margin-top: 0;">
-                <strong>💳 Terms of Payment</strong>
-              </p>
+            <p>
+              <strong>2. Scope and Deliverables</strong><br>
+              The service scope, deliverables, price, and expected timeline
+              will be discussed and agreed upon before work begins.
+            </p>
 
-              <p>
-                At <strong>CathiesNest Digital</strong>, we believe in
-                keeping every transaction simple, transparent, fair,
-                and respectful.
-              </p>
+            <p>
+              <strong>3. Payment Before Work Begins</strong><br>
+              Work begins after the required payment or deposit has been
+              received and verified, unless a different written arrangement
+              has been agreed upon.
+            </p>
 
-              <p>
-                Prices displayed on this website are current reference
-                prices and <strong>may change, be updated, or be
-                discontinued at any time.</strong> Any price already
-                confirmed and accepted for an existing order will remain
-                based on the agreed terms for that order.
-              </p>
+            <p>
+              <strong>4. Payment Information</strong><br>
+              Sensitive payment credentials such as MPINs, OTPs, passwords,
+              PINs, CVVs, or account security information should never be
+              shared.
+            </p>
 
-              <p>
-                For customized services, the final scope, deliverables,
-                price, and expected timeline will be agreed upon before
-                work begins.
-              </p>
+            <p>
+              Payment details are provided privately after the service,
+              scope, price, and payment terms have been confirmed.
+            </p>
 
-              <p style="margin-bottom: 0;">
-                Work will begin once the required payment or agreed deposit
-                has been received and verified.
-              </p>
+            <p>
+              <strong>5. Ethical and Lawful Services</strong><br>
+              Services will not knowingly be provided for fraud, deception,
+              scams, unlawful activities, plagiarism, academic cheating,
+              impersonation, falsification, copyright or intellectual
+              property infringement, misuse of private information, harmful
+              or exploitative activities, or unauthorized copying or resale.
+            </p>
 
-              <hr style="
-                border: 0;
-                border-top: 1px solid var(--tan);
-                margin: 18px 0;
-              ">
+            <p>
+              Harassment, threats, abusive behavior, or requests that
+              conflict with ethical or lawful business practices may also
+              result in a service being declined.
+            </p>
 
-              <p>
-                <strong>🤝 Our Non-Negotiables</strong>
-              </p>
+            <p>
+              <strong>6. Right to Decline a Project</strong><br>
+              Tabing Guhit Powered by CathiesNest Digital Service reserves the right to decline
+              requests that conflict with ethical standards, applicable
+              laws, platform policies, or reasonable business practices.
+            </p>
 
-              <p>
-                To keep every project fair, respectful, and responsible,
-                we do not accept requests involving:
-              </p>
+            <p>
+              <strong>7. Changes to Scope</strong><br>
+              If the client requests substantial changes or additional work
+              outside the originally agreed scope, a revised quotation,
+              additional fee, and/or revised timeline may apply.
+            </p>
 
-              <ul>
-                <li>Fraud, deception, scams, or unlawful activities</li>
-                <li>Plagiarism, academic cheating, or impersonation</li>
-                <li>Falsification or manipulation of documents or information</li>
-                <li>Copyright or intellectual-property infringement</li>
-                <li>Misuse of personal, financial, confidential, or private information</li>
-                <li>Requests intended to harm, exploit, deceive, or defraud another person</li>
-                <li>Unauthorized copying, resale, redistribution, or misuse of our original work</li>
-                <li>Harassment, threats, abusive behavior, or unreasonable demands</li>
-              </ul>
+            <p>
+              <strong>8. Refunds and Cancellations</strong><br>
+              Payments are generally non-refundable once work has started,
+              particularly where time, customized work, or digital
+              deliverables have already been provided.
+            </p>
 
-              <p>
-                We reserve the right to decline a project when the requested
-                work conflicts with applicable laws, ethical standards,
-                our values, or these terms.
-              </p>
+            <p>
+              Refunds are generally not provided for change of mind, failure
+              to provide required materials or access, client-caused delays
+              or cancellation, post-completion changes, failure to use the
+              completed deliverables, or personal preference where the
+              agreed scope has been fulfilled.
+            </p>
 
-              <p>
-                If a project changes significantly from the originally
-                agreed scope, we will discuss the changes with the client
-                first. Additional work may require a revised quotation,
-                fee, or timeline.
-              </p>
+            <p>
+              If there is a material error, failure to deliver, or a
+              substantial failure to provide the agreed service, the matter
+              will be reviewed fairly and a reasonable remedy may be offered
+              where appropriate.
+            </p>
 
-              <hr style="
-                border: 0;
-                border-top: 1px solid var(--tan);
-                margin: 18px 0;
-              ">
+            <p>
+              Nothing in these terms is intended to remove or limit any
+              consumer rights or legal remedies that cannot lawfully be
+              excluded.
+            </p>
 
-              <p>
-                <strong>🔄 Refund &amp; Cancellation Policy</strong>
-              </p>
+            <p>
+              <strong>9. No Guaranteed Results</strong><br>
+              Digital tools and services are designed to provide practical
+              support and convenience. They do not guarantee employment,
+              freelance work, clients, income, promotions, business success,
+              or any specific financial result.
+            </p>
 
-              <p>
-                Because some services involve customized, digital,
-                creative, or time-based work, <strong>payments are
-                generally non-refundable once work has commenced</strong>,
-                particularly for work that has already been performed or
-                customized specifically for the client.
-              </p>
+            <p>
+              Users and clients are encouraged to conduct their own due
+              diligence and make decisions appropriate to their own
+              circumstances.
+            </p>
 
-              <p>
-                A refund will generally not be provided for:
-              </p>
+            <p>
+              <strong>10. Third-Party Services</strong><br>
+              Any third-party platform, payment provider, course provider,
+              marketplace, or other external service mentioned or linked
+              through Tabing Guhit operates independently.
+            </p>
 
-              <ul>
-                <li>A change of mind after work has started</li>
-                <li>Failure to provide information, materials, access, or approvals needed to complete the project</li>
-                <li>Client-caused delays or cancellation</li>
-                <li>Changes requested after the agreed work has already been completed</li>
-                <li>Failure to use or implement completed deliverables</li>
-                <li>Personal preference when the agreed scope and requirements have been fulfilled</li>
-              </ul>
+            <p>
+              Users should review the third party's own terms, policies,
+              fees, requirements, and legitimacy before signing up,
+              purchasing, or sharing information.
+            </p>
 
-              <p>
-                However, we believe in being fair. If we make a material
-                error, fail to deliver the agreed service, or the delivered
-                work does not reasonably conform to the agreed scope,
-                please contact us so we can review the situation and,
-                where appropriate, correct the work, complete the agreed
-                deliverable, or provide another fair remedy.
-              </p>
+            <p>
+              <strong>11. Commitment to Fairness</strong><br>
+              The goal of these terms is to maintain honest, transparent,
+              fair, respectful, and responsible transactions for everyone
+              involved.
+            </p>
 
-              <p>
-                Nothing in this policy is intended to remove or limit
-                any consumer rights, remedies, or obligations that cannot
-                legally be excluded under applicable law.
-              </p>
+            <p>
+              Tabing Guhit Powered by CathiesNest Digital Service does not
+              intentionally promote unrealistic results, deceptive practices,
+              unlawful activity, exploitative activity, or harmful conduct.
+            </p>
 
-              <hr style="
-                border: 0;
-                border-top: 1px solid var(--tan);
-                margin: 18px 0;
-              ">
-
-              <p>
-                <strong>🌱 What We Provide — and What We Don't Promise</strong>
-              </p>
-
-              <p>
-                Our goal is to provide useful, practical, and accessible
-                digital tools and resources that can help you explore your
-                skills, improve your readiness, organize your work,
-                understand your value, and take meaningful steps toward
-                your personal or professional goals.
-              </p>
-
-              <p>
-                However, <strong>our tools, resources, courses, templates,
-                calculators, guidance, or services do not guarantee
-                employment, freelance work, clients, income, promotions,
-                business success, or any particular financial result.</strong>
-              </p>
-
-              <p>
-                Your results depend on many factors, including your skills,
-                experience, effort, applications, decisions, market
-                conditions, opportunities, and circumstances.
-              </p>
-
-              <p>
-                We encourage every user to conduct their own
-                <strong>due diligence</strong> before making decisions,
-                applying for opportunities, purchasing third-party products
-                or services, enrolling in courses, or relying on information
-                obtained through our resources.
-              </p>
-
-              <p>
-                Where we provide links to third-party websites, platforms,
-                courses, payment services, or opportunities, those services
-                are operated independently by their respective providers.
-                Please review their own terms, policies, fees, requirements,
-                and legitimacy before proceeding.
-              </p>
-
-              <p>
-                <strong>
-                  We provide the tools. You make the decisions.
-                  Your due diligence matters.
-                </strong>
-              </p>
-
-              <hr style="
-                border: 0;
-                border-top: 1px solid var(--tan);
-                margin: 18px 0;
-              ">
-
-              <p>
-                <strong>🤍 Our Commitment</strong>
-              </p>
-
-              <p>
-                We aim to conduct our business with:
-              </p>
-
-              <p>
-                <strong>
-                  Honesty • Transparency • Fairness • Respect • Responsibility
-                </strong>
-              </p>
-
-              <p>
-                We do not promise unrealistic results, and we will not
-                knowingly encourage anyone to participate in deceptive,
-                unlawful, exploitative, or harmful activities.
-              </p>
-
-              <p>
-                Our intention is to build something useful and trustworthy —
-                where clients understand what they are paying for, what we
-                can provide, and what they can reasonably expect.
-              </p>
-
-              <p>
-                <strong>
-                  Clear terms. Honest work. Fair payment.
-                  Respect for both sides.
-                </strong>
-              </p>
-
-              <p style="
-                color: var(--muted);
-                font-size: 0.82rem;
-                margin-bottom: 0;
-              ">
-                These terms are intended as general business terms and are
-                not a substitute for professional legal advice. They are
-                subject to applicable laws and regulations.
-              </p>
-
-            </div>
+            <p>
+              <strong>12. General Information</strong><br>
+              These payment terms are general business guidelines and are not
+              legal advice. They are intended to provide clarity about how
+              services and payments are generally handled and remain subject
+              to applicable laws and regulations.
+            </p>
 
           </div>
 
           <a
-            class="btn"
+            class="service-button"
             href="https://www.facebook.com/profile.php?id=61580857530656"
             target="_blank"
             rel="noopener noreferrer"
-            style="margin-top: 18px;"
           >
             Ask About This Service →
           </a>
-
         </div>
 
       </div>
+    </div>
+  </section>
 
-      <p style="text-align:center; margin-top:20px; color:var(--muted);">
-        Need more than one tool? Ask about the Freelancer Toolkit,
-        which combines selected tools into one package.
-      </p>
+</main>
 
-    </section>
+<footer>
+  <p>
+    © 2026 Tabing Guhit. Powered by CathiesNest Digital.
+  </p>
 
-    <!-- SOCIAL -->
-    <section>
+  <p>
+    <a
+      href="https://ph.pinterest.com/CathiesnestDigitalHub/"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Pinterest
+    </a>
+  </p>
 
-      <div class="social">
+  <a class="back-top" href="#top">
+    ↑ Back to top
+  </a>
+</footer>
 
-        <h2>Stay Connected</h2>
+<script>
 
-        <p>
-          Follow Tabing Guhit for helpful resources, ideas, and updates.
-        </p>
+  async function getExchangeRate(from, to) {
 
-        <div class="social-links">
+    if (from === to) {
+      return 1;
+    }
 
-          <!-- FACEBOOK -->
-          <a
-            href="https://www.facebook.com/profile.php?id=61580857530656"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Visit Tabing Guhit on Facebook"
-            title="Tabing Guhit on Facebook"
-            style="
-              display: inline-flex;
-              align-items: center;
-              gap: 8px;
-              text-decoration: none;
-            "
-          >
-            <span
-              style="
-                width: 34px;
-                height: 34px;
-                border-radius: 50%;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                font-weight: 700;
-                font-size: 22px;
-                background: #1877F2;
-                color: white;
-                line-height: 1;
-              "
-              aria-hidden="true"
-            >
-              f
-            </span>
+    const cacheKey = `exchange_${from}_${to}`;
 
-            <span>Facebook</span>
-          </a>
+    try {
+      const cached = localStorage.getItem(cacheKey);
 
-          <span>·</span>
+      if (cached) {
+        const cachedData = JSON.parse(cached);
 
-          <!-- PINTEREST -->
-          <a
-            href="https://ph.pinterest.com/CathiesnestDigitalHub/"
-            target="_blank"
-            rel="noopener noreferrer"
-            aria-label="Visit CathiesNest Digital Hub on Pinterest"
-            title="CathiesNest Digital Hub on Pinterest"
-            style="
-              display: inline-flex;
-              align-items: center;
-              gap: 8px;
-              text-decoration: none;
-            "
-          >
-            <span
-              style="
-                width: 34px;
-                height: 34px;
-                border-radius: 50%;
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                font-weight: 700;
-                font-size: 20px;
-                background: #E60023;
-                color: white;
-                line-height: 1;
-              "
-              aria-hidden="true"
-            >
-              p
-            </span>
-
-            <span>Pinterest</span>
-          </a>
-
-        </div>
-
-      </div>
-
-    </section>
-
-  </main>
-
-  <footer>
-
-    <p><strong>TABING GUHIT</strong></p>
-
-    <p>
-      Work with Purpose. Live with Balance. Lead with Gratitude.
-    </p>
-
-    <p>Powered by CathiesNest Digital</p>
-
-    <p style="margin-top:15px;">
-      <a href="#top">↑ Back to Top</a>
-    </p>
-
-    <p style="margin-top:15px;">
-      © 2026 Tabing Guhit. All rights reserved.
-    </p>
-
-  </footer>
-
-  <script>
-
-    // ==============================
-    // CURRENCY CALCULATOR
-    // ==============================
-
-    const exchangeCache = {};
-
-    async function getExchangeRate(from, to) {
-
-      if (from === to) {
-        return 1;
-      }
-
-      const cacheKey = `${from}_${to}`;
-
-      if (exchangeCache[cacheKey]) {
-        return exchangeCache[cacheKey];
-      }
-
-      const stored = localStorage.getItem(`exchange_${cacheKey}`);
-
-      if (stored) {
-        try {
-
-          const parsed = JSON.parse(stored);
-
-          if (
-            parsed &&
-            parsed.rate &&
-            Date.now() - parsed.timestamp < 6 * 60 * 60 * 1000
-          ) {
-            exchangeCache[cacheKey] = parsed.rate;
-            return parsed.rate;
-          }
-
-        } catch (error) {
-          console.warn("Stored exchange rate could not be read.");
+        if (
+          cachedData.timestamp &&
+          Date.now() - cachedData.timestamp < 6 * 60 * 60 * 1000
+        ) {
+          return cachedData.rate;
         }
       }
+    } catch (error) {
+      console.log("Cache read error:", error);
+    }
+
+    try {
+
+      const response = await fetch(
+        `https://open.er-api.com/v6/latest/${from}`
+      );
+
+      if (!response.ok) {
+        throw new Error("Primary API failed");
+      }
+
+      const data = await response.json();
+
+      if (
+        data.result !== "success" ||
+        !data.rates ||
+        !data.rates[to]
+      ) {
+        throw new Error("Invalid exchange rate");
+      }
+
+      const rate = data.rates[to];
 
       try {
-
-        const response = await fetch(
-          `https://open.er-api.com/v6/latest/${from}`
-        );
-
-        if (!response.ok) {
-          throw new Error("Primary exchange API failed.");
-        }
-
-        const data = await response.json();
-
-        if (!data.rates || !data.rates[to]) {
-          throw new Error("Exchange rate unavailable.");
-        }
-
-        const rate = data.rates[to];
-
-        exchangeCache[cacheKey] = rate;
-
         localStorage.setItem(
-          `exchange_${cacheKey}`,
+          cacheKey,
           JSON.stringify({
             rate: rate,
             timestamp: Date.now()
           })
         );
+      } catch (error) {
+        console.log("Cache write error:", error);
+      }
 
-        return rate;
+      return rate;
 
-      } catch (primaryError) {
+    } catch (primaryError) {
+
+      try {
+
+        const fallbackResponse = await fetch(
+          `https://api.frankfurter.app/latest?from=${from}&to=${to}`
+        );
+
+        if (!fallbackResponse.ok) {
+          throw new Error("Fallback API failed");
+        }
+
+        const fallbackData = await fallbackResponse.json();
+
+        if (
+          !fallbackData.rates ||
+          !fallbackData.rates[to]
+        ) {
+          throw new Error("Fallback rate unavailable");
+        }
+
+        const rate = fallbackData.rates[to];
 
         try {
-
-          const fallbackResponse = await fetch(
-            `https://api.frankfurter.app/latest?from=${from}&to=${to}`
-          );
-
-          if (!fallbackResponse.ok) {
-            throw new Error("Fallback exchange API failed.");
-          }
-
-          const fallbackData = await fallbackResponse.json();
-
-          if (!fallbackData.rates || !fallbackData.rates[to]) {
-            throw new Error("Fallback exchange rate unavailable.");
-          }
-
-          const rate = fallbackData.rates[to];
-
-          exchangeCache[cacheKey] = rate;
-
           localStorage.setItem(
-            `exchange_${cacheKey}`,
+            cacheKey,
             JSON.stringify({
               rate: rate,
               timestamp: Date.now()
             })
           );
-
-          return rate;
-
-        } catch (fallbackError) {
-
-          throw new Error(
-            "Live exchange rate is temporarily unavailable."
-          );
-
+        } catch (error) {
+          console.log("Cache write error:", error);
         }
 
-      }
+        return rate;
 
-    }
+      } catch (fallbackError) {
 
-    async function convertCurrency() {
-
-      const amount = parseFloat(
-        document.getElementById("amount").value
-      );
-
-      const from = document.getElementById("fromCurrency").value;
-      const to = document.getElementById("toCurrency").value;
-
-      const result = document.getElementById("currencyResult");
-
-      if (!amount || amount < 0) {
-
-        result.textContent =
-          "Please enter a valid amount.";
-
-        return;
-      }
-
-      result.textContent =
-        "Loading live exchange rate...";
-
-      try {
-
-        const rate = await getExchangeRate(from, to);
-
-        const converted = amount * rate;
-
-        result.innerHTML =
-          `<strong>${amount.toLocaleString()} ${from}</strong>
-          = <strong>${converted.toLocaleString(undefined, {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-          })} ${to}</strong>
-          <br>
-          <span style="font-size:0.85rem;">
-            1 ${from} = ${rate.toLocaleString(undefined, {
-              minimumFractionDigits: 4,
-              maximumFractionDigits: 6
-            })} ${to}
-          </span>`;
-
-      } catch (error) {
-
-        result.textContent =
-          "Sorry, the live exchange rate is temporarily unavailable. Please try again in a moment.";
-
-      }
-
-    }
-
-    function clearCurrency() {
-
-      document.getElementById("amount").value = "";
-
-      document.getElementById("fromCurrency").value = "USD";
-
-      document.getElementById("toCurrency").value = "PHP";
-
-      document.getElementById("currencyResult").textContent =
-        "Enter an amount and select your currencies.";
-
-    }
-
-
-    // ==============================
-    // FINANCIAL RESET
-    // ==============================
-
-    function financialReset() {
-
-      const income =
-        parseFloat(document.getElementById("income").value) || 0;
-
-      const needs =
-        parseFloat(document.getElementById("needs").value) || 0;
-
-      const wants =
-        parseFloat(document.getElementById("wants").value) || 0;
-
-      const debt =
-        parseFloat(document.getElementById("debt").value) || 0;
-
-      const savings =
-        parseFloat(document.getElementById("savings").value) || 0;
-
-      const totalExpenses =
-        needs + wants + debt;
-
-      const remaining =
-        income - totalExpenses - savings;
-
-      const result =
-        document.getElementById("financialResult");
-
-      if (income <= 0) {
-
-        result.textContent =
-          "Please enter your monthly income first.";
-
-        return;
-      }
-
-      let message = "";
-
-      if (remaining > 0) {
-
-        message =
-          `You currently have approximately ₱${remaining.toLocaleString(undefined, {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-          })} left after your listed expenses and savings.`;
-
-      } else if (remaining === 0) {
-
-        message =
-          "Your current income is fully allocated based on the numbers you entered.";
-
-      } else {
-
-        message =
-          `Your current plan is approximately ₱${Math.abs(remaining).toLocaleString(undefined, {
-            minimumFractionDigits: 2,
-            maximumFractionDigits: 2
-          })} over your monthly income.`;
-
-      }
-
-      result.innerHTML =
-        `<strong>Financial Snapshot</strong><br><br>
-        Monthly Income: ₱${income.toLocaleString()}<br>
-        Needs / Essentials: ₱${needs.toLocaleString()}<br>
-        Wants / Lifestyle: ₱${wants.toLocaleString()}<br>
-        Debt Payments: ₱${debt.toLocaleString()}<br>
-        Current Savings: ₱${savings.toLocaleString()}<br><br>
-        ${message}`;
-
-    }
-
-    function clearFinancialReset() {
-
-      document.getElementById("income").value = "";
-      document.getElementById("needs").value = "";
-      document.getElementById("wants").value = "";
-      document.getElementById("debt").value = "";
-      document.getElementById("savings").value = "";
-
-      document.getElementById("financialResult").textContent =
-        "Enter your numbers to see your financial snapshot.";
-
-    }
-
-
-    // ==============================
-    // PERSONAL GROWTH
-    // ==============================
-
-    function reflectGrowth() {
-
-      const need =
-        document.getElementById("growthNeed").value;
-
-      const result =
-        document.getElementById("growthResult");
-
-      const reflections = {
-
-        clarity:
-          "You don't need to figure everything out today. Start with the next clear step.",
-
-        confidence:
-          "Confidence grows through action. Give yourself permission to begin before you feel completely ready.",
-
-        direction:
-          "You may not have the whole map yet. Focus on the direction that feels meaningful and take one step.",
-
-        discipline:
-          "Small consistent actions can create bigger changes than occasional bursts of motivation.",
-
-        patience:
-          "Some chapters take longer than expected. Give yourself room to grow without rushing your process.",
-
-        courage:
-          "Courage does not mean having no fear. It means choosing to move forward despite it.",
-
-        rest:
-          "Rest is not wasted time. Sometimes slowing down is exactly what helps you move forward with clarity."
-
-      };
-
-      if (!need) {
-
-        result.textContent =
-          "Please choose what would help you most today.";
-
-        return;
-      }
-
-      result.textContent =
-        reflections[need];
-
-    }
-
-    function clearGrowth() {
-
-      document.getElementById("growthNeed").value = "";
-
-      document.getElementById("growthResult").textContent =
-        "Your reflection will appear here.";
-
-    }
-
-
-    // ==============================
-    // SHARE & CARE
-    // ==============================
-
-    async function shareCare() {
-
-      const shareMessage =
-        document.getElementById("shareMessage");
-
-      try {
-
-        await navigator.clipboard.writeText(
-          window.location.href
+        console.error(
+          "Exchange rate error:",
+          primaryError,
+          fallbackError
         );
 
-        shareMessage.style.display = "block";
-
-        setTimeout(() => {
-
-          shareMessage.style.display = "none";
-
-        }, 2500);
-
-      } catch (error) {
-
-        shareMessage.textContent =
-          "Please copy the page link from your browser to share it.";
-
-        shareMessage.style.display = "block";
-
-        setTimeout(() => {
-
-          shareMessage.style.display = "none";
-
-        }, 3000);
-
+        throw new Error(
+          "Sorry, the live exchange rate could not be loaded right now. Please try again."
+        );
       }
+    }
+  }
 
+
+  async function convertCurrency() {
+
+    const amountInput =
+      document.getElementById("currencyAmount");
+
+    const from =
+      document.getElementById("fromCurrency").value;
+
+    const to =
+      document.getElementById("toCurrency").value;
+
+    const result =
+      document.getElementById("currencyResult");
+
+    const amount =
+      parseFloat(amountInput.value);
+
+    result.style.display = "block";
+
+    if (
+      isNaN(amount) ||
+      amount < 0
+    ) {
+
+      result.innerHTML =
+        "Please enter a valid amount.";
+
+      return;
     }
 
+    result.innerHTML =
+      "Loading the latest available exchange rate...";
 
-    // ==============================
-    // UPWORK PORTFOLIO DISCLAIMER
-    // ==============================
+    try {
 
-    function toggleUpworkDisclaimer() {
+      const rate =
+        await getExchangeRate(from, to);
 
-      const disclaimer =
-        document.getElementById("upworkDisclaimer");
+      const converted =
+        amount * rate;
 
-      const button =
-        disclaimer.previousElementSibling;
+      result.innerHTML = `
+        <strong>${amount.toLocaleString()} ${from}</strong>
+        =
+        <strong>${converted.toLocaleString(undefined, {
+          maximumFractionDigits: 2
+        })} ${to}</strong>
+        <br>
+        <span style="font-size:0.85rem;">
+          Exchange rate: 1 ${from} = ${rate.toFixed(6)} ${to}
+        </span>
+      `;
 
-      const isOpen =
-        disclaimer.style.display === "block";
+    } catch (error) {
 
-      disclaimer.style.display =
-        isOpen ? "none" : "block";
+      result.innerHTML =
+        "Sorry, the live exchange rate could not be loaded right now. Please try again.";
+    }
+  }
 
-      button.setAttribute(
-        "aria-expanded",
-        String(!isOpen)
+
+  function clearCurrency() {
+
+    document.getElementById("currencyAmount").value = "";
+
+    document.getElementById("fromCurrency").value = "USD";
+
+    document.getElementById("toCurrency").value = "PHP";
+
+    const result =
+      document.getElementById("currencyResult");
+
+    result.innerHTML = "";
+
+    result.style.display = "none";
+  }
+
+
+  function financialReset() {
+
+    const income =
+      parseFloat(
+        document.getElementById("income").value
+      ) || 0;
+
+    const expenses =
+      parseFloat(
+        document.getElementById("expenses").value
+      ) || 0;
+
+    const savings =
+      parseFloat(
+        document.getElementById("savings").value
+      ) || 0;
+
+    const remaining =
+      income - expenses;
+
+    const result =
+      document.getElementById("financialResult");
+
+    result.style.display = "block";
+
+    result.innerHTML = `
+      <strong>Financial Snapshot</strong><br><br>
+
+      Monthly income:
+      <strong>₱${income.toLocaleString()}</strong><br>
+
+      Monthly expenses:
+      <strong>₱${expenses.toLocaleString()}</strong><br>
+
+      Monthly remaining:
+      <strong>₱${remaining.toLocaleString()}</strong><br>
+
+      Current savings:
+      <strong>₱${savings.toLocaleString()}</strong>
+    `;
+  }
+
+
+  function clearFinancialReset() {
+
+    document.getElementById("income").value = "";
+
+    document.getElementById("expenses").value = "";
+
+    document.getElementById("savings").value = "";
+
+    const result =
+      document.getElementById("financialResult");
+
+    result.innerHTML = "";
+
+    result.style.display = "none";
+  }
+
+
+  function reflectGrowth() {
+
+    const answer =
+      document
+        .getElementById("growthAnswer")
+        .value
+        .trim();
+
+    const result =
+      document.getElementById("growthResult");
+
+    result.style.display = "block";
+
+    if (!answer) {
+
+      result.innerHTML =
+        "Take a moment and write something you're proud of.";
+
+      return;
+    }
+
+    const messages = [
+
+      "You are allowed to be proud of your progress, even when it feels small.",
+
+      "Every step forward counts. Your progress does not have to be perfect to be meaningful.",
+
+      "What you are building today can become the foundation for tomorrow.",
+
+      "Give yourself credit for continuing, learning, and trying.",
+
+      "Your journey is still unfolding. Keep going gently."
+    ];
+
+    const message =
+      messages[
+        Math.floor(
+          Math.random() * messages.length
+        )
+      ];
+
+    result.innerHTML = `
+      <strong>Your reflection:</strong><br>
+      ${answer}<br><br>
+      <strong>${message}</strong>
+    `;
+  }
+
+
+  function clearGrowth() {
+
+    document.getElementById("growthAnswer").value = "";
+
+    const result =
+      document.getElementById("growthResult");
+
+    result.innerHTML = "";
+
+    result.style.display = "none";
+  }
+
+
+  function shareCare() {
+
+    const shareText =
+      "Take a gentle pause with Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratitude.";
+
+    const shareUrl =
+      "https://cathiesnest.github.io/tabing-guhit-hub/";
+
+    if (
+      navigator.share
+    ) {
+
+      navigator.share({
+        title: "Tabing Guhit",
+        text: shareText,
+        url: shareUrl
+      }).catch(() => {});
+
+    } else {
+
+      navigator.clipboard
+        .writeText(
+          `${shareText} ${shareUrl}`
+        )
+        .then(() => {
+
+          alert(
+            "Tabing Guhit link copied. You can now share it with someone who may find it helpful."
+          );
+
+        })
+        .catch(() => {
+
+          alert(
+            shareUrl
+          );
+
+        });
+    }
+  }
+
+
+  function toggleUpworkDisclaimer() {
+
+    const content =
+      document.getElementById(
+        "upworkDisclaimer"
       );
 
-    }
-
-
-    // ==============================
-    // PAYMENT TERMS & GUIDELINES
-    // ==============================
-
-    function togglePaymentGuidelines() {
-
-      const guidelines =
-        document.getElementById("paymentGuidelines");
-
-      const button =
-        guidelines.previousElementSibling;
-
-      const icon =
-        document.getElementById("paymentGuidelinesIcon");
-
-      const isOpen =
-        guidelines.style.display === "block";
-
-      guidelines.style.display =
-        isOpen ? "none" : "block";
-
-      button.setAttribute(
-        "aria-expanded",
-        String(!isOpen)
+    const button =
+      document.querySelector(
+        ".card:first-child .toggle-btn"
       );
 
-      icon.textContent =
-        isOpen ? "＋" : "−";
+    if (
+      content.style.display === "block"
+    ) {
 
+      content.style.display = "none";
+
+      button.innerHTML =
+        "Upwork Disclaimer ＋";
+
+    } else {
+
+      content.style.display = "block";
+
+      button.innerHTML =
+        "Upwork Disclaimer −";
     }
+  }
 
-  </script>
+
+  function togglePaymentGuidelines() {
+
+    const content =
+      document.getElementById(
+        "paymentGuidelines"
+      );
+
+    const icon =
+      document.getElementById(
+        "paymentIcon"
+      );
+
+    if (
+      content.style.display === "block"
+    ) {
+
+      content.style.display = "none";
+
+      icon.textContent = "＋";
+
+    } else {
+
+      content.style.display = "block";
+
+      icon.textContent = "−";
+    }
+  }
+
+</script>
 
 </body>
 </html>
