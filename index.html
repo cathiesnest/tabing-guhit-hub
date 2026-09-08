@@ -13,9 +13,11 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
 
 >
 
-  <meta name="theme-color" content="#f5f1e8">
+  <meta name="theme-color" content="#f4efea">
 
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -27,10 +29,42 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
     }
 
     body {
-      font-family: Arial, Helvetica, sans-serif;
-      background: #f7f4ee;
-      color: #3f3a34;
-      line-height: 1.6;
+      font-family: "Inter", Arial, Helvetica, sans-serif;
+      background:
+        radial-gradient(
+          circle at 10% 15%,
+          rgba(166, 119, 91, 0.055) 0,
+          rgba(166, 119, 91, 0) 28%
+        ),
+        radial-gradient(
+          circle at 90% 45%,
+          rgba(140, 67, 40, 0.045) 0,
+          rgba(140, 67, 40, 0) 30%
+        ),
+        #f4efea;
+      color: #2b2623;
+      line-height: 1.7;
+      font-weight: 400;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.35;
+      background:
+        radial-gradient(
+          ellipse at 15% 80%,
+          rgba(111, 103, 97, 0.045) 0,
+          transparent 32%
+        ),
+        radial-gradient(
+          ellipse at 85% 10%,
+          rgba(140, 67, 40, 0.035) 0,
+          transparent 30%
+        );
     }
 
     a {
@@ -43,61 +77,137 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
     }
 
     .container {
-      width: min(1100px, 92%);
+      width: min(1120px, 90%);
       margin: 0 auto;
     }
 
     header {
+      position: relative;
+      overflow: hidden;
       text-align: center;
-      padding: 70px 20px 55px;
-      background: #eee7da;
-      border-bottom: 1px solid #ddd2c2;
+      padding: 105px 20px 90px;
+      background:
+        radial-gradient(
+          ellipse at 20% 20%,
+          rgba(255, 255, 255, 0.7) 0,
+          transparent 42%
+        ),
+        radial-gradient(
+          ellipse at 85% 75%,
+          rgba(140, 67, 40, 0.07) 0,
+          transparent 38%
+        ),
+        #e8dfd8;
+      border-bottom: none;
+    }
+
+    header::after {
+      content: "";
+      position: absolute;
+      width: 260px;
+      height: 260px;
+      right: -80px;
+      top: -90px;
+      border-radius: 48% 52% 58% 42%;
+      background: rgba(140, 67, 40, 0.045);
+      transform: rotate(25deg);
+      pointer-events: none;
+    }
+
+    header .container {
+      position: relative;
+      z-index: 1;
     }
 
     header h1 {
-      font-size: clamp(2.4rem, 7vw, 4.5rem);
-      letter-spacing: 5px;
-      font-weight: 700;
-      color: #4a443c;
-      margin-bottom: 12px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(3.2rem, 9vw, 6rem);
+      letter-spacing: 9px;
+      line-height: 0.95;
+      font-weight: 600;
+      color: #2b2623;
+      margin-bottom: 24px;
     }
 
     .tagline {
       font-size: clamp(1rem, 2.5vw, 1.25rem);
-      color: #6f665b;
-      margin-bottom: 12px;
+      color: #6e6761;
+      margin-bottom: 16px;
+      letter-spacing: 0.4px;
+      font-weight: 300;
     }
 
     .powered {
-      font-size: 0.9rem;
-      color: #8b8175;
+      font-size: 0.78rem;
+      color: #8c8178;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      font-weight: 500;
     }
 
     section {
-      padding: 55px 0;
+      position: relative;
+      padding: 95px 0;
+    }
+
+    section:nth-child(even) {
+      background:
+        radial-gradient(
+          ellipse at 10% 50%,
+          rgba(140, 67, 40, 0.035) 0,
+          transparent 35%
+        ),
+        #eee7df;
+    }
+
+    section:nth-child(odd) {
+      background:
+        radial-gradient(
+          ellipse at 90% 30%,
+          rgba(110, 103, 97, 0.045) 0,
+          transparent 32%
+        ),
+        #f4efea;
     }
 
     .section-title {
       text-align: center;
-      margin-bottom: 35px;
+      margin-bottom: 55px;
+      padding: 0 15px;
+    }
+
+    .section-title::before {
+      content: "";
+      display: block;
+      width: 42px;
+      height: 1px;
+      margin: 0 auto 22px;
+      background: #8c4328;
+      opacity: 0.75;
     }
 
     .section-title h2 {
-      font-size: 2rem;
-      color: #4a443c;
-      margin-bottom: 8px;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      line-height: 1;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #2b2623;
+      margin-bottom: 16px;
     }
 
     .section-title p {
-      color: #7b7165;
+      color: #6e6761;
       max-width: 680px;
       margin: 0 auto;
+      font-size: 0.98rem;
+      font-weight: 300;
     }
 
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
+      gap: 28px;
     }
 
     /* DIGITAL SERVICES CARD LAYOUT ONLY */
@@ -105,172 +215,285 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
       display: grid;
       grid-template-columns: repeat(3, 300px);
       justify-content: center;
-      gap: 20px;
+      align-items: stretch;
+      gap: 28px;
     }
 
     .card {
-      background: #fffdf9;
-      border: 1px solid #ded5c8;
-      border-radius: 18px;
-      padding: 25px;
-      box-shadow: 0 6px 20px rgba(76, 67, 55, 0.06);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      position: relative;
+      overflow: hidden;
+      background: rgba(255, 253, 249, 0.82);
+      border: none;
+      border-radius: 0;
+      padding: 34px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+      backdrop-filter: blur(3px);
+    }
+
+    .card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 34px;
+      height: 2px;
+      background: #8c4328;
+      opacity: 0.7;
     }
 
     .card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(76, 67, 55, 0.1);
+      transform: translateY(-5px);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.10);
     }
 
     .card h3 {
-      color: #4d463e;
-      margin-bottom: 10px;
-      font-size: 1.2rem;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      color: #2b2623;
+      margin-bottom: 14px;
+      font-size: 1.65rem;
+      line-height: 1.15;
+      font-weight: 600;
+      letter-spacing: 0.4px;
     }
 
     .card p {
-      color: #746b61;
-      font-size: 0.95rem;
-      margin-bottom: 18px;
+      color: #6e6761;
+      font-size: 0.93rem;
+      margin-bottom: 20px;
+      font-weight: 300;
     }
 
     .card-link {
       display: inline-block;
-      padding: 10px 16px;
-      background: #6f665b;
-      color: #fff;
-      border-radius: 10px;
-      font-size: 0.9rem;
-      transition: background 0.2s ease;
+      padding: 11px 17px;
+      background: #8c4328;
+      color: #fffaf6;
+      border-radius: 0;
+      font-size: 0.78rem;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
     }
 
     .card-link:hover {
-      background: #4f4941;
+      background: #71361f;
+      transform: translateY(-1px);
     }
 
     .calculator {
-      background: #fffdf9;
-      border: 1px solid #ded5c8;
-      border-radius: 18px;
-      padding: 25px;
-      max-width: 760px;
+      position: relative;
+      overflow: hidden;
+      background: rgba(255, 253, 249, 0.86);
+      border: none;
+      border-radius: 0;
+      padding: 38px;
+      max-width: 800px;
       margin: 0 auto;
-      box-shadow: 0 6px 20px rgba(76, 67, 55, 0.06);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      backdrop-filter: blur(3px);
+    }
+
+    .calculator::before {
+      content: "";
+      position: absolute;
+      right: -55px;
+      bottom: -75px;
+      width: 190px;
+      height: 190px;
+      border-radius: 48% 52% 44% 56%;
+      background: rgba(140, 67, 40, 0.035);
+      transform: rotate(-18deg);
+      pointer-events: none;
+    }
+
+    .calculator h3 {
+      position: relative;
+      z-index: 1;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.8rem;
+      font-weight: 600;
+      color: #2b2623;
+      margin-bottom: 10px;
+    }
+
+    .calculator > p {
+      position: relative;
+      z-index: 1;
+      color: #6e6761;
+      font-size: 0.92rem;
+      font-weight: 300;
+      margin-bottom: 25px;
     }
 
     .form-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-      gap: 15px;
+      gap: 20px;
+      position: relative;
+      z-index: 1;
     }
 
     label {
       display: block;
-      font-size: 0.9rem;
-      color: #655d54;
-      margin-bottom: 6px;
+      font-size: 0.72rem;
+      color: #5f5852;
+      margin-bottom: 8px;
       font-weight: 600;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
     }
 
     input,
     select {
       width: 100%;
-      padding: 12px 13px;
-      border: 1px solid #d7cdc0;
-      border-radius: 10px;
-      background: #fff;
-      color: #3f3a34;
-      font-size: 0.95rem;
+      padding: 13px 14px;
+      border: 1px solid #d8cec4;
+      border-radius: 0;
+      background: #fffdf9;
+      color: #2b2623;
+      font-size: 0.92rem;
       outline: none;
+      font-family: "Inter", Arial, Helvetica, sans-serif;
+      transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
     }
 
     input:focus,
     select:focus {
-      border-color: #9d9181;
+      border-color: #8c4328;
+      box-shadow: 0 0 0 3px rgba(140, 67, 40, 0.08);
     }
 
     .button-row {
       display: flex;
       flex-wrap: wrap;
-      gap: 10px;
-      margin-top: 18px;
+      gap: 11px;
+      margin-top: 22px;
+      position: relative;
+      z-index: 1;
     }
 
     .primary-btn,
     .secondary-btn {
       border: none;
-      border-radius: 10px;
-      padding: 11px 17px;
+      border-radius: 0;
+      padding: 12px 19px;
       cursor: pointer;
-      font-size: 0.92rem;
+      font-size: 0.78rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
     }
 
     .primary-btn {
-      background: #6f665b;
-      color: white;
+      background: #8c4328;
+      color: #fffaf6;
+    }
+
+    .primary-btn:hover {
+      background: #71361f;
+      transform: translateY(-1px);
+      box-shadow: 0 7px 18px rgba(140, 67, 40, 0.18);
     }
 
     .secondary-btn {
-      background: #e7dfd3;
-      color: #514a42;
+      background: #e3d8ce;
+      color: #514943;
+    }
+
+    .secondary-btn:hover {
+      background: #d7cabf;
+      transform: translateY(-1px);
     }
 
     .result {
-      margin-top: 20px;
-      padding: 17px;
-      background: #f1ece4;
-      border-radius: 12px;
+      position: relative;
+      z-index: 1;
+      margin-top: 23px;
+      padding: 19px;
+      background: #eee5dc;
+      border-radius: 0;
+      border-left: 2px solid #8c4328;
       display: none;
+      color: #4d4641;
+      font-size: 0.92rem;
     }
 
     .result strong {
-      color: #4c463e;
+      color: #2b2623;
     }
 
     .notice {
-      font-size: 0.8rem;
-      color: #857b70;
-      margin-top: 10px;
+      position: relative;
+      z-index: 1;
+      font-size: 0.74rem;
+      color: #857b73;
+      margin-top: 13px;
+      font-weight: 300;
     }
 
     .service-price {
-      font-size: 1.05rem;
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.3rem;
       font-weight: 700;
-      color: #5b534a;
-      margin-bottom: 10px;
+      color: #8c4328;
+      margin-bottom: 12px;
+      letter-spacing: 0.4px;
     }
 
     .service-note {
-      font-size: 0.82rem;
-      color: #8a8177;
-      margin-top: 12px;
+      font-size: 0.76rem !important;
+      color: #8a817a !important;
+      margin-top: 13px;
+      font-weight: 300 !important;
     }
 
     .toggle-btn {
       width: 100%;
       text-align: left;
       border: none;
-      background: #eee7dc;
-      color: #514a42;
-      padding: 12px 14px;
-      border-radius: 10px;
+      background: #e9dfd6;
+      color: #514943;
+      padding: 13px 15px;
+      border-radius: 0;
       cursor: pointer;
-      margin-top: 10px;
+      margin-top: 12px;
+      font-size: 0.76rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
       font-weight: 600;
+      transition: background 0.2s ease;
+    }
+
+    .toggle-btn:hover {
+      background: #ded2c7;
     }
 
     .toggle-content {
       display: none;
-      margin-top: 12px;
-      padding: 15px;
-      background: #f7f3ec;
-      border-radius: 10px;
-      font-size: 0.88rem;
-      color: #6d655b;
+      margin-top: 13px;
+      padding: 17px;
+      background: #f3ede7;
+      border-radius: 0;
+      border-left: 1px solid #c7b6a8;
+      font-size: 0.84rem;
+      color: #6d655f;
+      font-weight: 300;
     }
 
     .toggle-content p {
-      margin-bottom: 10px;
+      margin-bottom: 11px;
     }
 
     .toggle-content p:last-child {
@@ -278,33 +501,71 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
     }
 
     .service-button {
-      margin-top: 15px;
+      margin-top: 17px;
       display: inline-block;
-      background: #6f665b;
-      color: white;
-      padding: 10px 15px;
-      border-radius: 10px;
-      font-size: 0.88rem;
+      background: #8c4328;
+      color: #fffaf6;
+      padding: 11px 16px;
+      border-radius: 0;
+      font-size: 0.75rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
     }
 
     .service-button:hover {
-      background: #4f4941;
+      background: #71361f;
+      transform: translateY(-1px);
     }
 
     footer {
+      position: relative;
+      overflow: hidden;
       text-align: center;
-      padding: 35px 20px;
-      background: #e9e1d5;
-      color: #756c61;
-      font-size: 0.85rem;
+      padding: 60px 20px 45px;
+      background:
+        radial-gradient(
+          ellipse at 15% 15%,
+          rgba(255, 255, 255, 0.5) 0,
+          transparent 35%
+        ),
+        #e8dfd8;
+      color: #756c65;
+      font-size: 0.78rem;
+      font-weight: 300;
+    }
+
+    footer::before {
+      content: "";
+      position: absolute;
+      width: 220px;
+      height: 220px;
+      left: -100px;
+      bottom: -110px;
+      border-radius: 55% 45% 52% 48%;
+      background: rgba(140, 67, 40, 0.045);
+      transform: rotate(20deg);
+      pointer-events: none;
     }
 
     footer a {
       text-decoration: underline;
+      text-underline-offset: 3px;
     }
 
     .social-follow {
-      margin-bottom: 15px;
+      margin-bottom: 22px;
+    }
+
+    .social-follow p {
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-size: 0.7rem;
+      color: #6e6761;
+      font-weight: 600;
     }
 
     .social-icons {
@@ -312,25 +573,28 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
       justify-content: center;
       align-items: center;
       gap: 15px;
-      margin-top: 10px;
+      margin-top: 15px;
     }
 
     .social-icon {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 42px;
-      height: 42px;
+      width: 46px;
+      height: 46px;
       border-radius: 50%;
       background: #fffdf9;
-      border: 1px solid #ded5c8;
+      border: none;
       text-decoration: none;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 7px 20px rgba(0, 0, 0, 0.08);
+      transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
     }
 
     .social-icon:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 5px 12px rgba(76, 67, 55, 0.12);
+      transform: translateY(-3px);
+      box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
     }
 
     .social-icon svg {
@@ -339,30 +603,68 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
       fill: #6f665b;
     }
 
+    /* FACEBOOK — RETAIN BLUE */
     .social-icon:nth-child(1) svg {
       fill: #1877F2;
     }
 
+    /* PINTEREST — RETAIN RED */
     .social-icon:nth-child(2) svg {
       fill: #E60023;
     }
 
     .footer-bottom {
-      margin-top: 18px;
+      margin-top: 25px;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-wrap: wrap;
-      gap: 12px;
+      gap: 14px;
+      position: relative;
+      z-index: 1;
     }
 
     .back-top {
       display: inline-block;
+      color: #8c4328;
+      font-weight: 500;
+    }
+
+    @media (min-width: 981px) {
+      .cards .card:nth-child(2) {
+        transform: translateY(18px);
+      }
+
+      .cards .card:nth-child(2):hover {
+        transform: translateY(13px);
+      }
+
+      .service-cards .card:nth-child(2),
+      .service-cards .card:nth-child(5) {
+        transform: translateY(22px);
+      }
+
+      .service-cards .card:nth-child(2):hover,
+      .service-cards .card:nth-child(5):hover {
+        transform: translateY(17px);
+      }
     }
 
     @media (max-width: 980px) {
       .service-cards {
         grid-template-columns: repeat(2, 300px);
+      }
+
+      .cards .card:nth-child(2),
+      .service-cards .card:nth-child(2),
+      .service-cards .card:nth-child(5) {
+        transform: none;
+      }
+
+      .cards .card:nth-child(2):hover,
+      .service-cards .card:nth-child(2):hover,
+      .service-cards .card:nth-child(5):hover {
+        transform: translateY(-5px);
       }
     }
 
@@ -370,19 +672,52 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
       .service-cards {
         grid-template-columns: 1fr;
       }
+
+      .service-cards .card {
+        transform: none;
+      }
+
+      .service-cards .card:hover {
+        transform: translateY(-5px);
+      }
     }
 
     @media (max-width: 600px) {
       header {
-        padding: 55px 18px 45px;
+        padding: 70px 18px 60px;
+      }
+
+      header h1 {
+        letter-spacing: 5px;
       }
 
       section {
-        padding: 45px 0;
+        padding: 70px 0;
+      }
+
+      .section-title {
+        margin-bottom: 40px;
+      }
+
+      .section-title h2 {
+        font-size: 2.5rem;
       }
 
       .card {
-        padding: 22px;
+        padding: 28px;
+      }
+
+      .calculator {
+        padding: 28px 22px;
+      }
+
+      .button-row {
+        flex-direction: column;
+      }
+
+      .primary-btn,
+      .secondary-btn {
+        width: 100%;
       }
     }
   </style>
@@ -1068,8 +1403,8 @@ Payment Terms & Guidelines <span id="paymentIcon">＋</span>
   <strong>12. General Information</strong><br>
   These payment terms are general business guidelines and are not
   legal advice. They are intended to provide clarity about how
-  services and payments are generally handled and remain subject
-  to applicable laws and regulations.
+  services and payments are generally handled and remain
+  subject to applicable laws and regulations.
 </p>
 
   </div>
