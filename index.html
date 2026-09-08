@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -337,6 +338,14 @@
       fill: #6f665b;
     }
 
+    .social-icon:nth-child(1) svg {
+      fill: #1877F2;
+    }
+
+    .social-icon:nth-child(2) svg {
+      fill: #E60023;
+    }
+
     .footer-bottom {
       margin-top: 18px;
       display: flex;
@@ -665,7 +674,10 @@
             balance, or encouragement today.
           </p>
 
-          <button class="primary-btn" onclick="shareCare()">
+          <button
+            class="primary-btn"
+            onclick="shareCare()"
+          >
             Share Tabing Guhit
           </button>
         </div>
@@ -1398,107 +1410,89 @@
 
   function shareCare() {
 
-    const shareText =
-      "Take a gentle pause with Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratitude.";
-
     const shareUrl =
-      "https://cathiesnest.github.io/tabing-guhit-hub/"; 
- 
-    if ( 
-      navigator.share 
-    ) { 
- 
-      navigator.share({ 
-        title: "Tabing Guhit", 
-        text: shareText, 
-        url: shareUrl 
-      }).catch(() => {}); 
- 
-    } else { 
- 
-      navigator.clipboard 
-        .writeText( 
-          `${shareText} ${shareUrl}` 
-        ) 
-        .then(() => { 
- 
-          alert( 
-            "Tabing Guhit link copied. You can now share it with someone who may find it helpful." 
-          ); 
- 
-        }) 
-        .catch(() => { 
- 
-          alert( 
-            shareUrl 
-          ); 
- 
-        }); 
-    } 
-  } 
- 
- 
-  function toggleUpworkDisclaimer() { 
- 
-    const content = 
-      document.getElementById( 
-        "upworkDisclaimer" 
-      ); 
- 
-    const button = 
-      document.querySelector( 
-        ".card:first-child .toggle-btn" 
-      ); 
- 
-    if ( 
-      content.style.display === "block" 
-    ) { 
- 
-      content.style.display = "none"; 
- 
-      button.innerHTML = 
-        "Upwork Disclaimer ＋"; 
- 
-    } else { 
- 
-      content.style.display = "block"; 
- 
-      button.innerHTML = 
-        "Upwork Disclaimer −"; 
-    } 
-  } 
- 
- 
-  function togglePaymentGuidelines() { 
- 
-    const content = 
-      document.getElementById( 
-        "paymentGuidelines" 
-      ); 
- 
-    const icon = 
-      document.getElementById( 
-        "paymentIcon" 
-      ); 
- 
-    if ( 
-      content.style.display === "block" 
-    ) { 
- 
-      content.style.display = "none"; 
- 
-      icon.textContent = "＋"; 
- 
-    } else { 
- 
-      content.style.display = "block"; 
- 
-      icon.textContent = "−"; 
-    } 
-  } 
- 
-</script> 
- 
-</body> 
+      "https://cathiesnest.github.io/tabing-guhit-hub/";
+
+    navigator.clipboard
+      .writeText(shareUrl)
+      .then(() => {
+
+        alert(
+          "☕ 🤎 Link Copied Successfully! 🎉"
+        );
+
+      })
+      .catch(() => {
+
+        alert(
+          "☕ 🤎 Link Copied Successfully! 🎉"
+        );
+
+      });
+  }
+
+
+  function toggleUpworkDisclaimer() {
+
+    const content =
+      document.getElementById(
+        "upworkDisclaimer"
+      );
+
+    const button =
+      document.querySelector(
+        ".card:first-child .toggle-btn"
+      );
+
+    if (
+      content.style.display === "block"
+    ) {
+
+      content.style.display = "none";
+
+      button.innerHTML =
+        "Upwork Disclaimer ＋";
+
+    } else {
+
+      content.style.display = "block";
+
+      button.innerHTML =
+        "Upwork Disclaimer −";
+    }
+  }
+
+
+  function togglePaymentGuidelines() {
+
+    const content =
+      document.getElementById(
+        "paymentGuidelines"
+      );
+
+    const icon =
+      document.getElementById(
+        "paymentIcon"
+      );
+
+    if (
+      content.style.display === "block"
+    ) {
+
+      content.style.display = "none";
+
+      icon.textContent = "＋";
+
+    } else {
+
+      content.style.display = "block";
+
+      icon.textContent = "−";
+    }
+  }
+
+</script>
+
+</body>
 </html>
 ```
