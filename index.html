@@ -145,9 +145,62 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
       font-weight: 500;
     }
 
+    /* HEADER NAVIGATION - ADDED ONLY */
+    .header-nav {
+      position: absolute;
+      top: 22px;
+      right: 25px;
+      z-index: 10;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .header-nav a,
+    .header-nav button {
+      border: none;
+      background: transparent;
+      color: #5f5852;
+      padding: 7px 9px;
+      font-size: 0.68rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 600;
+      cursor: pointer;
+      transition:
+        color 0.2s ease,
+        background 0.2s ease;
+    }
+
+    .header-nav a:hover,
+    .header-nav button:hover {
+      color: #8c4328;
+      background: rgba(255, 253, 249, 0.65);
+    }
+
+    .about-box {
+      display: none;
+      position: absolute;
+      top: 55px;
+      right: 25px;
+      z-index: 20;
+      width: min(430px, calc(100vw - 40px));
+      padding: 20px 22px;
+      text-align: left;
+      background: rgba(255, 253, 249, 0.97);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.10);
+      color: #6e6761;
+      font-size: 0.82rem;
+      line-height: 1.65;
+      font-weight: 300;
+    }
+
     section {
       position: relative;
       padding: 95px 0;
+      scroll-margin-top: 20px;
     }
 
     section:nth-child(even) {
@@ -666,6 +719,21 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
       .service-cards .card:nth-child(5):hover {
         transform: translateY(-5px);
       }
+
+      /* HEADER NAVIGATION - ADDED ONLY */
+      .header-nav {
+        position: relative;
+        top: auto;
+        right: auto;
+        justify-content: center;
+        margin-bottom: 28px;
+      }
+
+      .about-box {
+        top: 60px;
+        right: 50%;
+        transform: translateX(50%);
+      }
     }
 
     @media (max-width: 650px) {
@@ -689,6 +757,26 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
 
       header h1 {
         letter-spacing: 5px;
+      }
+
+      /* HEADER NAVIGATION - ADDED ONLY */
+      .header-nav {
+        gap: 2px;
+        margin-bottom: 25px;
+      }
+
+      .header-nav a,
+      .header-nav button {
+        padding: 6px 5px;
+        font-size: 0.58rem;
+        letter-spacing: 0.5px;
+      }
+
+      .about-box {
+        width: calc(100vw - 30px);
+        top: 55px;
+        padding: 17px;
+        font-size: 0.78rem;
       }
 
       section {
@@ -728,6 +816,49 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
 
 <header>
   <div class="container">
+
+    <!-- HEADER NAVIGATION - ADDED ONLY -->
+    <nav class="header-nav" aria-label="Main navigation">
+
+      <button
+        type="button"
+        onclick="toggleAbout()"
+        aria-expanded="false"
+        aria-controls="aboutBox"
+      >
+        About
+      </button>
+
+      <a href="#work-with-purpose">
+        Work with Purpose
+      </a>
+
+      <a href="#live-with-balance">
+        Live with Balance
+      </a>
+
+      <a href="#lead-with-gratitude">
+        Lead with Gratitude
+      </a>
+
+      <a href="#digital-services">
+        Digital Services
+      </a>
+
+    </nav>
+
+    <!-- ABOUT MESSAGE - ADDED ONLY -->
+    <div
+      id="aboutBox"
+      class="about-box"
+    >
+      Tabing Guhit provides informational and educational tools for learning,
+      self-development, career exploration, and personal planning. Results are
+      for guidance only and do not guarantee employment, clients, income, or
+      financial outcomes. Currency conversions and estimates may vary due to
+      rates, taxes, fees, contracts, and other circumstances.
+    </div>
+
     <h1>TABING GUHIT</h1>
     <p class="tagline">Work with Purpose. Live with Balance. Lead with Gratitude.</p>
     <p class="powered">Powered by CathiesNest Digital</p>
@@ -738,7 +869,7 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
 
   <!-- WORK WITH PURPOSE -->
 
-  <section>
+  <section id="work-with-purpose">
     <div class="container">
 
   <div class="section-title">
@@ -806,7 +937,7 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
 
   <!-- LIVE WITH BALANCE -->
 
-  <section>
+  <section id="live-with-balance">
     <div class="container">
 
   <div class="section-title">
@@ -960,7 +1091,7 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
 
   <!-- LEAD WITH GRATITUDE -->
 
-  <section>
+  <section id="lead-with-gratitude">
     <div class="container">
 
   <div class="section-title">
@@ -1053,7 +1184,7 @@ Share Tabing Guhit Hub
 
   <!-- SERVICES -->
 
-  <section>
+  <section id="digital-services">
     <div class="container">
 
   <div class="section-title">
@@ -1538,6 +1669,36 @@ aria-hidden="true"
 </footer>
 
 <script>
+
+  /* ABOUT BUTTON - ADDED ONLY */
+  function toggleAbout() {
+
+    const box =
+      document.getElementById("aboutBox");
+
+    const button =
+      document.querySelector(".header-nav button");
+
+    if (box.style.display === "block") {
+
+      box.style.display = "none";
+
+      button.setAttribute(
+        "aria-expanded",
+        "false"
+      );
+
+    } else {
+
+      box.style.display = "block";
+
+      button.setAttribute(
+        "aria-expanded",
+        "true"
+      );
+    }
+  }
+
 
   async function getExchangeRate(from, to) {
 
