@@ -777,27 +777,80 @@
             <li>Visual preview before finalizing</li>
           </ul>
 
-          <p>
-            <strong>For Upwork Portfolio Requests:</strong><br />
-            Please inform us upfront if the portfolio is specifically
-            intended for Upwork. Upwork portfolios have specific
-            requirements, guidelines, and terms that must be followed.
-            We prepare the portfolio based on the information and
-            materials you provide and the requirements applicable
-            to the platform.
-          </p>
+          <!-- UPWORK DISCLAIMER TOGGLE -->
+          <div style="margin-top: 18px;">
 
-          <p>
-            <strong>Important Disclaimer:</strong><br />
-            Creating or improving your portfolio does not guarantee
-            approval, client inquiries, interviews, contracts, or
-            employment on Upwork or any other platform. The client is
-            responsible for providing accurate information and ensuring
-            that submitted content complies with Upwork's current Terms
-            of Service, portfolio guidelines, and other applicable
-            requirements. Platform rules may change, so requirements
-            should be verified before submission.
-          </p>
+            <button
+              type="button"
+              onclick="toggleUpworkDisclaimer()"
+              style="
+                width: 100%;
+                padding: 12px 16px;
+                border: 1px solid var(--tan);
+                border-radius: 12px;
+                background: var(--cream-light);
+                color: var(--brown);
+                font-weight: 700;
+                cursor: pointer;
+                text-align: left;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-family: inherit;
+              "
+              aria-expanded="false"
+              aria-controls="upworkDisclaimer"
+            >
+              <span aria-hidden="true">ⓘ</span>
+              <span>Disclaimer for Upwork Portfolio Requests</span>
+            </button>
+
+            <div
+              id="upworkDisclaimer"
+              style="
+                display: none;
+                margin-top: 10px;
+                padding: 16px;
+                border-left: 4px solid var(--tan);
+                border-radius: 10px;
+                background: var(--cream);
+                color: var(--text);
+                line-height: 1.6;
+                font-size: 0.92rem;
+              "
+            >
+
+              <p style="margin-top: 0;">
+                <strong>For Upwork Portfolio Requests</strong>
+              </p>
+
+              <p>
+                Please inform us upfront if the portfolio is specifically
+                intended for Upwork. Upwork portfolios have specific
+                requirements, guidelines, and terms that must be followed.
+                We prepare the portfolio based on the information and
+                materials you provide and the requirements applicable
+                to the platform.
+              </p>
+
+              <p>
+                <strong>Important Disclaimer:</strong>
+              </p>
+
+              <p style="margin-bottom: 0;">
+                Creating or improving your portfolio does not guarantee
+                approval, client inquiries, interviews, contracts, or
+                employment on Upwork or any other platform. The client is
+                responsible for providing accurate information and ensuring
+                that submitted content complies with Upwork's current Terms
+                of Service, portfolio guidelines, and other applicable
+                requirements. Platform rules may change, so requirements
+                should be verified before submission.
+              </p>
+
+            </div>
+
+          </div>
 
           <a
             class="btn"
@@ -1360,6 +1413,32 @@
         }, 3000);
 
       }
+
+    }
+
+
+    // ==============================
+    // UPWORK PORTFOLIO DISCLAIMER
+    // ==============================
+
+    function toggleUpworkDisclaimer() {
+
+      const disclaimer =
+        document.getElementById("upworkDisclaimer");
+
+      const button =
+        disclaimer.previousElementSibling;
+
+      const isOpen =
+        disclaimer.style.display === "block";
+
+      disclaimer.style.display =
+        isOpen ? "none" : "block";
+
+      button.setAttribute(
+        "aria-expanded",
+        String(!isOpen)
+      );
 
     }
 
