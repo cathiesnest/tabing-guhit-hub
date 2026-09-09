@@ -415,7 +415,8 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
     }
 
     input,
-    select {
+    select,
+    textarea {
       width: 100%;
       padding: 13px 14px;
       border: 1px solid #d8cec4;
@@ -431,7 +432,8 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
     }
 
     input:focus,
-    select:focus {
+    select:focus,
+    textarea:focus {
       border-color: #8c4328;
       box-shadow: 0 0 0 3px rgba(140, 67, 40, 0.08);
     }
@@ -584,6 +586,102 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
     .service-button:hover {
       background: #71361f;
       transform: translateY(-1px);
+    }
+
+    /* PERSONAL GROWTH CO-PILOT */
+    .growth-copilot {
+      margin-top: 8px;
+    }
+
+    .growth-intro {
+      font-size: 0.86rem !important;
+      color: #776e67 !important;
+      margin-bottom: 22px !important;
+    }
+
+    .growth-textarea {
+      min-height: 125px;
+      resize: vertical;
+      line-height: 1.65;
+    }
+
+    .growth-helper {
+      margin-top: 9px;
+      font-size: 0.72rem;
+      color: #8a817a;
+      line-height: 1.5;
+    }
+
+    .growth-result {
+      text-align: left;
+      line-height: 1.7;
+    }
+
+    .growth-result .copilot-label {
+      display: inline-block;
+      margin-bottom: 9px;
+      font-size: 0.68rem;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: #8c4328;
+      font-weight: 700;
+    }
+
+    .growth-result .copilot-guidance {
+      margin-top: 8px;
+    }
+
+    .growth-result .copilot-next-step {
+      margin-top: 15px;
+      padding-top: 14px;
+      border-top: 1px solid rgba(140, 67, 40, 0.16);
+    }
+
+    .growth-result .copilot-disclaimer {
+      margin-top: 17px;
+      padding: 14px;
+      background: rgba(140, 67, 40, 0.055);
+      border-left: 2px solid #8c4328;
+      font-size: 0.78rem;
+      line-height: 1.65;
+    }
+
+    .growth-result .copilot-safety {
+      margin-top: 17px;
+      padding: 16px;
+      background: #f0e4dc;
+      border-left: 3px solid #8c4328;
+      font-size: 0.82rem;
+      line-height: 1.7;
+    }
+
+    .growth-result .copilot-safety strong {
+      display: block;
+      margin-bottom: 7px;
+    }
+
+    .growth-result .copilot-actions {
+      margin-top: 15px;
+      font-size: 0.78rem;
+    }
+
+    .growth-result .copilot-list {
+      margin: 10px 0 0 18px;
+    }
+
+    .growth-result .copilot-list li {
+      margin-bottom: 6px;
+    }
+
+    .growth-result .copilot-list li:last-child {
+      margin-bottom: 0;
+    }
+
+    .growth-disclaimer-note {
+      margin-top: 15px;
+      font-size: 0.72rem !important;
+      color: #8a817a !important;
+      line-height: 1.6 !important;
     }
 
     footer {
@@ -841,6 +939,41 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
       .primary-btn,
       .secondary-btn {
         width: 100%;
+      }
+
+      /* PERSONAL GROWTH MOBILE OPTIMIZATION */
+      .growth-textarea {
+        min-height: 150px;
+        font-size: 16px;
+      }
+
+      .growth-result {
+        font-size: 0.88rem;
+      }
+
+      .growth-result .copilot-safety,
+      .growth-result .copilot-disclaimer {
+        font-size: 0.78rem;
+      }
+
+      .growth-helper {
+        font-size: 0.7rem;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .card {
+        padding: 23px;
+      }
+
+      .growth-textarea {
+        min-height: 145px;
+      }
+
+      .primary-btn,
+      .secondary-btn {
+        padding: 13px 14px;
+        font-size: 0.72rem;
       }
     }
   </style>
@@ -1148,39 +1281,69 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
 
   <div class="cards">
 
-<div class="card">
-  <h3>🌱 Personal Growth</h3>
-  <p>
-    Take a moment to reflect on your strengths, lessons, and the
-    person you are becoming.
+<!-- PERSONAL GROWTH -->
+
+<div class="card growth-copilot">
+
+  <h3>🌱 Personal Growth AI Co-Pilot</h3>
+
+  <p class="growth-intro">
+    You don't have to have the perfect words. Tell me what's on your mind —
+    whether it's about personal growth, career, love, relationships,
+    health, stress, confidence, or simply something you are trying to figure out.
+    I'll help you think through it with a practical and gentle perspective.
   </p>
 
   <div>
     <label for="growthAnswer">
-      What is one thing you are proud of today?
+      What's on your mind?
     </label>
 
-<input
-type="text"
-id="growthAnswer"
-placeholder="Write something..."
+    <textarea
+      id="growthAnswer"
+      class="growth-textarea"
+      placeholder="Tell me what you're going through, what you're worried about, or what you'd like help thinking through..."
+      maxlength="2000"
+      aria-describedby="growthHelper"
+    ></textarea>
 
->
-
+    <div id="growthHelper" class="growth-helper">
+      You can write about work, career, relationships, confidence, health,
+      stress, personal goals, or something completely different.
+    </div>
   </div>
 
   <div class="button-row">
-    <button class="primary-btn" onclick="reflectGrowth()">
-      Reflect
+    <button
+      class="primary-btn"
+      onclick="reflectGrowth()"
+      type="button"
+    >
+      Ask Co-Pilot
     </button>
 
-<button class="secondary-btn" onclick="clearGrowth()">
-  Clear / Reset
-</button>
-
+    <button
+      class="secondary-btn"
+      onclick="clearGrowth()"
+      type="button"
+    >
+      Clear / Reset
+    </button>
   </div>
 
-  <div id="growthResult" class="result"></div>
+  <div
+    id="growthResult"
+    class="result growth-result"
+    aria-live="polite"
+  ></div>
+
+  <p class="growth-disclaimer-note">
+    Personal Growth Co-Pilot provides general educational and supportive
+    guidance. It is not a licensed medical, mental-health, legal, or
+    financial professional and does not diagnose conditions or replace
+    professional care.
+  </p>
+
 </div>
 
 <div class="card">
@@ -1700,7 +1863,7 @@ aria-hidden="true"
 
 >
 
-  <path d="M12 2C6.5 2 3 5.9 3 10.2c0 3.3 1.9 6.2 4.8 7.1-.1-.6-.1-1.6 0-2.3l1-4.2s-.3-.7-.3-1.8c0-1.7 1-3 2.3-3 1.1 0 1.6.8 1.6 1.8 0 1.1-.7 2.8-1.1 4.3-.3 1.3.6 2.3 1.9 2.3 2.3 0 4.1-2.4 4.1-5.8 0-3-2.2-5.1-5.4-5.1-3.7 0-5.9 2.8-5.9 5.6 0 1.1.4 2.3 1 3.1.1.1.1.2.1.4l-.4 1.5c-.1.5-.4.6-.9.4-1.7-.8-2.7-3.1-2.7-5 0-4.1 3-7.9 8.7-7.9 4.6 0 8.2 3.3 8.2 7.7 0 4.6-2.9 8.3-6.9 8.3-1.3 0-2.5-.7-2.9-1.5l-.8 3.1c-.3 1.1-1.1 2.5-1.7 3.3.8.2 1.7.3 2.6.3 5.5 0 10-4.5 10-10S17.5 2 12 2z"/>
+  <path d="M12 2C6.5 2 3 5.9 3 10.2c0 3.3 1.9 6.2 4.8 7.1-.1-.6-.1-1.6 0-2.3l1-4.2s-.3-.7-.3-1.8c0-1.7 1-3 2.3-3 1.1 0 1.6.8 1.6 1.8 0 1.1-.7 2.8-1.1 4.3-.3 1.3.6 2.3 1.9 2.3 2.3 0 4.1-2.4 4.1-5.8 0-3-2.2-5.1-5.4-5.1-3.7 0-5.9 2.8 5.9 5.6 0 1.1.4 2.3 1 3.1.1.1.1.2.1.4l-.4 1.5c-.1.5-.4.6-.9.4-1.7-.8-2.7-3.1-2.7-5 0-4.1 3-7.9 8.7-7.9 4.6 0 8.2 3.3 8.2 7.7 0 4.6-2.9 8.3-6.9 8.3-1.3 0-2.5-.7-2.9-1.5l-.8 3.1c-.3 1.1-1.1 2.5-1.7 3.3.8.2 1.7.3 2.6.3 5.5 0 10-4.5 10-10S17.5 2 12 2z"/>
 </svg>
 
   </a>
@@ -2006,13 +2169,457 @@ aria-hidden="true"
   }
 
 
+  /* ============================================================
+     PERSONAL GROWTH CO-PILOT
+     ============================================================ */
+
+  function escapeGrowthText(text) {
+
+    const div =
+      document.createElement("div");
+
+    div.textContent = text;
+
+    return div.innerHTML;
+  }
+
+
+  function normalizeGrowthText(text) {
+
+    return text
+      .toLowerCase()
+      .replace(/[^\p{L}\p{N}\s']/gu, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+  }
+
+
+  function containsAny(text, words) {
+
+    return words.some(function(word) {
+      return text.includes(word);
+    });
+  }
+
+
+  function detectGrowthTopic(text) {
+
+    const normalized =
+      normalizeGrowthText(text);
+
+    /*
+      SAFETY CHECK FIRST.
+      These phrases are intentionally broad so the
+      safety response gets priority over ordinary guidance.
+    */
+
+    const selfHarmWords = [
+      "kill myself",
+      "killing myself",
+      "suicide",
+      "suicidal",
+      "want to die",
+      "wanna die",
+      "wish i was dead",
+      "wish i were dead",
+      "better off dead",
+      "end my life",
+      "ending my life",
+      "take my life",
+      "hurt myself",
+      "harm myself",
+      "self harm",
+      "self-harm",
+      "cut myself",
+      "cutting myself",
+      "overdose",
+      "don't want to live",
+      "dont want to live",
+      "no reason to live",
+      "life isn't worth living",
+      "life is not worth living"
+    ];
+
+    if (containsAny(normalized, selfHarmWords)) {
+      return "safety";
+    }
+
+
+    const immediateDangerWords = [
+      "i am in danger",
+      "im in danger",
+      "someone is hurting me",
+      "someone is attacking me",
+      "i am being attacked",
+      "im being attacked",
+      "unsafe right now",
+      "not safe right now"
+    ];
+
+    if (containsAny(normalized, immediateDangerWords)) {
+      return "safety";
+    }
+
+
+    const mentalHealthWords = [
+      "anxiety",
+      "anxious",
+      "panic",
+      "panic attack",
+      "depressed",
+      "depression",
+      "hopeless",
+      "helpless",
+      "emotionally exhausted",
+      "emotionally drained",
+      "burned out",
+      "burnout",
+      "overwhelmed",
+      "overwhelm",
+      "lonely",
+      "loneliness",
+      "empty",
+      "numb",
+      "crying",
+      "sad",
+      "sadness",
+      "stress",
+      "stressed",
+      "mental health",
+      "mentally tired",
+      "can't cope",
+      "cannot cope",
+      "cant cope",
+      "falling apart",
+      "breaking down"
+    ];
+
+    if (containsAny(normalized, mentalHealthWords)) {
+      return "mental";
+    }
+
+
+    const careerWords = [
+      "career",
+      "job",
+      "jobs",
+      "work",
+      "working",
+      "workplace",
+      "boss",
+      "manager",
+      "coworker",
+      "colleague",
+      "employee",
+      "employer",
+      "interview",
+      "resume",
+      "cv",
+      "freelance",
+      "freelancing",
+      "client",
+      "clients",
+      "salary",
+      "pay",
+      "income",
+      "promotion",
+      "promoted",
+      "skills",
+      "career change",
+      "job search",
+      "job hunting",
+      "unemployed",
+      "laid off",
+      "quit my job",
+      "resign"
+    ];
+
+    if (containsAny(normalized, careerWords)) {
+      return "career";
+    }
+
+
+    const relationshipWords = [
+      "relationship",
+      "boyfriend",
+      "girlfriend",
+      "husband",
+      "wife",
+      "partner",
+      "marriage",
+      "married",
+      "dating",
+      "date",
+      "love",
+      "loved",
+      "heartbreak",
+      "heartbroken",
+      "breakup",
+      "break up",
+      "broke up",
+      "ex",
+      "crush",
+      "cheating",
+      "cheated",
+      "trust",
+      "toxic relationship",
+      "red flag",
+      "communication",
+      "commitment",
+      "letting go",
+      "move on"
+    ];
+
+    if (containsAny(normalized, relationshipWords)) {
+      return "relationship";
+    }
+
+
+    const healthWords = [
+      "health",
+      "healthy",
+      "doctor",
+      "medical",
+      "medicine",
+      "symptom",
+      "symptoms",
+      "pain",
+      "headache",
+      "stomach",
+      "sleep",
+      "sleeping",
+      "insomnia",
+      "tired",
+      "fatigue",
+      "exercise",
+      "workout",
+      "diet",
+      "eating",
+      "weight",
+      "body",
+      "nutrition",
+      "food",
+      "illness",
+      "sick",
+      "sickness"
+    ];
+
+    if (containsAny(normalized, healthWords)) {
+      return "health";
+    }
+
+
+    const confidenceWords = [
+      "confidence",
+      "confident",
+      "self esteem",
+      "self-esteem",
+      "self worth",
+      "self-worth",
+      "worthless",
+      "insecure",
+      "insecurity",
+      "compare myself",
+      "comparison",
+      "not good enough",
+      "good enough",
+      "failure",
+      "failed",
+      "afraid",
+      "fear",
+      "scared",
+      "doubt myself",
+      "self doubt",
+      "self-doubt"
+    ];
+
+    if (containsAny(normalized, confidenceWords)) {
+      return "confidence";
+    }
+
+
+    const moneyWords = [
+      "money",
+      "debt",
+      "debts",
+      "bills",
+      "financial",
+      "finance",
+      "budget",
+      "expenses",
+      "expense",
+      "savings",
+      "save money",
+      "rent",
+      "loan",
+      "loans",
+      "credit",
+      "financial stress"
+    ];
+
+    if (containsAny(normalized, moneyWords)) {
+      return "money";
+    }
+
+
+    const growthWords = [
+      "purpose",
+      "goal",
+      "goals",
+      "motivation",
+      "motivated",
+      "discipline",
+      "habit",
+      "habits",
+      "growth",
+      "improve myself",
+      "personal growth",
+      "future",
+      "direction",
+      "lost",
+      "stuck",
+      "change my life",
+      "new beginning",
+      "start over",
+      "procrastinating",
+      "procrastination",
+      "productive",
+      "productivity",
+      "learning",
+      "learn",
+      "study"
+    ];
+
+    if (containsAny(normalized, growthWords)) {
+      return "growth";
+    }
+
+
+    return "general";
+  }
+
+
+  function getGrowthResponse(topic) {
+
+    const responses = {
+
+      growth: {
+        label: "Personal Growth Guidance",
+        guidance:
+          "You don't need to solve your entire life at once. When you feel stuck or uncertain, start by separating what you can control today from what needs more time. A small action that moves you forward is usually more useful than waiting until you feel completely ready.",
+        next:
+          "Choose one thing that matters to you right now and make the next step very small. For example: write down the goal, spend 15 minutes learning, organize one task, or decide what you will stop doing."
+      },
+
+      career: {
+        label: "Career Guidance",
+        guidance:
+          "A career problem can feel much bigger when everything is mixed together — money, confidence, skills, applications, workplace pressure, and uncertainty. Try separating the problem into three parts: what you need now, what you want next, and what skill or action could help you get there.",
+        next:
+          "Pick one practical career action today: improve one section of your CV, apply to one suitable role, practice one interview answer, learn one relevant skill, or write down the kind of work environment you actually want."
+      },
+
+      relationship: {
+        label: "Love & Relationship Guidance",
+        guidance:
+          "Relationships can make us question our worth, judgment, and future. Try to look at the situation through actions rather than promises alone. Healthy relationships generally need respect, honesty, boundaries, communication, and room for both people to be themselves.",
+        next:
+          "Ask yourself: 'What do I need in order to feel respected and emotionally safe?' You don't have to make every relationship decision today. Give yourself enough space to notice patterns before making a major decision."
+      },
+
+      health: {
+        label: "General Health Guidance",
+        guidance:
+          "Your health deserves attention, but one message cannot determine what a symptom means. General self-care can include adequate rest, hydration, balanced meals, appropriate movement, and paying attention to changes in how you feel. Persistent, severe, worsening, or concerning symptoms deserve evaluation by a qualified healthcare professional.",
+        next:
+          "Instead of trying to diagnose yourself, write down what you are experiencing, when it started, what makes it better or worse, and any relevant changes. That information can be useful when speaking with a healthcare professional.",
+        disclaimer: true
+      },
+
+      mental: {
+        label: "Mental Wellbeing Guidance",
+        guidance:
+          "Feeling overwhelmed, anxious, emotionally exhausted, lonely, or low can make ordinary problems feel impossible. You don't have to figure everything out in one sitting. Start with the basics: pause, breathe, reduce the immediate pressure where possible, and consider telling someone you trust what you are actually experiencing.",
+        next:
+          "Choose one supportive action today: talk to someone you trust, step away from an overwhelming situation for a few minutes, write down what is bothering you, or seek professional mental-health support if these feelings are persistent, severe, or interfering with daily life.",
+        disclaimer: true
+      },
+
+      confidence: {
+        label: "Confidence & Self-Worth Guidance",
+        guidance:
+          "Confidence is not the absence of doubt. It often grows when you repeatedly prove to yourself that you can take action even while you are uncertain. Try not to measure your entire worth by one rejection, mistake, appearance, relationship, job, or difficult season.",
+        next:
+          "Write down one thing you handled better than you realize. Then choose one small action that your future self would thank you for. Confidence grows through evidence, and small evidence counts."
+      },
+
+      money: {
+        label: "Financial & Life Planning Guidance",
+        guidance:
+          "Financial stress can affect almost every part of life, so it helps to replace vague worry with a clear snapshot. Separate essential expenses, debts or obligations, income, and things that can temporarily be reduced or postponed.",
+        next:
+          "Start with one simple number: what absolutely needs to be covered this month? Once that is clear, work outward from there. Avoid making major financial decisions purely from panic, and seek qualified financial or legal advice when the situation requires it.",
+        disclaimer: true
+      },
+
+      general: {
+        label: "Personal Guidance",
+        guidance:
+          "Whatever you're dealing with, you don't have to turn one difficult moment into a judgment about your entire life. Before deciding what to do next, identify what is actually bothering you, what you can control, and what you may need help with.",
+        next:
+          "Try this simple reset: name the problem in one sentence, identify one thing within your control, and choose one small action you can take today. You can always reassess after that."
+      }
+    };
+
+    return responses[topic] || responses.general;
+  }
+
+
+  function getSafetyResponse() {
+
+    return `
+      <div class="copilot-label">Safety Comes First</div>
+
+      <div class="copilot-safety">
+        <strong>You don't have to handle this alone.</strong>
+
+        What you're describing may mean that you are going through
+        something very difficult right now. Your safety matters more
+        than solving everything today.
+
+        <div class="copilot-actions">
+          If you think you might hurt yourself, or you are in immediate
+          danger, please contact your local emergency service or go to
+          the nearest emergency department.
+
+          <ul class="copilot-list">
+            <li>Reach out to someone you trust and tell them honestly what is happening.</li>
+            <li>If possible, stay with another person rather than being alone while you feel unsafe.</li>
+            <li>Move away from anything you could use to hurt yourself.</li>
+            <li>Seek help from a qualified mental-health professional or medical professional.</li>
+          </ul>
+        </div>
+
+        <div class="copilot-disclaimer">
+          <strong>Please remember:</strong><br>
+          Tabing Guhit's Personal Growth Co-Pilot is not a licensed
+          medical or mental-health professional. It cannot diagnose
+          conditions, provide emergency care, or replace professional
+          treatment. If you need support, please reach out to a qualified
+          healthcare professional and to someone you trust.
+        </div>
+      </div>
+    `;
+  }
+
+
   function reflectGrowth() {
 
+    const input =
+      document.getElementById("growthAnswer");
+
     const answer =
-      document
-        .getElementById("growthAnswer")
-        .value
-        .trim();
+      input.value.trim();
 
     const result =
       document.getElementById("growthResult");
@@ -2021,32 +2628,99 @@ aria-hidden="true"
 
     if (!answer) {
 
-      result.innerHTML =
-        "Take a moment and write something you're proud of.";
+      result.innerHTML = `
+        <div class="copilot-label">Personal Growth Co-Pilot</div>
+        Please tell me a little about what's on your mind.
+        You can write about work, career, relationships, confidence,
+        health, stress, personal growth, or anything you're trying
+        to figure out.
+      `;
+
+      input.focus();
 
       return;
     }
 
-    const messages = [
-      "You are allowed to be proud of your progress, even when it feels small.",
-      "Every step forward counts. Your progress does not have to be perfect to be meaningful.",
-      "What you are building today can become the foundation for tomorrow.",
-      "Give yourself credit for continuing, learning, and trying.",
-      "Your journey is still unfolding. Keep going gently."
-    ];
 
-    const message =
-      messages[
-        Math.floor(
-          Math.random() * messages.length
-        )
-      ];
+    const safeAnswer =
+      escapeGrowthText(answer);
+
+    const topic =
+      detectGrowthTopic(answer);
+
+
+    /*
+      Safety responses always take priority.
+    */
+
+    if (topic === "safety") {
+
+      result.innerHTML = `
+        ${getSafetyResponse()}
+
+        <div class="copilot-next-step">
+          <strong>You reached out — and that matters.</strong><br>
+          Please consider sending a simple message to someone you trust,
+          such as: "I'm having a really difficult time and I don't want
+          to be alone right now."
+        </div>
+      `;
+
+      result.scrollIntoView({
+        behavior: "smooth",
+        block: "nearest"
+      });
+
+      return;
+    }
+
+
+    const response =
+      getGrowthResponse(topic);
+
+
+    let disclaimer = "";
+
+    if (response.disclaimer) {
+
+      disclaimer = `
+        <div class="copilot-disclaimer">
+          <strong>A gentle reminder:</strong><br>
+          This is general guidance, not a diagnosis or professional
+          medical, mental-health, or financial assessment. If your
+          concern is persistent, severe, worsening, or affecting your
+          ability to function, consider speaking with an appropriate
+          qualified professional.
+        </div>
+      `;
+    }
+
 
     result.innerHTML = `
-      <strong>Your reflection:</strong><br>
-      ${answer}<br><br>
-      <strong>${message}</strong>
+      <div class="copilot-label">
+        ${escapeGrowthText(response.label)}
+      </div>
+
+      <strong>You shared:</strong><br>
+      ${safeAnswer}
+
+      <div class="copilot-guidance">
+        <strong>Co-Pilot perspective:</strong><br>
+        ${response.guidance}
+      </div>
+
+      <div class="copilot-next-step">
+        <strong>A possible next step:</strong><br>
+        ${response.next}
+      </div>
+
+      ${disclaimer}
     `;
+
+    result.scrollIntoView({
+      behavior: "smooth",
+      block: "nearest"
+    });
   }
 
 
