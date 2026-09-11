@@ -2272,37 +2272,579 @@ aria-hidden="true"
 
     if (!answer) {
 
-      result.innerHTML =
-        "Take a moment and write something you're proud of.";
+      result.innerHTML = `
+        <strong>Your Personal Growth Co-Pilot</strong><br><br>
+
+        Take a moment and write something that is genuinely on your
+        heart today. It does not have to be a big achievement.
+
+        <div class="ai-copilot">
+          <span class="ai-copilot-label">
+            Personal Growth Co-Pilot
+          </span>
+
+          <p>
+            You can write about a small win, something that hurt,
+            something that discouraged you, or simply how today feels.
+            There is no perfect answer.
+          </p>
+        </div>
+      `;
 
       return;
     }
 
-    const messages = [
+    /*
+      PERSONAL GROWTH CO-PILOT
 
-      "You are allowed to be proud of your progress, even when it feels small.",
+      This is a local, rule-based response system.
+      It does not diagnose mental-health conditions.
 
-      "Every step forward counts. Your progress does not have to be perfect to be meaningful.",
+      It looks for meaningful language patterns in the user's
+      reflection and responds according to the emotional context.
+    */
 
-      "What you are building today can become the foundation for tomorrow.",
+    const text = answer.toLowerCase();
 
-      "Give yourself credit for continuing, learning, and trying.",
+    /* ---------------------------------------------------------
+       SAFETY / POSSIBLE SELF-HARM SIGNALS
+       --------------------------------------------------------- */
 
-      "Your journey is still unfolding. Keep going gently."
+    const selfHarmPatterns = [
 
+      "kill myself",
+      "killing myself",
+      "end my life",
+      "ending my life",
+      "take my life",
+      "taking my life",
+      "suicide",
+      "suicidal",
+      "want to die",
+      "wanna die",
+      "wish i was dead",
+      "wish i were dead",
+      "better off dead",
+      "better off if i die",
+      "no reason to live",
+      "no point in living",
+      "hurt myself",
+      "hurting myself",
+      "harm myself",
+      "harming myself",
+      "cut myself",
+      "cutting myself",
+      "self harm",
+      "self-harm",
+      "selfharm"
     ];
 
-    const message =
-      messages[
-        Math.floor(
-          Math.random() * messages.length
-        )
-      ];
+    const possibleSelfHarm =
+      selfHarmPatterns.some(pattern =>
+        text.includes(pattern)
+      );
+
+
+    /* ---------------------------------------------------------
+       EMOTIONAL DISTRESS SIGNALS
+       --------------------------------------------------------- */
+
+    const heartbreakPatterns = [
+      "heartbroken",
+      "broken heart",
+      "breakup",
+      "broke up",
+      "he left me",
+      "she left me",
+      "they left me",
+      "lost him",
+      "lost her",
+      "lost them",
+      "relationship ended",
+      "cheated on me",
+      "betrayed",
+      "betrayal",
+      "rejected",
+      "rejection"
+    ];
+
+    const lowSelfEsteemPatterns = [
+      "not good enough",
+      "not enough",
+      "i'm worthless",
+      "im worthless",
+      "worthless",
+      "i hate myself",
+      "hate myself",
+      "ugly",
+      "stupid",
+      "i'm a failure",
+      "im a failure",
+      "failure",
+      "can't do anything right",
+      "cant do anything right",
+      "i have no value",
+      "no value",
+      "i don't matter",
+      "i dont matter"
+    ];
+
+    const demotivationPatterns = [
+      "demotivated",
+      "unmotivated",
+      "lost motivation",
+      "no motivation",
+      "don't feel like doing anything",
+      "dont feel like doing anything",
+      "can't move forward",
+      "cant move forward",
+      "giving up",
+      "want to give up",
+      "tired of trying",
+      "tired of everything",
+      "nothing is working",
+      "nothing works",
+      "i feel stuck",
+      "feel stuck",
+      "stuck"
+    ];
+
+    const sadnessPatterns = [
+      "sad",
+      "depressed",
+      "depression",
+      "crying",
+      "cried",
+      "tears",
+      "empty",
+      "hopeless",
+      "lonely",
+      "alone",
+      "miserable",
+      "hurting",
+      "hurt",
+      "pain",
+      "heavy",
+      "overwhelmed",
+      "exhausted",
+      "emotionally drained",
+      "mentally drained"
+    ];
+
+    const griefPatterns = [
+      "grief",
+      "grieving",
+      "passed away",
+      "died",
+      "death",
+      "lost my",
+      "miss them",
+      "miss him",
+      "miss her",
+      "miss my"
+    ];
+
+    const frustrationPatterns = [
+      "frustrated",
+      "frustration",
+      "angry",
+      "mad",
+      "annoyed",
+      "disappointed",
+      "disappointing",
+      "failed",
+      "failure",
+      "rejected",
+      "rejection",
+      "nothing went right"
+    ];
+
+    const anxietyPatterns = [
+      "anxious",
+      "anxiety",
+      "worried",
+      "worry",
+      "scared",
+      "afraid",
+      "panic",
+      "panicking",
+      "nervous",
+      "overthinking",
+      "can't stop thinking",
+      "cant stop thinking"
+    ];
+
+
+    /* ---------------------------------------------------------
+       POSITIVE / WIN SIGNALS
+       --------------------------------------------------------- */
+
+    const winPatterns = [
+      "proud",
+      "achieved",
+      "achievement",
+      "accomplished",
+      "accomplishment",
+      "finished",
+      "completed",
+      "got the job",
+      "got hired",
+      "got a client",
+      "first client",
+      "first sale",
+      "earned",
+      "passed",
+      "promotion",
+      "promoted",
+      "learned",
+      "learning",
+      "improved",
+      "improvement",
+      "finally",
+      "made progress",
+      "progress",
+      "i did it",
+      "i made it",
+      "small win",
+      "win today",
+      "won"
+    ];
+
+
+    function containsAny(patterns) {
+
+      return patterns.some(pattern =>
+        text.includes(pattern)
+      );
+    }
+
+
+    const isHeartbroken =
+      containsAny(heartbreakPatterns);
+
+    const hasLowSelfEsteem =
+      containsAny(lowSelfEsteemPatterns);
+
+    const isDemotivated =
+      containsAny(demotivationPatterns);
+
+    const isSad =
+      containsAny(sadnessPatterns);
+
+    const isGrieving =
+      containsAny(griefPatterns);
+
+    const isFrustrated =
+      containsAny(frustrationPatterns);
+
+    const isAnxious =
+      containsAny(anxietyPatterns);
+
+    const hasWin =
+      containsAny(winPatterns);
+
+
+    /* ---------------------------------------------------------
+       SAFETY RESPONSE
+       --------------------------------------------------------- */
+
+    if (possibleSelfHarm) {
+
+      result.innerHTML = `
+        <strong>Your reflection:</strong><br>
+        ${answer}
+
+        <div class="ai-copilot">
+
+          <span class="ai-copilot-label">
+            Personal Growth Co-Pilot
+          </span>
+
+          <div class="ai-copilot-title">
+            Your safety matters right now.
+          </div>
+
+          <p>
+            I noticed that what you wrote may mean you are thinking
+            about hurting yourself or ending your life. I am really
+            glad you wrote it down instead of keeping it completely
+            to yourself.
+          </p>
+
+          <p>
+            <strong>Please do not face this moment alone.</strong>
+            If you may hurt yourself, move away from anything you
+            could use to harm yourself and stay with, or contact,
+            someone you trust.
+          </p>
+
+          <p>
+            This could be a family member, close friend, trusted
+            person, counselor, doctor, mental-health professional,
+            community support person, or another person you feel
+            safe reaching out to.
+          </p>
+
+          <p>
+            If you believe you are in immediate danger, contact your
+            local emergency services or go to the nearest emergency
+            department. If another person is nearby, tell them
+            directly that you need them to stay with you.
+          </p>
+
+          <p>
+            If the situation also involves abuse, threats, legal
+            concerns, or another matter requiring protection or
+            legal guidance, consider reaching out to an appropriate
+            trusted professional or legal service as well.
+          </p>
+
+          <p>
+            <strong>
+              Tabing Guhit, powered by CathiesNest Digital, is not a
+              licensed mental-health professional and this tool cannot
+              provide diagnosis, therapy, or emergency care.
+            </strong>
+          </p>
+
+          <p>
+            You do not have to solve your whole life tonight.
+            For this moment, focus on staying safe and getting
+            another human being beside you.
+          </p>
+
+          <p class="notice">
+            This response is intended as general supportive guidance
+            and is not a substitute for professional or emergency care.
+          </p>
+
+        </div>
+      `;
+
+      return;
+    }
+
+
+    /* ---------------------------------------------------------
+       PERSONALIZED RESPONSE BUILDER
+       --------------------------------------------------------- */
+
+    let responseTitle =
+      "A moment worth acknowledging.";
+
+    let responseBody =
+      "Thank you for putting your thoughts into words. What you wrote deserves to be noticed, not brushed aside.";
+
+    let responseTip =
+      "You do not need to solve everything at once. Start with the part of today that needs the most care.";
+
+    let responseTone =
+      "Your reflection is allowed to be honest. You do not have to make it sound better than it really feels.";
+
+
+    /*
+      Multiple signals can exist at the same time.
+      The strongest emotional context receives priority.
+    */
+
+    if (isHeartbroken) {
+
+      responseTitle =
+        "That sounds like a painful chapter.";
+
+      responseBody =
+        "What you wrote carries the weight of someone who has been emotionally hurt. Heartbreak can affect confidence, motivation, sleep, concentration, and even the way you see yourself. The fact that a relationship or connection ended does not mean your worth ended with it.";
+
+      responseTip =
+        "For today, try not to measure your value by someone else's decision, absence, or treatment of you. Give yourself permission to grieve what you hoped the relationship would become.";
+
+      responseTone =
+        "You do not have to rush yourself into being completely okay. Healing can look like simply getting through one honest day at a time.";
+
+    } else if (hasLowSelfEsteem) {
+
+      responseTitle =
+        "I hear the way you are talking to yourself.";
+
+      responseBody =
+        "Your reflection sounds less like a lack of ability and more like someone who has been carrying disappointment or criticism for a while. Calling yourself worthless, a failure, or 'not enough' does not make those statements facts.";
+
+      responseTip =
+        "Try separating what happened from who you are. A mistake, rejection, missed opportunity, or difficult season describes an experience — it does not define your entire identity.";
+
+      responseTone =
+        "You deserve the same patience from yourself that you would probably give to someone you care about.";
+
+    } else if (isDemotivated) {
+
+      responseTitle =
+        "You sound tired of pushing.";
+
+      responseBody =
+        "What you wrote suggests that your motivation may be running low, especially if you have been trying repeatedly without seeing the result you hoped for. That can make even simple tasks feel unusually heavy.";
+
+      responseTip =
+        "Instead of demanding a huge comeback from yourself, choose one small thing you can finish today. A tiny completed step is still movement.";
+
+      responseTone =
+        "Resting does not automatically mean quitting. Sometimes the next step becomes clearer after you stop forcing yourself to carry everything at once.";
+
+    } else if (isGrieving) {
+
+      responseTitle =
+        "There is real loss in what you wrote.";
+
+      responseBody =
+        "Grief does not always follow a neat timeline. Missing someone, remembering them unexpectedly, or having a difficult day does not mean you are moving backward.";
+
+      responseTip =
+        "Let yourself acknowledge the person, memory, or chapter you are missing without judging how long it takes to feel different.";
+
+      responseTone =
+        "You can continue living while still carrying love, memories, or sadness for what you lost.";
+
+    } else if (isAnxious) {
+
+      responseTitle =
+        "Your mind sounds like it has been carrying a lot.";
+
+      responseBody =
+        "The worry and overthinking in your reflection suggest that your thoughts may be running ahead of you. When everything feels urgent at once, even deciding what to do first can become exhausting.";
+
+      responseTip =
+        "Bring the focus back to the next manageable thing: one conversation, one task, one decision, or even one quiet moment to breathe.";
+
+      responseTone =
+        "You do not have to answer every possible 'what if' today.";
+
+    } else if (isFrustrated) {
+
+      responseTitle =
+        "That disappointment is understandable.";
+
+      responseBody =
+        "You clearly wanted something to work differently, and the frustration in your reflection shows that it mattered to you. Being disappointed does not erase the effort you already made.";
+
+      responseTip =
+        "Ask yourself what is still within your control. You may not be able to change the result, but you can decide what you learn, adjust, or try next.";
+
+      responseTone =
+        "One difficult outcome is information about a situation — it is not a final verdict on your ability.";
+
+    } else if (hasWin) {
+
+      responseTitle =
+        "This is a win worth keeping.";
+
+      responseBody =
+        "I noticed the progress in what you wrote. Whatever the size of this achievement, you had to get through something to reach this point. Give yourself credit for the action, persistence, learning, or courage behind it.";
+
+      responseTip =
+        "Do not immediately rush past this moment to the next problem. Let yourself recognize what you did well and remember it when a harder day comes.";
+
+      responseTone =
+        "Progress does not have to be dramatic to be real. Sometimes a small win is evidence that you are moving.";
+
+    } else if (isSad) {
+
+      responseTitle =
+        "It sounds like today has been heavy.";
+
+      responseBody =
+        "I can hear some emotional weight in what you wrote. You do not need to turn a difficult feeling into a positive lesson immediately. Sometimes the first useful step is simply acknowledging, 'This is hard for me right now.'";
+
+      responseTip =
+        "Choose one gentle action that supports you today — rest, eat, step outside, pray, journal, speak with someone you trust, or finish one small task.";
+
+      responseTone =
+        "Feeling low does not erase the progress you have made before today.";
+
+    } else {
+
+      responseTitle =
+        "Thank you for being honest with yourself.";
+
+      responseBody =
+        "Your reflection gives you a small snapshot of where you are today. Whether the feeling is clear, complicated, or still difficult to name, noticing it is already a form of self-awareness.";
+
+      responseTip =
+        "Ask yourself one simple question: 'What do I need most today — action, rest, clarity, encouragement, or connection?'";
+
+      responseTone =
+        "You do not have to have everything figured out for your progress to matter.";
+    }
+
+
+    /* ---------------------------------------------------------
+       ADDITIONAL ACKNOWLEDGEMENT WHEN BOTH A WIN AND
+       DIFFICULT EMOTION APPEAR IN THE SAME REFLECTION
+       --------------------------------------------------------- */
+
+    let mixedSignalMessage = "";
+
+    if (
+      hasWin &&
+      (
+        isSad ||
+        isHeartbroken ||
+        isDemotivated ||
+        hasLowSelfEsteem ||
+        isFrustrated ||
+        isAnxious ||
+        isGrieving
+      )
+    ) {
+
+      mixedSignalMessage = `
+        <p>
+          <strong>And I noticed something important:</strong>
+          your reflection contains both difficulty and progress.
+          Those two things can exist at the same time. You can be
+          hurting and still be proud of yourself. You can be tired
+          and still be making progress.
+        </p>
+      `;
+    }
+
 
     result.innerHTML = `
       <strong>Your reflection:</strong><br>
-      ${answer}<br><br>
-      <strong>${message}</strong>
+      ${answer}
+
+      <div class="ai-copilot">
+
+        <span class="ai-copilot-label">
+          Personal Growth Co-Pilot
+        </span>
+
+        <div class="ai-copilot-title">
+          ${responseTitle}
+        </div>
+
+        <p>
+          ${responseBody}
+        </p>
+
+        <p>
+          <strong>A gentle next step:</strong>
+          ${responseTip}
+        </p>
+
+        <p>
+          <strong>A reminder for you:</strong>
+          ${responseTone}
+        </p>
+
+        ${mixedSignalMessage}
+
+        <p class="notice">
+          This Personal Growth Co-Pilot responds to the words you
+          entered using local, rule-based guidance. It does not
+          diagnose depression, anxiety, or any other mental-health
+          condition and is not a substitute for professional care.
+        </p>
+
+      </div>
     `;
   }
 
