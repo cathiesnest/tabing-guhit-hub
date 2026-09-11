@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 
 <html lang="en">
@@ -516,6 +517,49 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
       font-weight: 300;
     }
 
+    /* FINANCIAL RESET AI CO-PILOT */
+    .ai-copilot {
+      margin-top: 20px;
+      padding: 18px;
+      background: #f3e9df;
+      border-left: 2px solid #8c4328;
+    }
+
+    .ai-copilot-title {
+      font-family: "Cormorant Garamond", Georgia, serif;
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: #2b2623;
+      margin-bottom: 8px;
+    }
+
+    .ai-copilot-label {
+      display: inline-block;
+      margin-bottom: 10px;
+      padding: 4px 8px;
+      background: #e3d2c5;
+      color: #6e3b27;
+      font-size: 0.66rem;
+      letter-spacing: 1.2px;
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .ai-copilot p {
+      color: #5f5852;
+      font-size: 0.88rem;
+      line-height: 1.7;
+      margin-bottom: 10px;
+    }
+
+    .ai-copilot p:last-child {
+      margin-bottom: 0;
+    }
+
+    .ai-copilot strong {
+      color: #2b2623;
+    }
+
     .service-price {
       font-family: "Cormorant Garamond", Georgia, serif;
       font-size: 1.3rem;
@@ -571,6 +615,30 @@ content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratit
 
     .toggle-content p:last-child {
       margin-bottom: 0;
+    }
+
+    /* PAYMENT TERMS MINIMIZE BUTTON */
+    .payment-minimize-btn {
+      width: 100%;
+      margin-top: 17px;
+      padding: 10px 14px;
+      border: 1px solid #c7b6a8;
+      background: #e9dfd6;
+      color: #514943;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.72rem;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      font-weight: 600;
+      transition:
+        background 0.2s ease,
+        transform 0.2s ease;
+    }
+
+    .payment-minimize-btn:hover {
+      background: #ded2c7;
+      transform: translateY(-1px);
     }
 
     .service-button {
@@ -1619,6 +1687,16 @@ Payment Terms & Guidelines <span id="paymentIcon">＋</span>
   subject to applicable laws and regulations.
 </p>
 
+<!-- MINIMIZE PAYMENT TERMS BUTTON -->
+<button
+  type="button"
+  class="payment-minimize-btn"
+  onclick="togglePaymentGuidelines()"
+  aria-label="Minimize Payment Terms and Guidelines"
+>
+  − Minimize Payment Terms & Guidelines
+</button>
+
   </div>
 
 <a
@@ -1977,6 +2055,7 @@ aria-hidden="true"
   }
 
 
+  /* FINANCIAL RESET + AI CO-PILOT */
   function financialReset() {
 
     const income =
@@ -2002,6 +2081,114 @@ aria-hidden="true"
 
     result.style.display = "block";
 
+    let financialAdvice = "";
+    let financialTip = "";
+
+    const savingsMonths =
+      expenses > 0
+        ? savings / expenses
+        : 0;
+
+    const savingsRate =
+      income > 0
+        ? (savings / income) * 100
+        : 0;
+
+    const expenseRate =
+      income > 0
+        ? (expenses / income) * 100
+        : 0;
+
+
+    /*
+      AI CO-PILOT LOGIC
+      The guidance is generated locally from the user's
+      financial answers. No account, API key, or external
+      service is required.
+    */
+
+    if (income === 0 && expenses === 0 && savings === 0) {
+
+      financialAdvice =
+        "Start gently by entering your actual monthly income, essential expenses, and current savings. A clearer picture makes better decisions easier.";
+
+      financialTip =
+        "Begin with the numbers you know today. You can always update them later.";
+
+    } else if (income === 0 && expenses > 0) {
+
+      financialAdvice =
+        "Your expenses are currently higher than the income entered. Before making new financial commitments, focus on identifying how your essential expenses are being covered and where additional income may be needed.";
+
+      financialTip =
+        "Separate essential expenses from flexible spending so you can see which areas have room for adjustment.";
+
+    } else if (remaining < 0) {
+
+      financialAdvice =
+        "Your current monthly expenses are higher than your income. Your first priority may be to reduce avoidable expenses, protect essential needs, and look for realistic ways to increase income.";
+
+      financialTip =
+        "Do not try to fix everything at once. Start with one expense you can reduce and one practical income opportunity you can explore.";
+
+    } else if (remaining === 0) {
+
+      financialAdvice =
+        "Your income currently covers your monthly expenses, but there is no remaining monthly buffer. Creating even a small positive gap can give you more breathing room.";
+
+      financialTip =
+        "Try protecting a small amount from each income cycle before increasing discretionary spending.";
+
+    } else if (expenseRate > 80) {
+
+      financialAdvice =
+        "You have a positive monthly balance, but most of your income is already committed to expenses. Building a little more breathing room could strengthen your financial reset.";
+
+      financialTip =
+        "Review recurring expenses first. Small recurring savings can become meaningful over several months.";
+
+    } else if (savings === 0) {
+
+      financialAdvice =
+        "You have money remaining after your reported expenses, which is a good starting point. Your next opportunity is to turn part of that monthly balance into savings.";
+
+      financialTip =
+        "Consider creating a small automatic savings habit before treating the remaining balance as available spending.";
+
+    } else if (savingsMonths < 1) {
+
+      financialAdvice =
+        "You have started building savings, but your current savings would cover less than one month of your reported expenses.";
+
+      financialTip =
+        "Focus first on building a small emergency buffer while continuing to keep your regular expenses intentional.";
+
+    } else if (savingsMonths < 3) {
+
+      financialAdvice =
+        "You already have a financial cushion, and your monthly income is currently higher than your reported expenses. Continuing to strengthen your savings could give you greater flexibility.";
+
+      financialTip =
+        "Keep building toward several months of essential expenses without sacrificing your everyday needs.";
+
+    } else if (savingsMonths >= 3 && remaining > 0) {
+
+      financialAdvice =
+        "Your snapshot shows a positive monthly balance and a meaningful savings cushion. This gives you a stronger foundation for future goals.";
+
+      financialTip =
+        "Protect the progress you have made while setting a specific goal for your next financial milestone.";
+
+    } else {
+
+      financialAdvice =
+        "Your snapshot shows some positive financial movement. Keep monitoring the relationship between income, expenses, and savings so you can make decisions intentionally.";
+
+      financialTip =
+        "Consistency matters more than perfection. Review your numbers regularly and adjust as your circumstances change.";
+    }
+
+
     result.innerHTML = `
       <strong>Financial Snapshot</strong><br><br>
 
@@ -2016,6 +2203,40 @@ aria-hidden="true"
 
       Current savings:
       <strong>₱${savings.toLocaleString()}</strong>
+
+      <div class="ai-copilot">
+        <span class="ai-copilot-label">
+          AI Co-Pilot
+        </span>
+
+        <div class="ai-copilot-title">
+          Your personalized financial guidance
+        </div>
+
+        <p>
+          <strong>Advice:</strong>
+          ${financialAdvice}
+        </p>
+
+        <p>
+          <strong>Tip:</strong>
+          ${financialTip}
+        </p>
+
+        <p>
+          <strong>Snapshot:</strong>
+          Your current savings represent approximately
+          ${savingsMonths.toFixed(1)}
+          month${savingsMonths === 1 ? "" : "s"}
+          of your reported expenses.
+        </p>
+
+        <p class="notice">
+          This AI Co-Pilot provides general educational guidance
+          based only on the information entered above. It is not
+          financial, investment, tax, or legal advice.
+        </p>
+      </div>
     `;
   }
 
@@ -2186,3 +2407,4 @@ aria-hidden="true"
 
 </body>
 </html>
+```
