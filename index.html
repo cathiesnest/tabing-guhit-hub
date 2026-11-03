@@ -9,11 +9,22 @@
 
 <meta
 name="description"
-content=Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratitude. A gentle digital toolbox by CathiesNest Digital.
-
+content="Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratitude. A gentle digital toolbox by CathiesNest Digital."
 >
 
   <meta name="theme-color" content="#f4efea">
+
+  <!-- Link preview (Open Graph) -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Tabing Guhit | Work with Purpose. Live with Balance. Lead with Gratitude.">
+  <meta property="og:description" content="A gentle digital toolbox by CathiesNest Digital.">
+  <meta property="og:url" content="https://cathiesnest.github.io/tabing-guhit-hub/">
+  <meta name="twitter:card" content="summary">
+
+  <!-- Faster font loading -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap">
 
   <!-- Google tag (gtag.js) -->
 
@@ -27,8 +38,6 @@ content=Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratitu
   </script>
 
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
-
     * {
       box-sizing: border-box;
       margin: 0;
@@ -1067,6 +1076,9 @@ content=Tabing Guhit — Work with Purpose. Live with Balance. Lead with Gratitu
   >
     Explore Courses →
   </a>
+  <p class="service-note">
+    This is an affiliate link. We may earn a small commission at no extra cost to you.
+  </p>
 </div>
 
   </div>
@@ -1362,6 +1374,8 @@ Share Tabing Guhit Hub
 <button
 class="toggle-btn"
 onclick="toggleUpworkDisclaimer()"
+aria-expanded="false"
+aria-controls="upworkDisclaimer"
 
 >
 
@@ -1531,6 +1545,8 @@ Ask About This Service →
 <button
 class="toggle-btn"
 onclick="togglePaymentGuidelines()"
+aria-expanded="false"
+aria-controls="paymentGuidelines"
 
 >
 
@@ -1819,7 +1835,7 @@ aria-hidden="true"
   </div>
 
   <div class="footer-bottom">
-    <span>
+    <span style="color:#5a3426;">
       © 2026 Tabing Guhit. Powered by CathiesNest Digital.
     </span>
 
@@ -1828,6 +1844,10 @@ aria-hidden="true"
 </a>
 
   </div>
+
+  <p style="position:relative; z-index:1; max-width:640px; margin:18px auto 0; font-size:0.7rem; line-height:1.6; color:#5a3426;">
+    All original website code, designs, tools, content, and branding belong to CathiesNest Digital unless noted otherwise. Copying, redistributing, or commercially using them without written permission is prohibited.
+  </p>
 
 </footer>
 
@@ -3037,7 +3057,7 @@ aria-hidden="true"
       .catch(() => {
 
         alert(
-          "☕ 🤎 Link Copied Successfully! 🎉"
+          "Could not copy automatically. Please copy this link: " + shareUrl
         );
       });
   }
@@ -3064,12 +3084,16 @@ aria-hidden="true"
       button.innerHTML =
         "Upwork Disclaimer ＋";
 
+      button.setAttribute("aria-expanded", "false");
+
     } else {
 
       content.style.display = "block";
 
       button.innerHTML =
         "Upwork Disclaimer −";
+
+      button.setAttribute("aria-expanded", "true");
     }
   }
 
@@ -3086,6 +3110,9 @@ aria-hidden="true"
         "paymentIcon"
       );
 
+    const toggleButton =
+      icon.closest(".toggle-btn");
+
     if (
       content.style.display === "block"
     ) {
@@ -3094,11 +3121,15 @@ aria-hidden="true"
 
       icon.textContent = "＋";
 
+      toggleButton.setAttribute("aria-expanded", "false");
+
     } else {
 
       content.style.display = "block";
 
       icon.textContent = "−";
+
+      toggleButton.setAttribute("aria-expanded", "true");
     }
   }
 
